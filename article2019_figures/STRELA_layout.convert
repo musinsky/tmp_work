@@ -1,0 +1,3 @@
+gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pnggray -dTextAlphaBits=4 -dGraphicsAlphaBits=4 -sOutputFile=STRELA_layout.png STRELA_layout.pdf
+
+pdftops -eps STRELA_layout.pdf
