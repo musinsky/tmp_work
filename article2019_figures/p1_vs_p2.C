@@ -1,4 +1,4 @@
-// 2019-08-06
+// 2019-11-12
 // Jan Musinsky
 
 void DoIt(TH2 *h);
@@ -39,6 +39,15 @@ void p1_vs_p2()
   c->Print("p1_vs_p2_1.eps");
   c->Print("p1_vs_p2_1.pdf");
   c->Print("p1_vs_p2_1.png");
+
+  // black & white
+  gStyle->SetPalette(kGreyScale);
+  TColor::InvertPalette();
+  gPad->Modified();
+  gPad->Update();
+  c->Print("p1_vs_p2_1_bw.eps");
+  c->Print("p1_vs_p2_1_bw.pdf");
+  c->Print("p1_vs_p2_1_bw.png");
 
   c = new TCanvas("c2", "c2", 0, 0, 450-15, 450);
   gPad->SetGrid();

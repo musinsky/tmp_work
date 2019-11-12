@@ -1,4 +1,4 @@
-// 2019-07-30
+// 2019-11-12
 // Jan Musinsky
 
 void DoIt(TH1 *h);
@@ -36,6 +36,27 @@ void p1_plus_p2()
   c->Print("p1_plus_p2_1.pdf");
   c->Print("p1_plus_p2_1.png");
 
+  // black & white
+  h_CH2->SetLineColor(kBlack);
+  h_C->SetLineColor(kBlack);
+  gStyle->SetLineStyleString(15, "28 4");
+  h_CH2->SetLineStyle(15);
+  gStyle->SetLineStyleString(16, "4 4");
+  h_C->SetLineStyle(16);
+  c->cd(1);
+  TLegend *legend = new TLegend(0.24, 0.66, 0.48, 0.77);
+  legend->SetTextSize(0.04);
+  legend->SetLineWidth(0);
+  legend->AddEntry(h_CH2, "target CH_{2}", "l");
+  legend->AddEntry(h_C,   "target C", "l");
+  legend->Draw();
+  c->cd();
+  gPad->Modified();
+  gPad->Update();
+  c->Print("p1_plus_p2_1_bw.eps");
+  c->Print("p1_plus_p2_1_bw.pdf");
+  c->Print("p1_plus_p2_1_bw.png");
+
   TH1F *h_del = (TH1F *)h_CH2->Clone();
   h_del->Add(h_C, -1.0);
   //  h_del->SetBinContent(51,198); // manual correct
@@ -48,6 +69,7 @@ void p1_plus_p2()
   c->Divide(2, 1, 0.001, 0.001);
   c->cd(1);
   gPad->SetGridx();
+  h_del->SetLineStyle(1);
   h_del->Draw();
   c->cd(2);
   gPad->SetGridx();
@@ -58,6 +80,24 @@ void p1_plus_p2()
   c->Print("p1_plus_p2_2.eps");
   c->Print("p1_plus_p2_2.pdf");
   c->Print("p1_plus_p2_2.png");
+
+  // black & white
+  h_del->SetLineColor(kBlack);
+  gStyle->SetLineStyleString(17, "16 4");
+  h_del->SetLineStyle(17);
+  c->cd(1);
+  legend = new TLegend(0.24, 0.66, 0.48, 0.77);
+  legend->SetTextSize(0.04);
+  legend->SetLineWidth(0);
+  legend->AddEntry(h_del, "target CH_{2} - C", "l");
+  legend->AddEntry((TObject *)nullptr, "", ""); // vertical align
+  legend->Draw();
+  c->cd();
+  gPad->Modified();
+  gPad->Update();
+  c->Print("p1_plus_p2_2_bw.eps");
+  c->Print("p1_plus_p2_2_bw.pdf");
+  c->Print("p1_plus_p2_2_bw.png");
 }
 
 void DoIt(TH1 *h)
