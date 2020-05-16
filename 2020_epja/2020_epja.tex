@@ -1,0 +1,275 @@
+% https://raw.githubusercontent.com/matplo/alice_papers/master/twiki/alice_papers.bib
+% https://twiki.cern.ch/twiki/bin/viewauth/ALICE/GuidelineEditing
+
+\RequirePackage{fix-cm} % ???
+% https://tex.stackexchange.com/search?q=svjour3
+% https://tex.stackexchange.com/questions/482867/svjour3-vec-redefinition
+% In order to avoid the spurious warning about size substitutions, load fix-cm
+
+\documentclass[twocolumn,epjc3]{svjour3}
+
+\usepackage[T1]{fontenc}
+%\usepackage{mathptmx}           % no bold math fonts (in title), known bug
+\usepackage{newtxtext,newtxmath} % Times fonts (text and math)
+
+\usepackage{graphicx}
+\usepackage{flushend} % !!!
+%\usepackage{natbib}
+%\usepackage[numbers,sort&compress]{natbib}
+\usepackage{cite}
+\usepackage[colorlinks,citecolor=blue,urlcolor=blue,linkcolor=blue]{hyperref}
+
+\usepackage{xspace}
+\usepackage{maybemath} % used only once (in title)
+\usepackage[debugshow]{tracefnt}
+\smartqed
+\journalname{Eur. Phys. J. A}
+
+\newcommand{\np}     {\ensuremath{np \rightarrow pn}\xspace}
+\newcommand{\dpfrag} {\ensuremath{dp \rightarrow ppn}\xspace}
+\newcommand{\dpchex} {\ensuremath{dp \rightarrow (pp)n}\xspace}
+\newcommand{\dpret}  {\ensuremath{dp \rightarrow (pn)p}\xspace}
+\newcommand{\GeVc}   {Ge\kern-.1emV/c\xspace}
+\newcommand{\GeV}    {Ge\kern-.1emV\xspace}
+
+%\usepackage{ragged2e}
+%\usepackage{underscore}
+%\usepackage{fancyhdr}
+
+
+\begin{document}
+
+\title{Charge exchange \maybebm{{\dpchex}} % correct bold math (italic) fonts
+  reaction study at 1.75 A \GeVc by the STRELA spectrometer}
+
+\author{\raggedright
+  S.~N.~Basilev\thanksref{jinr}    \and Yu.~P.~Bushuev\thanksref{jinr}   \and
+  S.~A.~Dolgiy\thanksref{jinr}     \and V.~V.~Glagolev\thanksref{jinr}   \and
+  D.~A.~Kirillov\thanksref{jinr}   \and N.~V.~Kostyaeva\thanksref{jinr}  \and
+  A.~D.~Kovalenko\thanksref{jinr}  \and A.~N.~Livanov\thanksref{jinr}    \and
+  P.~K.~Manyakov\thanksref{jinr}   \and G.~Martinsk\'{a}\thanksref{upjs} \and
+  J.~Musinsky\thanksref{saske}     \and N.~M.~Piskunov\thanksref{jinr}   \and
+  A.~A.~Povtoreiko\thanksref{jinr} \and P.~A.~Rukoyatkin\thanksref{jinr} \and
+  R.~A.~Shindin\thanksref{jinr}    \and I.~M.~Sitnik\thanksref{jinr}     \and
+  V.~M.~Slepnev\thanksref{jinr}    \and I.~V.~Slepnev\thanksref{jinr}    \and
+  J.~Urb\'{a}n\thanksref{upjs}
+}
+
+\thankstext{e1}{\,e-mail: contact@example.com (corresponding author)}
+
+\institute{\noindent
+  \,Joint Institute for Nuclear Research, Joliot Curie 6, 141980 Dubna,
+  Moscow region, Russia\label{jinr} \and
+  \,University of P.\,J. \v{S}af\'{a}rik, Jesenn\'{a} 5, 04001 Ko\v{s}ice,
+  Slovak Republic\label{upjs} \and
+  \,Institute of Experimental Physics, Watsonova 47, 04001 Ko\v{s}ice,
+  Slovak Republic\label{saske}
+}
+
+\date{Received: date / Accepted: date}
+% The correct dates will be entered by the editor
+\maketitle
+
+\begin{abstract}
+  The differential cross sections of the charge exchange reaction \dpchex has
+  been measured at 1.75 \GeVc per nucleon for small transferred momenta using
+  the one arm magnetic spectrometer STRELA at the Nuclotron accelerator in JINR
+  Dubna. The ratio of the differential cross section of the charge exchange
+  reaction \dpchex to that of the \np elementary process is discussed in order
+  to estimate the spin-dependent part of the \np charge exchange amplitude. The
+  \np amplitude turned out to be predominantly spin-dependent.
+\end{abstract}
+
+\section{Introduction}
+In the theory of nucleon-nucleon scattering extracting complex amplitudes of the
+scattering matrix is a matter of fundamental importance. For all amplitudes to
+be obtained, a complete experiment must be performed, \textit{i.e.}, an
+experiment with a set of observed quantities providing a full and exhaustive
+description of this process. Such an experiment comprises measurements with
+polarized both projectile and target what is large and laborious task.
+
+Nevertheless under certain experimental conditions, there is a possibility to
+determine some amplitudes of the scattering matrix or a set of them. One of the
+chances is the charge exchange reaction on the \dpchex with the use of
+unpolarized protons and unpolarized deuterons, which under certain conditions is
+determined only by the spin dependent amplitude of the elementary \np
+scattering. When studying the differential cross section of this reaction at
+small four-momentum transfer squared, it is possible to estimate the
+spin-dependent term of the \np scattering amplitude in the context of the
+impulse approximation. The effect can be understood qualitatively in the
+following way. Two nucleons, bound in the deuteron may be in $^3S_1$ and $^3D_1$
+$(T = 0)$ spatial and spin-symmetric states; their isospin is antisymmetric. In
+the charge exchange at $0^\circ$ w.r.t. laboratory frame (proton rest frame),
+the transition from $^3S_1$ or $^3D_1$ to a charge-symmetric $^1S_0$ or $^1D_2$
+state of the two protons requires spin flip, in order to satisfy the Pauli
+principle and ensure an anti-symmetric total wave function. In this way, the
+spin-dependent part of the elementary charge exchange amplitude will be
+reflected through the probability of the charge exchange process on the
+deuteron.
+
+The original idea to take use of the charge exchange reaction on the unpolarized
+deuteron to determine the spin-dependent part of the \np charge exchange was
+proposed by Pomeranchuk \cite{pom51} and Chew \cite{chew51}. Later this
+possibility was emphasized in a series of works partly
+\cite{mig55,pom51_2,lap57,dea72,dea72_2,ala75,ala75_2,bug87}. The mathematical
+description was developed later by Dean \cite{dea72,dea72_2}. These formulas
+were obtained under certain assumptions, namely relying on the validity of the
+impulse and closure approximations. In the work by Lednicky and Lyuboshitz
+\cite{led04} it was shown that at relativistic energies these two assumptions
+are also justified.
+
+In the general case the nucleon-nucleon ($NN$) amplitude in the centre of mass
+system can be presented as \cite{gla02}
+\begin{equation}
+  \begin{split}
+    M =\ a\ +\ &b
+    (\boldsymbol{\sigma}_1\,\mathbf{n})
+    (\boldsymbol{\sigma}_2\,\mathbf{n})\ +\ c\bigl[
+    (\boldsymbol{\sigma}_1\,\mathbf{n}) +
+    (\boldsymbol{\sigma}_2\,\mathbf{n})\bigr]\ \ + \\
+    +\ &e
+    (\boldsymbol{\sigma}_1\,\mathbf{m})
+    (\boldsymbol{\sigma}_2\,\mathbf{m})\ +\ f
+    (\boldsymbol{\sigma}_1\,\mathbf{l})
+    (\boldsymbol{\sigma}_2\,\mathbf{l})\,,
+  \end{split}
+\end{equation}
+where the orthonormal basis
+\begin{equation}
+  \mathbf{l} =
+  \frac{\mathbf{k}_f + \mathbf{k}_i}{|\mathbf{k}_f + \mathbf{k}_i|}\,, \quad
+  \mathbf{m} =
+  \frac{\mathbf{k}_f - \mathbf{k}_i}{|\mathbf{k}_f - \mathbf{k}_i|}\,, \quad
+  \mathbf{n} =
+  \frac{\mathbf{k}_i \times \mathbf{k}_f}{|\mathbf{k}_i \times \mathbf{k}_f|}\,,
+\end{equation}
+introduced in \cite{gol66} is used. The unit vectors $\mathbf{k}_i$ and
+$\mathbf{k}_f$ are the initial and final nucleons momenta, respectively.
+$\boldsymbol{\sigma_1}$ and $\boldsymbol{\sigma}_2$ are the Pauli $2\times2$
+matrices corresponding to the beam and target nucleons. The coefficients
+$a, b, c, e$ and $f$ are complex scattering amplitudes which are functions of
+the interacting particles energies and scattering angles.
+
+% The vectors $\mathbf{p}_i$ and
+% $\mathbf{p}_f$ are the initial and final nucleons momenta, respectively,
+% $\boldsymbol{\sigma}$ and $\boldsymbol{\sigma}_i$ are the Pauli matrices of
+% incident particle and $i$-th nucleon from the deuteron, respectively. The
+% coefficients $a, b, c, e$ and $f$ are complex functions of the interacting
+% particles energies and scattering angles.
+
+The differential cross section of the elementary \np charge exchange can be
+represented as a sum of the spin-independent (superscript $SI$) and spin-dependent
+(superscript $SD$) parts
+\begin{equation}
+  (d\sigma/dt)_{\np} = (d\sigma/dt)^{SI}_{\np} + (d\sigma/dt)^{SD}_{\np}\,.
+\end{equation}
+The mathematical formalism developed in \cite{dea72, dea72_2, bug87} allows to
+connect the differential cross sections of the deuteron charge exchange and the
+elementary \np reactions. In the impulse approximation the $dp$ charge exchange
+differential cross section at small momentum transfer $|t|$ is related to the
+$NN$-amplitudes via
+\begin{equation}
+  \begin{split}
+    (d\sigma/dt)_{\dpchex} = \bigl[1 - F_d(t)\bigr]\,(d\sigma/dt)^{SI}_{\np} \\
+    + \quad
+    \bigl[1 - 1/3\,F_d(t)\bigr]\,(d\sigma/dt)^{SD}_{\np}\,,
+  \end{split}
+\end{equation}
+%where $F_d(t)$ denotes the deuteron form factor, $t$ is the 4-momentum transfer
+%squared, t = (Pd - P1- P2)2, P1, P2 are the final fast
+%protons four-momenta w.r.t. laboratory frame,
+
+
+
+% \begin{figure} % one-column wide
+%   \includegraphics{example.eps}
+%   \caption{Please write your figure caption here}
+%   \label{fig:1}
+% \end{figure}
+
+% \begin{figure*} % two-column wide
+%   \includegraphics[width=0.75\textwidth]{example.eps}
+%   \caption{Please write your figure caption here}
+%   \label{fig:2}
+% \end{figure*}
+
+\begin{acknowledgements}
+  The authors are grateful to the JINR VBLHEP directorate for supporting their
+  experiment and the Nuclotron accelerator team. This research was supported by
+  the Ministry of Education, Science, Research and Sport of the Slovak Republic
+  (VEGA Grant No.1/0113/18).
+\end{acknowledgements}
+
+% BibTeX users please use one of
+%\bibliographystyle{spbasic}      % basic style, author-year citations
+%\bibliographystyle{spmpsci}      % mathematics and physical sciences
+%\bibliographystyle{spphys}       % APS-like style for physics
+%\providecommand{\urlprefix}{}
+%\bibliography{references.bib}   % name your BibTeX data base
+
+% bla bla (2020).
+% \newblock \doi{10.1140/epja/s10050-020-00127-7}.
+% \newblock \urlprefix\url{https://doi.org/10.1140/epja/s10050-020-00127-7}
+
+\begin{thebibliography}{99}
+\bibitem{pom51}
+  I. Pomeranchuk, Sov. JETF \textbf{21}, 1113 (1951)
+\bibitem{chew51}
+  G.F. Chew, Phys. Rev. \textbf{84}, 710 (1951)
+\bibitem{mig55}
+  A.B. Migdal, J. Exp. Theor. Phys. (in Russian) \textbf{28}, 3 (1955)
+\bibitem{pom51_2}
+  I. Pomeranchuk, Dokl. Akad. Nauk (in Russian) LXXVIII, 249 (1951)
+\bibitem{lap57}
+  L.I. Lapidus, J. Exp. Theor. Phys. (in Russian) \textbf{32}, 1437 (1957)
+\bibitem{dea72}
+  N.W. Dean, Phys. Rev. D \textbf{5}, 1661 (1972)
+\bibitem{dea72_2}
+  N.W. Dean, Phys. Rev. D \textbf{5}, 2832 (1972)
+\bibitem{ala75}
+  B.S. Aladashvili et al., Nucl. Phys. B \textbf{92}, 189 (1975)
+\bibitem{ala75_2}
+  B.S. Aladashvili et al., Nucl. Phys. B \textbf{86}, 461 (1975)
+\bibitem{bug87}
+  D.V. Bugg, C. Wilkin, Nucl. Phys. A \textbf{167}, 575 (1987)
+\bibitem{led04}
+  R. Lednicky, V.L. Lyuboshitz, V.V. Lyuboshitz, Proc. ISHEPP XVI, 199,
+  Dubna (2004)
+\bibitem{gla02}
+  V.V. Glagolev et al., Eur. Phys. J. A \textbf{15}, 471 (2002)
+\bibitem{gol66}
+  M. Goldberger, K. Watson, Collision Theory, Wiley, New York (1966)
+\bibitem{gla08}
+  V.V. Glagolev et al., Cent. Eur. J. Phys. \textbf{6}, 781 (2008)
+\bibitem{gla13}
+  V.V. Glagolev et al., Instrum. Exp. Tech. \textbf{56}, 387 (2013)
+\bibitem{sha09}
+  V.I. Sharov et al. Eur. Phys. J. A \textbf{39}, 267 (2009)
+  % https://doi.org/10.1140/epja/i2008-10719-x
+\bibitem{sha09_2}
+  V.I. Sharov et al., Phys. At. Nucl. \textbf{72}, 1007 (2009) \\
+  V.I. Sharov et al., Phys. At. Nucl. \textbf{72}, 1021 (2009)
+  % https://doi.org/10.1134/S1063778809060131
+  % https://doi.org/10.1134/S1063778809060143
+\bibitem{shi11}
+  R.A. Shindin et al., Phys. Part. Nucl. Lett. \textbf{8}, 90 (2011)
+  % https://doi.org/10.1134/S1547477111020129
+\bibitem{biz75}
+  G. Bizard et al., Nucl. Phys B \textbf{85}, 14 (1975)
+\bibitem{bys78}
+  J. Bystricky, F. Lehar, Nucleon-Nucleon Scattering data, Karlsruhe:
+  Fachinformationszentrum, 521, (1978)
+\bibitem{tro14}
+  Yu.A. Troyan et al., Phys. Part. Nucl. Lett. \textbf{11}, 101 (2014)
+\bibitem{bas14}
+  S.N. Basilev et al., PoS(Baldin ISHEPP XXII), 137, 2014
+\bibitem{bas16}
+  S.N. Basilev et al., J. Phys. Conf. Ser. \textbf{678}, 012040, 2016
+\end{thebibliography}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
