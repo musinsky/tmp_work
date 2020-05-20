@@ -264,7 +264,7 @@ Fig. \ref{fig:STRELA_layout}.
 
 \begin{figure*} % two-column wide
   \centering
-  \includegraphics[width=0.95\textwidth]{STRELA_layout.pdf}
+  \includegraphics[width=1.00\textwidth]{STRELA_layout.pdf}
   \caption{Layout of the experimental setup for determining the spin-dependent
     part of \np scattering: scintillator counters S1 and S2, drift chambers
     (DC1 -- DC4), analyzing magnet M and target T.}
@@ -272,7 +272,7 @@ Fig. \ref{fig:STRELA_layout}.
 \end{figure*}
 
 The sensitive areas of the drift chambers are the following: 12.5 $\times$ 12.5
-cm for DC1, DC2 (small chambers) and 25 $\times$ 25 cm for DC3, DC4 (big
+cm for DC1, DC2 (small chambers) and 25 $\times$ 25 cm for DC3, DC4 (large
 chambers). The right-handed coordinate system has been used, where the $z$ axis
 is in the beam direction and $x$ and $y$ axis lie in the plane of the
 chambers. All chambers contain an (Ar$_2$CH$_4$) gas mixture and have
@@ -296,13 +296,19 @@ of the transformation function two methods are applied: the linear or quick one,
 mainly used for the preliminary results and online monitoring, the second
 method, called cumulative or integral one suitable for offline purposes, which
 gives the final results. The lateral resolution of the drift chambers used in
-the STRELA setup is in the range of $\sim$~90\,--120~$\muup$m for large (Fig. 11b)
-and small (Fig. 11d) chambers, respectively. More technical details and the
-algorithm of the track reconstruction can be found in \cite{gla13}.
-
-% figure 11a 11b
+the STRELA setup is in the range of $\sim$~80\,--120~$\muup$m
+(Fig.~\ref{fig:res_chambers}). More technical details and the algorithm of the
+track reconstruction can be found in \cite{gla13}.
 % muup resp. upmu nefunguje z mathptmx
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.50\textwidth]{res_chambers.pdf}
+  \caption{Distribution of track residuals $\Delta r$ in the $xz$ plane of drift
+    chambers: (a) small and (b) large. The solid curve is a double Gaussian
+    approximation.}
+  \label{fig:res_chambers}
+\end{figure}
 
 The experimental setup was started by the two polystyrene based scintillation
 counters S1 (dimensions 10 $\times$ 10 $\times$ 0.5 cm) and S2 (dimensions 7
@@ -364,13 +370,44 @@ setup. More details about the chamber experiment can be found in
 predominantly as a quasi-free nucleon interaction and intermediate isobaric
 states does not influence the differential cross section at $t = 0$.
 
+\section{Data analysis and experimental results}
+The experimental facility has been irradiated in the beam of deuterons with 3.5
+\GeVc momenta. In the run of March 2014 one billion triggers were received. The
+first step in the analysis was to decode events.  Calibration procedure and the
+track reconstruction in the drift chambers transformed the raw data into
+physical quantities. For the further processing and physical analysis three
+tracks in the $xz$ plane were selected: one before the target and two behind it.
+The topology of this events is shown in Fig. \ref{fig:STRELA_layout}.
 
-% \begin{figure} % one-column wide
-%   \includegraphics{example.eps}
-%   \caption{Please write your figure caption here}
-%   \label{fig:1}
-% \end{figure}
+The distribution of the sum of the two charged particles momenta for both
+targets are obtained. The background from C and CH$_2$ targets can be neglected.
+The dependences of the sum of the two proton momenta from $dp$ reaction are
+presented in Fig. 3 for CH$_2$ and C targets (a) and their difference
+CH$_2$$-$C (c). The results of simulation include all channels
+$dp$ reaction (Fig. 3b) and channel \dpfrag only (Fig. 3d). As one can see, the
+distribution has a characteristic peak near the incoming deuteron momentum
+kinematically associated with the pair of protons from the \dpfrag reaction
+(Fig.3c). The contribution from the background reactions, other than the studied
+\dpfrag reaction, which could also produce the two positively charged track in
+the forward direction, is negligible (Fig. 3d). Into the differential cross
+section $d\sigma/dt$ only those events have been included, where the sum of the
+two charged particle momenta is in the interval 3.5 $\pm$ 0.2 \GeVc (Fig. 3c).
 
+\begin{figure}[b]
+  \centering
+  \includegraphics[width=0.50\textwidth]{p1_plus_p2_1.pdf}
+  \includegraphics[width=0.50\textwidth]{p1_plus_p2_2.pdf}
+  \caption{assdasdasad.}
+  \label{fig:aaa}
+\end{figure}
+
+The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
+reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
+Fig. 4b, it can be seen that the background from other channels of the $dp$
+reaction may be eliminated.
+
+The measured differential distribution $dN/dt$ of the \dpchex reaction is
+displayed in Fig. 5.
 
 
 \begin{acknowledgements}
