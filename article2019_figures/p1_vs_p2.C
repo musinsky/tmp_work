@@ -1,4 +1,4 @@
-// 2019-11-12
+// 2020-05-21
 // Jan Musinsky
 
 void DoIt(TH2 *h);
@@ -8,6 +8,9 @@ void p1_vs_p2()
   gStyle->SetOptStat(0);
   gStyle->SetOptFit(0);
   gStyle->SetGridColor(kGray);
+  gStyle->SetPalette(55);
+  // gStyle->SetPalette(kGreyScale);
+  // TColor::InvertPalette();
 
   gROOT->ProcessLine(".x digit_histo_2p.C");
   TH2F *h_2p = (TH2F *)(gROOT->FindObject("hh"));
@@ -25,38 +28,38 @@ void p1_vs_p2()
   DoIt(h_MC_dpall);
   DoIt(h_MC_dpppn);
 
-  TCanvas *c = new TCanvas("c", "c", 0, 0, 450*2-30, 450);
-  c->Divide(2, 1, 0.001, 0.001);
+  TCanvas *c = new TCanvas("c", "c", 0, 0, 450, 1200); //450*3 - 15*3);
+  c->Divide(1, 3, 0.001, 0.001);
   c->cd(1);
   gPad->SetGrid();
   h_MC_dpall->Draw();
+  TText *tex = new TText(0.815, 0.820,"(a)");
+  tex->SetNDC();
+  tex->SetTextFont(42);
+  tex->SetTextAlign(22);
+  tex->Draw();
   c->cd(2);
   gPad->SetGrid();
   h_2p->Draw("cont");
+  tex = new TText(0.815, 0.820,"(b)");
+  tex->SetNDC();
+  tex->SetTextFont(42);
+  tex->SetTextAlign(22);
+  tex->Draw();
+  c->cd(3);
+  gPad->SetGrid();
+  h_MC_dpppn->Draw();
+  tex = new TText(0.815, 0.820,"(c)");
+  tex->SetNDC();
+  tex->SetTextFont(42);
+  tex->SetTextAlign(22);
+  tex->Draw();
   c->cd();
   gPad->Modified();
   gPad->Update();
   c->Print("p1_vs_p2_1.eps");
   c->Print("p1_vs_p2_1.pdf");
-  c->Print("p1_vs_p2_1.png");
-
-  // black & white
-  gStyle->SetPalette(kGreyScale);
-  TColor::InvertPalette();
-  gPad->Modified();
-  gPad->Update();
-  c->Print("p1_vs_p2_1_bw.eps");
-  c->Print("p1_vs_p2_1_bw.pdf");
-  c->Print("p1_vs_p2_1_bw.png");
-
-  c = new TCanvas("c2", "c2", 0, 0, 450-15, 450);
-  gPad->SetGrid();
-  h_MC_dpppn->Draw();
-  gPad->Modified();
-  gPad->Update();
-  c->Print("p1_vs_p2_2.eps");
-  c->Print("p1_vs_p2_2.pdf");
-  c->Print("p1_vs_p2_2.png");
+  //  c->Print("p1_vs_p2_1.png");
 }
 
 void DoIt(TH2 *h)

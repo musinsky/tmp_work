@@ -1,4 +1,4 @@
-// 2019-07-09
+// 2020-05-21
 // Jan Musinsky
 
 void DoIt(TH1D *h);
@@ -29,11 +29,17 @@ void res_chambers()
   hs_4->Fit(fit, "Q");
   TPaveLabel *pl = new TPaveLabel(0.030, hs_4->GetMaximum()*0.45,
                                   0.115, hs_4->GetMaximum()*0.55,
-                                  " #sigma ~ 102 #mum");
+                                  " #sigma ~ 100 #mum");
   pl->SetFillColor(0);
   pl->SetTextSize(0.66);
   pl->SetBorderSize(1);
+  pl->SetLineWidth(0);
   pl->Draw();
+  TText *tex = new TText(0.85, 0.85,"(a)");
+  tex->SetNDC();
+  tex->SetTextFont(42);
+  tex->SetTextAlign(22);
+  tex->Draw();
   gPad->Modified(); // must be 2x ?! but why ?!
   gPad->Update();
   gPad->Modified();
@@ -49,7 +55,13 @@ void res_chambers()
   pl2->SetFillColor(0);
   pl2->SetTextSize(0.66);
   pl2->SetBorderSize(1);
+  pl2->SetLineWidth(0);
   pl2->Draw();
+  TText *tex2 = new TText(0.85, 0.85,"(b)");
+  tex2->SetNDC();
+  tex2->SetTextFont(42);
+  tex2->SetTextAlign(22);
+  tex2->Draw();
   gPad->Modified(); // must be 2x ?! but why ?!
   gPad->Update();
   gPad->Modified();
@@ -58,7 +70,7 @@ void res_chambers()
 
   c->Print("res_chambers.eps");
   c->Print("res_chambers.pdf");
-  c->Print("res_chambers.png");
+  //  c->Print("res_chambers.png");
 }
 
 void DoIt(TH1D *h)
@@ -73,8 +85,8 @@ void DoIt(TH1D *h)
   h->GetXaxis()->SetTitleOffset(1.00);
   h->GetXaxis()->SetNdivisions(410);
   h->GetXaxis()->SetLabelSize(0.05);
-  //  h->GetYaxis()->SetTitle("entries");
-  //  h->GetYaxis()->CenterTitle();
+  h->GetYaxis()->SetTitle("N");
+  h->GetYaxis()->CenterTitle();
   h->GetYaxis()->SetTitleSize(0.05);
   h->GetYaxis()->SetTitleOffset(1.00);
   h->GetYaxis()->SetNdivisions(405);
