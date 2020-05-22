@@ -295,7 +295,7 @@ the pressure, the temperature and the drift chamber geometry. For determination
 of the transformation function two methods are applied: the linear or quick one,
 mainly used for the preliminary results and online monitoring, the second
 method, called cumulative or integral one suitable for offline purposes, which
-gives the final results. The lateral resolution of the drift chambers used in
+gives the final results. The spatial resolution of the drift chambers used in
 the STRELA setup is in the range of $\sim$~80\,--120~$\muup$m
 (Fig.~\ref{fig:res_chambers}). More technical details and the algorithm of the
 track reconstruction can be found in \cite{gla13}.
@@ -304,9 +304,9 @@ track reconstruction can be found in \cite{gla13}.
 \begin{figure}
   \centering
   \includegraphics[width=0.50\textwidth]{res_chambers.pdf}
-  \caption{Distribution of track residuals $\Delta r$ in the $xz$ plane of drift
-    chambers: (a) small and (b) large. The solid curve is a double Gaussian
-    approximation.}
+  \caption{Example of distribution of track residuals $\Delta r$ in the $xz$
+    plane of drift chambers: (a) small and (b) large. The solid curve is a
+    double Gaussian approximation.}
   \label{fig:res_chambers}
 \end{figure}
 
@@ -372,34 +372,122 @@ states does not influence the differential cross section at $t = 0$.
 
 \section{Data analysis and experimental results}
 The experimental facility has been irradiated in the beam of deuterons with 3.5
-\GeVc momenta. In the run of March 2014 one billion triggers were received. The
-first step in the analysis was to decode events.  Calibration procedure and the
-track reconstruction in the drift chambers transformed the raw data into
+\GeVc momenta. In the last run of March 2014 one billion triggers were received.
+The first step in the analysis was to decode events. Calibration procedure and
+the track reconstruction in the drift chambers transformed the raw data into
 physical quantities. For the further processing and physical analysis three
 tracks in the $xz$ plane were selected: one before the target and two behind it.
 The topology of this events is shown in Fig. \ref{fig:STRELA_layout}.
 
-The distribution of the sum of the two charged particles momenta for both
-targets are obtained. The background from C and CH$_2$ targets can be neglected.
-The dependences of the sum of the two proton momenta from $dp$ reaction are
-presented in Fig. 3 for CH$_2$ and C targets (a) and their difference
-CH$_2$$-$C (c). The results of simulation include all channels
-$dp$ reaction (Fig. 3b) and channel \dpfrag only (Fig. 3d). As one can see, the
-distribution has a characteristic peak near the incoming deuteron momentum
-kinematically associated with the pair of protons from the \dpfrag reaction
-(Fig.3c). The contribution from the background reactions, other than the studied
-\dpfrag reaction, which could also produce the two positively charged track in
-the forward direction, is negligible (Fig. 3d). Into the differential cross
-section $d\sigma/dt$ only those events have been included, where the sum of the
-two charged particle momenta is in the interval 3.5 $\pm$ 0.2 \GeVc (Fig. 3c).
-
-\begin{figure}[b]
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.50\textwidth]{p1_plus_p2_1.pdf}
-  \includegraphics[width=0.50\textwidth]{p1_plus_p2_2.pdf}
-  \caption{assdasdasad.}
-  \label{fig:aaa}
+  \caption{Distributions of the sum of the two protons momenta from $dp$
+    reaction, experimental results: (a) target CH$_2$ red line, target C blue
+    line, (b) difference between CH$_2-$C targets.}
+  \label{fig:p1p2exp}
 \end{figure}
+
+The distribution of the sum of the two charged particles (two protons) momenta
+for both targets are obtained. The background from C and CH$_2$ targets can be
+neglected. The dependences of the sum of the two proton momenta from $dp$
+reaction are presented in Fig. \ref{fig:p1p2exp} for CH$_2$ and C targets (a)
+and their difference CH$_2-$C (b). The results of simulation
+(Fig. \ref{fig:p1p2sim}) include all channels $dp$ reaction (a) and channel
+\dpchex only (b). Note that for simulation was used real events from the one
+meter bubble chamber at the momenta 3.35 \GeVc (with relative small statistics).
+As one can see, the distribution has a characteristic peak near the incoming
+deuteron momentum kinematically associated with the pair of protons from the
+\dpfrag reaction (Fig. \ref{fig:p1p2exp} (b)). The contribution from the
+background reactions, other than the studied \dpchex reaction, which could also
+produce the two positively charged track in the forward direction, is negligible
+(Fig. \ref{fig:p1p2sim} (b)). Into the differential cross section $d\sigma/dt$
+for \dpchex reaction only those events have been included, where the sum of the
+two charged particle momenta is in the interval 3.5 $\pm$ 0.2 \GeVc
+(Fig. \ref{fig:p1p2exp} (b)).
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.50\textwidth]{p1_plus_p2_2.pdf}
+  \caption{Distributions of the sum of the two protons momenta from $dp$
+    reaction, simulation results: (a) include all channels $dp$ reaction and (b)
+    channel \dpchex only.}
+  \label{fig:p1p2sim}
+\end{figure}
+The plot of momenta $p_1$ \textit{vs.} $p_2$ of the two charged particles (two
+protons) from $dp$ reaction is shown in Fig. \ref{fig:p1vsp2}. From comparison
+simulation results (a) and (c) with experimental results (b), it can be seen
+that the background from other channels of the $dp$ reaction may be eliminated,
+extracted.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.41\textwidth]{p1_vs_p2_1.pdf} % maximum width=0.41
+  \caption{Two dimensional distribution of the measured momenta $p_1$
+    \textit{vs.} $p_2$ of the two protons from $dp$ reaction: (a) simulation
+    includes all channel $dp$ reaction, (c) simulation only \dpchex channel and
+    (b) experimental distribution.}
+  \label{fig:p1vsp2}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.50\textwidth]{dp_dN.pdf}
+  \caption{Differential distribution $dN/dt$ of the \dpchex reaction. Solid line
+    -- see details in the text.}
+  \label{fig:dndt}
+\end{figure}
+
+
+The measured differential distribution $dN/dt$ of the \dpchex reaction is
+displayed in Fig. \ref{fig:dndt}. The obtained differential distribution $dN/dt$
+of the \dpchex reaction are extrapolated to $t = 0$ by the expression \\
+$dN/dt = [435.6 \pm 6.8] \cdot \exp([-440 \pm 9] \cdot t)$ \\
+with ?2= 77.93/78.                                                               (9)
+
+Extrapolation to t=0 gives:
+
+dN/dt|t=0 = 435.6 . 6.8 .                                                                                          (10)
+
+This value corresponds  to a value of the charge exchange differential cross section
+
+ds/dt|t=0 = 30.56 . 0.48 mb/(GeV/c)2 .                                                                   (11)
+
+The quoted error is  statistical only. Systematic uncertainties which affect the overall normalization of the cross-sections have been estimated to be about  4.6 \%. This uncertainty stems mainly from the deuteron flux determination. The u
+ncertainty from the target thickness and the histogram bin width are comparably small.
+The cross section was calculated using the  relation
+
+                                                                                                 (12)
+
+where  l  is  the target length;  n . the number  of H nuclei /cm3  , N0 . the number of beam triggers ; Nint . the number of interactions ; ? -  the histogram bin width. The number of triggers is corrected for the  efficiency of streamer
+ chambers.
+
+    The obtained charge exchange differential cross section on the deuteron at t=0  was compared with the available data from np ? pn reaction at the same interpolated energy from published data.      The closest energy data comes from me
+asurements made at the SATURN accelerator [19,20]. Unlike to the other similar experiments, Bizard et al. [19] used quasi-monochromatic neutrons from accelerated deuteron stripping with a momentum spread of 5%.   New data about np ?pn sca
+ttering at  the momenta of incident quasi monochromatic neutrons at 1.43, 2.3 and 5.20 GeV/c  have been obtained in [21].
+     The values of ds/dt|t=0  of  np ? pn reaction as a function of the incident momenta is shown in Fig. 6. The individual differential cross sections are transformed into  ds/dt versus t, from Bizard et al. [19] in the region of momenta
+ (1.4 . 1.95) GeV/c and extrapolated at each momentum to t=0  by fitting the expression
+
+                                    ds/dt = a exp (bt + ct2).                                                          (13)
+
+
+
+
+
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.50\textwidth]{np_dSigma.pdf}
+  \caption{Distributions of the sum of the two protons momenta from $dp$
+    reaction, simulation results: (a) include all channels $dp$ reaction and (b)
+    channel \dpchex only.}
+  \label{fig:npsigma}
+\end{figure}
+
+
+
+
+
 
 The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
 reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
@@ -408,6 +496,71 @@ reaction may be eliminated.
 
 The measured differential distribution $dN/dt$ of the \dpchex reaction is
 displayed in Fig. 5.
+
+The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
+reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
+Fig. 4b, it can be seen that the background from other channels of the $dp$
+reaction may be eliminated.
+
+The measured differential distribution $dN/dt$ of the \dpchex reaction is
+displayed in Fig. 5.
+
+The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
+reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
+Fig. 4b, it can be seen that the background from other channels of the $dp$
+reaction may be eliminated.
+
+The measured differential distribution $dN/dt$ of the \dpchex reaction is
+displayed in Fig. 5.
+
+The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
+reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
+Fig. 4b, it can be seen that the background from other channels of the $dp$
+reaction may be eliminated.
+
+The measured differential distribution $dN/dt$ of the \dpchex reaction is
+displayed in Fig. 5.
+
+The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
+reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
+Fig. 4b, it can be seen that the background from other channels of the $dp$
+reaction may be eliminated.
+
+The measured differential distribution $dN/dt$ of the \dpchex reaction is
+displayed in Fig. 5.
+
+The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
+reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
+Fig. 4b, it can be seen that the background from other channels of the $dp$
+reaction may be eliminated.
+
+The measured differential distribution $dN/dt$ of the \dpchex reaction is
+displayed in Fig. 5.
+
+The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
+reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
+Fig. 4b, it can be seen that the background from other channels of the $dp$
+reaction may be eliminated.
+
+The measured differential distribution $dN/dt$ of the \dpchex reaction is
+displayed in Fig. 5.
+
+The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
+reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
+Fig. 4b, it can be seen that the background from other channels of the $dp$
+reaction may be eliminated.
+
+The measured differential distribution $dN/dt$ of the \dpchex reaction is
+displayed in Fig. 5.
+
+The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
+reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
+Fig. 4b, it can be seen that the background from other channels of the $dp$
+reaction may be eliminated.
+
+The measured differential distribution $dN/dt$ of the \dpchex reaction is
+displayed in Fig. 5.
+
 
 
 \begin{acknowledgements}
