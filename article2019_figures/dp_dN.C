@@ -1,4 +1,4 @@
-// 2019-08-01
+// 2020-05-22
 // Jan Musinsky
 
 void dp_dN()
@@ -12,12 +12,17 @@ void dp_dN()
   h_dN->SetMinimum(0);
   h_dN->SetMaximum(500);
   h_dN->SetTitle(0);
+  //  h_dN->GetXaxis()->SetRange(1, h_dN->GetXaxis()->GetLast() - 2);
   h_dN->GetXaxis()->SetTitle("|#it{t}|, (GeV/#it{c})^{2}");
   h_dN->GetXaxis()->CenterTitle(kFALSE);
   h_dN->GetXaxis()->SetTitleSize(0.045);
-  h_dN->GetXaxis()->SetTitleOffset(0.975);
+  h_dN->GetXaxis()->SetTitleOffset(1.125);
   h_dN->GetXaxis()->SetNdivisions(407);
   h_dN->GetXaxis()->SetLabelSize(0.045);
+  h_dN->GetYaxis()->SetTitle("N");
+  h_dN->GetYaxis()->CenterTitle(kTRUE);
+  h_dN->GetYaxis()->SetTitleSize(0.045);
+  h_dN->GetYaxis()->SetTitleOffset(0.975);
   h_dN->GetYaxis()->SetNdivisions(409);
   h_dN->GetYaxis()->SetLabelSize(0.045);
 
@@ -27,12 +32,16 @@ void dp_dN()
   fite->SetNpx(1000);
   fite->SetLineColor(h_dN->GetLineColor());
 
-  TCanvas *c = new TCanvas("c", "c", 0, 0, 700*1.25, 500);
+  TCanvas *c = new TCanvas("c", "c", 0, 0, 500, 400);
+  // default margin 0.10 (all direction)
+  c->SetLeftMargin(0.08);
+  c->SetRightMargin(0.08); // don't less 0.08
+  c->SetTopMargin(0.02);
   h_dN->Draw("hist");
   fite->Draw("same");
   gPad->Modified();
   gPad->Update();
   c->Print("dp_dN.eps");
   c->Print("dp_dN.pdf");
-  c->Print("dp_dN.png");
+  //  c->Print("dp_dN.png");
 }
