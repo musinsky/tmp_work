@@ -21,7 +21,7 @@
 
 \usepackage{xspace}
 \usepackage{maybemath} % used only once (in title)
-\usepackage[debugshow]{tracefnt}
+%%%%%%%%%%\usepackage[debugshow]{tracefnt}
 \smartqed
 \journalname{Eur. Phys. J. A}
 
@@ -162,6 +162,7 @@ The differential cross section of the elementary \np charge exchange can be
 represented as a sum of the spin-independent (superscript $SI$) and
 spin-dependent (superscript $SD$) parts
 \begin{equation}
+  \label{eq:np_sum}
   (d\sigma/dt)_{\np} = (d\sigma/dt)^{SI}_{\np} + (d\sigma/dt)^{SD}_{\np}\,.
 \end{equation}
 The mathematical formalism developed in \cite{dea72, dea72_2, bug87} allows to
@@ -262,7 +263,7 @@ setup and blocks of drift chambers (DC1 -- DC4) used as coordinate detector and
 analyzing magnet M. The recent version of the experimental setup is shown in
 Fig. \ref{fig:STRELA_layout}.
 
-\begin{figure*} % two-column wide
+\begin{figure*}[t] % two-column wide
   \centering
   \includegraphics[width=1.00\textwidth]{STRELA_layout.pdf}
   \caption{Layout of the experimental setup for determining the spin-dependent
@@ -301,7 +302,7 @@ the STRELA setup is in the range of $\sim$~80\,--120~$\muup$m
 track reconstruction can be found in \cite{gla13}.
 % muup resp. upmu nefunguje z mathptmx
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.50\textwidth]{res_chambers.pdf}
   \caption{Example of distribution of track residuals $\Delta r$ in the $xz$
@@ -405,7 +406,8 @@ produce the two positively charged track in the forward direction, is negligible
 for \dpchex reaction only those events have been included, where the sum of the
 two charged particle momenta is in the interval 3.5 $\pm$ 0.2 \GeVc
 (Fig. \ref{fig:p1p2exp} (b)).
-\begin{figure}[t]
+
+\begin{figure}%[h]
   \centering
   \includegraphics[width=0.50\textwidth]{p1_plus_p2_2.pdf}
   \caption{Distributions of the sum of the two protons momenta from $dp$
@@ -413,13 +415,14 @@ two charged particle momenta is in the interval 3.5 $\pm$ 0.2 \GeVc
     channel \dpchex only.}
   \label{fig:p1p2sim}
 \end{figure}
+
 The plot of momenta $p_1$ \textit{vs.} $p_2$ of the two charged particles (two
 protons) from $dp$ reaction is shown in Fig. \ref{fig:p1vsp2}. From comparison
 simulation results (a) and (c) with experimental results (b), it can be seen
 that the background from other channels of the $dp$ reaction may be eliminated,
 extracted.
 
-\begin{figure}[h]
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.41\textwidth]{p1_vs_p2_1.pdf} % maximum width=0.41
   \caption{Two dimensional distribution of the measured momenta $p_1$
@@ -429,139 +432,113 @@ extracted.
   \label{fig:p1vsp2}
 \end{figure}
 
+The measured differential distribution $dN/dt$ of the \dpchex reaction is
+displayed in Fig. \ref{fig:dndt} together with the curve corresponding to fit
+by expression
+\begin{equation}
+  \label{eq:dndtfit}
+  dN/dt = p_1\exp(p_2t)\,,
+\end{equation}
+with parameters $p_1=(435.6\,\pm\,6.8)$ and $p_2=(-440.9\,\pm\,9.1)$.
+Extrapolation to $t=0$ gives $(dN/dt)|\,_{t=0}=(435.6\,\pm\,6.8)$. This value
+corresponds to a value of the charge exchange reaction differential cross
+section $(d\sigma/dt)|\,_{t=0}=30.56\,\pm\,0.48$ mb$/$(\GeVc)$^{\,2}$. The
+quoted error is statistical only. Systematic uncertainties which affect the
+overall normalization of the cross sections have been estimated to be about
+5~\%. This uncertainty stems mainly from the deuteron flux determination. The
+uncertainty from the target thickness and the histogram bin width are comparably
+small.
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.50\textwidth]{dp_dN.pdf}
-  \caption{Differential distribution $dN/dt$ of the \dpchex reaction. Solid line
-    -- see details in the text.}
+  \caption{Differential distribution $dN/dt$ of the \dpchex reaction. The solid
+    line is approximation by Eq. \eqref{eq:dndtfit}, see details in the text.}
   \label{fig:dndt}
 \end{figure}
 
+The cross section was calculated using the relation
+\begin{equation}
+  \sigma =
+  \frac{1}{n\,lb_w}\ln\bigg(1\Big/\Big(1-\frac{N_{int}}{N_0}\Big)\bigg)\,,
+  %  \sigma =
+  %  \frac{1}{n\,lb_w}\ln\left(1\middle/\left(1-\frac{N_{int}}{N_0}\right)\right)
+\end{equation}
+where $n$ is the number of H nuclei ?in cm$^3$? in target, $l$ is the target
+length, $b_w$ is the histogram bin width, $N_{int}$ is the number of
+interactions and $N_0$ is the number of beam triggers. The number of triggers is
+corrected for the efficiency of chambers.
 
-The measured differential distribution $dN/dt$ of the \dpchex reaction is
-displayed in Fig. \ref{fig:dndt}. The obtained differential distribution $dN/dt$
-of the \dpchex reaction are extrapolated to $t = 0$ by the expression \\
-$dN/dt = [435.6 \pm 6.8] \cdot \exp([-440 \pm 9] \cdot t)$ \\
-with ?2= 77.93/78.                                                               (9)
+The obtained charge exchange differential cross section on the deuteron at $t=0$
+was compared with the available data from \np reaction at the same interpolated
+energy from published data. The closest energy data comes from measurements made
+at the SATURN accelerator \cite{biz75,bys78}. Unlike to the other similar
+experiments, Bizard et al. \cite{biz75} used quasi monochromatic neutrons from
+accelerated deuteron stripping with a momentum spread of 5~\%. New data about
+\np scattering at the momenta of incident quasi monochromatic neutrons at 1.43,
+2.23 and 5.20 \GeVc have been obtained in \cite{tro14}.
 
-Extrapolation to t=0 gives:
-
-dN/dt|t=0 = 435.6 . 6.8 .                                                                                          (10)
-
-This value corresponds  to a value of the charge exchange differential cross section
-
-ds/dt|t=0 = 30.56 . 0.48 mb/(GeV/c)2 .                                                                   (11)
-
-The quoted error is  statistical only. Systematic uncertainties which affect the overall normalization of the cross-sections have been estimated to be about  4.6 \%. This uncertainty stems mainly from the deuteron flux determination. The u
-ncertainty from the target thickness and the histogram bin width are comparably small.
-The cross section was calculated using the  relation
-
-                                                                                                 (12)
-
-where  l  is  the target length;  n . the number  of H nuclei /cm3  , N0 . the number of beam triggers ; Nint . the number of interactions ; ? -  the histogram bin width. The number of triggers is corrected for the  efficiency of streamer
- chambers.
-
-    The obtained charge exchange differential cross section on the deuteron at t=0  was compared with the available data from np ? pn reaction at the same interpolated energy from published data.      The closest energy data comes from me
-asurements made at the SATURN accelerator [19,20]. Unlike to the other similar experiments, Bizard et al. [19] used quasi-monochromatic neutrons from accelerated deuteron stripping with a momentum spread of 5%.   New data about np ?pn sca
-ttering at  the momenta of incident quasi monochromatic neutrons at 1.43, 2.3 and 5.20 GeV/c  have been obtained in [21].
-     The values of ds/dt|t=0  of  np ? pn reaction as a function of the incident momenta is shown in Fig. 6. The individual differential cross sections are transformed into  ds/dt versus t, from Bizard et al. [19] in the region of momenta
- (1.4 . 1.95) GeV/c and extrapolated at each momentum to t=0  by fitting the expression
-
-                                    ds/dt = a exp (bt + ct2).                                                          (13)
-
-
-
-
-
-
+The values of $(d\sigma/dt)|\,_{t=0}$ of \np reaction as a function of the
+incident momenta is shown in Fig. \ref{fig:npsigma}. Each individual
+differential cross sections from Bizard et al. \cite{biz75} are transformed into
+$d\sigma/dt$ versus $t$ in the region of momenta 1.4~--~2.0 \GeVc and
+extrapolated at each momentum to $t=0$ by fitting the expression
+$d\sigma/dt = p_1\exp(p_2\,t + p_3\,t^2)$. %in interval $t < 0.01$ \GeVc.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.50\textwidth]{np_dSigma.pdf}
-  \caption{Distributions of the sum of the two protons momenta from $dp$
-    reaction, simulation results: (a) include all channels $dp$ reaction and (b)
-    channel \dpchex only.}
+  \caption{The dependence of the $(d\sigma/dt)|\,_{t=0}$ for the \np reaction on
+    the beam momentum. The data points are computed from the experimental
+    results \cite{biz75}. The solid curve is a simple exponential fit to the
+    data points.}
   \label{fig:npsigma}
 \end{figure}
 
+To determine the $(d\sigma/dt)|\,_{t=0}$ of the \np reaction at ``our incident''
+proton momentum of 1.75 \GeVc/nucleon, an exponential fit is made to the results
+of Fig. \ref{fig:npsigma}, which gives the following value of
+$(d\sigma/dt)|\,_{t=0} = 48.0\,\pm\,0.2$ mb$/$(\GeVc)$^{\,2}$. The systematical
+error due to fit procedure is approximately 5~\%. The obtained value will be
+related to the estimated differential cross section of the quasi-elastic \dpchex
+charge-exchange at $t=0$ from our experiment.
 
+One can introduce the ratio of the differential cross sections for the forward
+scattering (charge exchange) on the deuteron and proton
+\begin{equation}
+  \begin{split}
+    R_{\np} &= \frac{(d\sigma/dt)_{\dpchex}}{(d\sigma/dt)_{\np}} \\
+    &= 0.64 \pm 0.01\,\mathrm{(stat.)} \pm 0.04\,\mathrm{(syst.)}.
+  \end{split}
+\end{equation}
+Under the assumption \eqref{eq:dp_23np} and \eqref{eq:np_sum} stated above this,
+$R_{\np}$ can be related to
+\begin{equation}
+  R_{\np} = \frac{2}{3}\,\frac{(d\sigma/dt)^{SD}_{\np}}{(d\sigma/dt)_{\np}}
+\end{equation}
+and accordingly the value of the spin-independent part of the elastic \np charge
+exchange cross section has been obtained as
+\begin{equation}
+  \begin{split}
+    R^{\,ID}_{\np} &= \frac{(d\sigma/dt)^{SI}_{\np}}{(d\sigma/dt)^{SD}_{\np}}
+    = \frac{2}{3\,R_{\np}} \ - \ 1 \\
+    &= 0.05 \pm 0.02\,\mathrm{(stat.)} \pm 0.07\,\mathrm{(syst.)}.
+  \end{split}
+\end{equation}
+It should be emphasized that the obtained contribution, of course, depends on
+the elementary \np charge exchange cross section which is taken from another
+experiment and on the systematical errors of approximately 5~\% which is due to
+the fit procedure. Preliminary data have been published in \cite{bas14,bas16}.
 
-
-
-
-The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
-reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
-Fig. 4b, it can be seen that the background from other channels of the $dp$
-reaction may be eliminated.
-
-The measured differential distribution $dN/dt$ of the \dpchex reaction is
-displayed in Fig. 5.
-
-The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
-reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
-Fig. 4b, it can be seen that the background from other channels of the $dp$
-reaction may be eliminated.
-
-The measured differential distribution $dN/dt$ of the \dpchex reaction is
-displayed in Fig. 5.
-
-The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
-reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
-Fig. 4b, it can be seen that the background from other channels of the $dp$
-reaction may be eliminated.
-
-The measured differential distribution $dN/dt$ of the \dpchex reaction is
-displayed in Fig. 5.
-
-The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
-reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
-Fig. 4b, it can be seen that the background from other channels of the $dp$
-reaction may be eliminated.
-
-The measured differential distribution $dN/dt$ of the \dpchex reaction is
-displayed in Fig. 5.
-
-The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
-reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
-Fig. 4b, it can be seen that the background from other channels of the $dp$
-reaction may be eliminated.
-
-The measured differential distribution $dN/dt$ of the \dpchex reaction is
-displayed in Fig. 5.
-
-The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
-reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
-Fig. 4b, it can be seen that the background from other channels of the $dp$
-reaction may be eliminated.
-
-The measured differential distribution $dN/dt$ of the \dpchex reaction is
-displayed in Fig. 5.
-
-The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
-reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
-Fig. 4b, it can be seen that the background from other channels of the $dp$
-reaction may be eliminated.
-
-The measured differential distribution $dN/dt$ of the \dpchex reaction is
-displayed in Fig. 5.
-
-The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
-reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
-Fig. 4b, it can be seen that the background from other channels of the $dp$
-reaction may be eliminated.
-
-The measured differential distribution $dN/dt$ of the \dpchex reaction is
-displayed in Fig. 5.
-
-The plot of momenta $p_1$ versus $p_2$ of the two charged particles from $dp$
-reaction is shown in Fig.4. From comparison Fig.4(a,c) with experimental results
-Fig. 4b, it can be seen that the background from other channels of the $dp$
-reaction may be eliminated.
-
-The measured differential distribution $dN/dt$ of the \dpchex reaction is
-displayed in Fig. 5.
-
-
+\section{Conclusion}
+The spectrometric complex has been developed on the basis of the STRELA setup to
+study the charge-exchange reaction in unpolarized deuteron beam. The obtained
+ratio of the charge exchange differential cross sections at \dpchex at $t=0$ for
+\dpchex and \np reactions
+$R_{\np} = 0.64 \pm 0.01\,\mathrm{(stat.)} \pm 0.04\,\mathrm{(syst.)}$ testifies
+the prevailing contribution of the spin-dependent part to the \np cross section
+scattering. Continuation of these researches at higher energies on STRELA setup
+is in progress.
 
 \begin{acknowledgements}
   The authors are grateful to the JINR VBLHEP directorate for supporting their
@@ -577,7 +554,6 @@ displayed in Fig. 5.
 %\providecommand{\urlprefix}{}
 %\bibliography{references.bib}   % name your BibTeX data base
 
-% bla bla (2020).
 % \newblock \doi{10.1140/epja/s10050-020-00127-7}.
 % \newblock \urlprefix\url{https://doi.org/10.1140/epja/s10050-020-00127-7}
 
