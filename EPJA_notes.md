@@ -7,12 +7,12 @@ European Physical Journal A
 ## Template
 * Na stranke [EPJ](https://www.epj.org/) => *LaTeX Macros* => *EPJ A* stiahnut subor [svjour3-epj_a_c.zip](http://epj.org/images/stories/latex/svjour3-epj_a_c.zip). EPJ A a EPJ C pouzivaju identicky zip subor s templates. Z LaTeX pohladu medzi EPJ A a EPJ C **nie je rozdiel**.
 
-* Subor `svjour3-epj_a_c.zip` (velkost 281.668 bytes) bol povodne vytvoreny asi len pre EPJ C. Vacsina suborov je z roku 2010-2011, vratane suboru `template-epjc.tex` z roku 2011. V roku 2019 bol dodany jediny subor `template-epja.tex`.
+* Subor **`svjour3-epj_a_c.zip`** (velkost 281.668 bytes) bol povodne vytvoreny asi len pre EPJ C. Vacsina suborov je z roku 2009-2011, vratane suboru `template-epjc.tex` z roku 2011. V roku 2019 bol dodany jediny subor `template-epja.tex`.
 
 * Pre pisanie clanku v EPJ A, resp. EPJ C v LaTeX su potrebne len subory
-  * **`svjour3.cls`** LaTeX document class for Springer journals (SVJour3 version 3.3)
-  * **`svglov3.clo`** SVJour3 global class option file
-  * **`svepjc3.clo`** SVJour3 epjc3 class option file
+  * **`svjour3.cls`** SVJour3 LaTeX document class for Springer journals (2010/11/25 v3.3)
+  * **`svglov3.clo`** SVJour3 style option for standardised journals (2009/12/18 v3.2)
+  * **`svepjc3.clo`** SVJour3 style option for the EPJC journal (2011/08/26 v1.2)
   * `spphys.bst` BibTeX bibliographic style file (len v pripade pouzivania BibTeX)
 
 * Template subory `template-epja.tex` a `template-epjc.tex` su z pohladu LaTeX identicke. Jediny rozdiel, epja pridava nejake bla, bla ohladom computer program description. Obidva template subory `template-epj{a,c}.tex` vyuzivaju doplnujuci SVJour3 class option file `svepjc3.clo`, na rozdiel od vseobecneho, globalneho template suboru `template.tex`. Podstatne "hodnotnejsi" template je vsak epjc sample subor **`svjourn3-epjc.tex`**, v ktorom je viac info ako v template suboroch.
