@@ -1,29 +1,18 @@
-% https://raw.githubusercontent.com/matplo/alice_papers/master/twiki/alice_papers.bib
-% https://twiki.cern.ch/twiki/bin/viewauth/ALICE/GuidelineEditing
-
-\RequirePackage{fix-cm} % ???
-% https://tex.stackexchange.com/search?q=svjour3
-% https://tex.stackexchange.com/questions/482867/svjour3-vec-redefinition
-% In order to avoid the spurious warning about size substitutions, load fix-cm
-
 \documentclass[twocolumn,epjc3]{svjour3}
 
 \usepackage[T1]{fontenc}
-%\usepackage{mathptmx}           % no bold math fonts (in title), known bug
-\usepackage{newtxtext,newtxmath} % Times fonts (text and math)
+%%\usepackage{mathptmx}  % no bold math fonts (in title), known bug
+\usepackage{newtxtext}   % text Times fonts
+\usepackage{newtxmath}   % math Times fonts
 
 \usepackage{graphicx}
-\usepackage{flushend} % !!!
-%\usepackage{natbib}
-%\usepackage[numbers,sort&compress]{natbib}
+\usepackage{flushend}
+\usepackage{xspace}
 \usepackage{cite}
 \usepackage[colorlinks,citecolor=blue,urlcolor=blue,linkcolor=blue]{hyperref}
 
-\usepackage{xspace}
-\usepackage{maybemath} % used only once (in title)
-%%%%%%%%%%\usepackage[debugshow]{tracefnt}
-\smartqed
 \journalname{Eur. Phys. J. A}
+\graphicspath{{figures/}}
 
 \newcommand{\np}     {\ensuremath{np \rightarrow pn}\xspace}
 \newcommand{\dpfrag} {\ensuremath{dp \rightarrow ppn}\xspace}
@@ -32,14 +21,10 @@
 \newcommand{\GeVc}   {Ge\kern-.1emV/c\xspace}
 \newcommand{\GeV}    {Ge\kern-.1emV\xspace}
 
-%\usepackage{ragged2e}
-%\usepackage{underscore}
-%\usepackage{fancyhdr}
-
-
 \begin{document}
 
-\title{Charge exchange \maybebm{{\dpchex}} % correct bold math (italic) fonts
+\title{Charge exchange
+  $\boldsymbol{{\dpchex}}$ % correct bold math fonts (not for mathptmx)
   reaction study at 1.75 A \GeVc by the STRELA spectrometer}
 
 \author{\raggedright
@@ -55,8 +40,6 @@
   J.~Urb\'{a}n\thanksref{upjs}
 }
 
-\thankstext{e1}{\,e-mail: contact@example.com (corresponding author)}
-
 \institute{\noindent
   \,Joint Institute for Nuclear Research, Joliot Curie 6, 141980 Dubna,
   Moscow region, Russia\label{jinr} \and
@@ -65,6 +48,7 @@
   \,Institute of Experimental Physics, Watsonova 47, 04001 Ko\v{s}ice,
   Slovak Republic\label{saske}
 }
+\thankstext{e1}{\,e-mail: contact@example.com (corresponding author)}
 
 \date{Received: date / Accepted: date}
 % The correct dates will be entered by the editor
@@ -88,7 +72,7 @@ experiment with a set of observed quantities providing a full and exhaustive
 description of this process. Such an experiment comprises measurements with
 polarized both projectile and target what is large and laborious task.
 
-Nevertheless under certain experimental conditions, there is a possibility to
+However, under certain experimental conditions, there is a possibility to
 determine some amplitudes of the scattering matrix or a set of them. One of the
 chances is the charge exchange reaction on the \dpchex with the use of
 unpolarized protons and unpolarized deuterons, which under certain conditions is
@@ -151,12 +135,12 @@ matrices corresponding to the beam and target nucleons. The coefficients
 $a, b, c, e$ and $f$ are complex scattering amplitudes which are functions of
 the interacting particles energies and scattering angles.
 
-% The vectors $\mathbf{p}_i$ and
-% $\mathbf{p}_f$ are the initial and final nucleons momenta, respectively,
-% $\boldsymbol{\sigma}$ and $\boldsymbol{\sigma}_i$ are the Pauli matrices of
-% incident particle and $i$-th nucleon from the deuteron, respectively. The
-% coefficients $a, b, c, e$ and $f$ are complex functions of the interacting
-% particles energies and scattering angles.
+% The vectors $\mathbf{p}_i$ and $\mathbf{p}_f$ are the initial and final
+% nucleons momenta, respectively, $\boldsymbol{\sigma}$ and
+% $\boldsymbol{\sigma}_i$ are the Pauli matrices of incident particle and $i$-th
+% nucleon from the deuteron !!!, respectively. The coefficients $a, b, c, e$ and
+% $f$ are complex functions of the interacting particles energies and scattering
+% angles.
 
 The differential cross section of the elementary \np charge exchange can be
 represented as a sum of the spin-independent (superscript $SI$) and
@@ -247,8 +231,8 @@ targets. The contribution of non-flip to flip ratio in the \np charge-exchange
 process have been estimated via $R_{dp}(0)$ values. The experiment with
 monochromatic fast deuterons is more rational in respect to the analysis of
 experimental data: the two secondary protons, products of the charge exchange on
-deuteron \dpchex, are fast moving in the forward direction at small angles,
-and so they are easily detectable.
+deuteron \dpchex, are fast moving in the forward direction at small angles, and
+so they are easily detectable.
 
 \section{Experimental facility STRELA}
 Based on the above mentioned ideas and experimental results, obtained using the
@@ -258,8 +242,8 @@ the Joint Institute for Nuclear Research (JINR) in Dubna with the aim to select
 and detect charge exchange events in deuteron proton collisions. The experiment
 demands registration of two protons with momenta approximately equal to the half
 of the primary deuteron beam momenta. STRELA is a typical one-arm magnetic
-spectrometer composed of scintillator detectors S1, S2 used to trigger the
-setup and blocks of drift chambers (DC1 -- DC4) used as coordinate detector and
+spectrometer composed of scintillator detectors S1, S2 used to trigger the setup
+and blocks of drift chambers (DC1 -- DC4) used as coordinate detector and
 analyzing magnet M. The recent version of the experimental setup is shown in
 Fig. \ref{fig:STRELA_layout}.
 
@@ -267,8 +251,8 @@ Fig. \ref{fig:STRELA_layout}.
   \centering
   \includegraphics[width=1.00\textwidth]{STRELA_layout.pdf}
   \caption{Layout of the experimental setup for determining the spin-dependent
-    part of \np scattering: scintillator counters S1 and S2, drift chambers
-    (DC1 -- DC4), analyzing magnet M and target T.}
+    part of \np scattering: scintillator counters S1 and S2, drift chambers (DC1
+    -- DC4), analyzing magnet M and target T.}
   \label{fig:STRELA_layout}
 \end{figure*}
 
@@ -298,11 +282,11 @@ mainly used for the preliminary results and online monitoring, the second
 method, called cumulative or integral one suitable for offline purposes, which
 gives the final results. The spatial resolution of the drift chambers used in
 the STRELA setup is in the range of $\sim$~80\,--120~$\muup$m
+% \muup (or \upmu) not for mathptmx
 (Fig.~\ref{fig:res_chambers}). More technical details and the algorithm of the
 track reconstruction can be found in \cite{gla13}.
-% muup resp. upmu nefunguje z mathptmx
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=0.50\textwidth]{res_chambers.pdf}
   \caption{Example of distribution of track residuals $\Delta r$ in the $xz$
@@ -311,7 +295,7 @@ track reconstruction can be found in \cite{gla13}.
   \label{fig:res_chambers}
 \end{figure}
 
-The experimental setup was started by the two polystyrene based scintillation
+The experimental setup was started by the two polysty\-rene based scintillation
 counters S1 (dimensions 10 $\times$ 10 $\times$ 0.5 cm) and S2 (dimensions 7
 $\times$ 7 $\times$ 0.5 cm). The light guides are made of plexiglass. For light
 read-out XP 2020 photomultipliers were used. The signals from the
@@ -385,7 +369,7 @@ The topology of this events is shown in Fig. \ref{fig:STRELA_layout}.
   \includegraphics[width=0.50\textwidth]{p1_plus_p2_1.pdf}
   \caption{Distributions of the sum of the two protons momenta from $dp$
     reaction, experimental results: (a) target CH$_2$ red line, target C blue
-    line, (b) difference between CH$_2-$C targets.}
+    line, (b) difference between CH$_2-$\,C targets.}
   \label{fig:p1p2exp}
 \end{figure}
 
@@ -393,7 +377,7 @@ The distribution of the sum of the two charged particles (two protons) momenta
 for both targets are obtained. The background from C and CH$_2$ targets can be
 neglected. The dependences of the sum of the two proton momenta from $dp$
 reaction are presented in Fig. \ref{fig:p1p2exp} for CH$_2$ and C targets (a)
-and their difference CH$_2-$C (b). The results of simulation
+and their difference CH$_2-\,$C (b). The results of simulation
 (Fig. \ref{fig:p1p2sim}) include all channels $dp$ reaction (a) and channel
 \dpchex only (b). Note that for simulation was used real events from the one
 meter bubble chamber at the momenta 3.35 \GeVc (with relative small statistics).
@@ -427,17 +411,17 @@ extracted.
   \includegraphics[width=0.41\textwidth]{p1_vs_p2_1.pdf} % maximum width=0.41
   \caption{Two dimensional distribution of the measured momenta $p_1$
     \textit{vs.} $p_2$ of the two protons from $dp$ reaction: (a) simulation
-    includes all channel $dp$ reaction, (c) simulation only \dpchex channel and
+    includes all channels $dp$ reaction, (c) simulation only \dpchex channel and
     (b) experimental distribution.}
   \label{fig:p1vsp2}
 \end{figure}
 
 The measured differential distribution $dN/dt$ of the \dpchex reaction is
-displayed in Fig. \ref{fig:dndt} together with the curve corresponding to fit
-by expression
+displayed in Fig. \ref{fig:dndt} together with the curve corresponding to fit by
+expression
 \begin{equation}
   \label{eq:dndtfit}
-  dN/dt = p_1\exp(p_2t)\,,
+  dN/dt = p_1\exp(p_2\,t)\,,
 \end{equation}
 with parameters $p_1=(435.6\,\pm\,6.8)$ and $p_2=(-440.9\,\pm\,9.1)$.
 Extrapolation to $t=0$ gives $(dN/dt)|\,_{t=0}=(435.6\,\pm\,6.8)$. This value
@@ -544,18 +528,8 @@ is in progress.
   The authors are grateful to the JINR VBLHEP directorate for supporting their
   experiment and the Nuclotron accelerator team. This research was supported by
   the Ministry of Education, Science, Research and Sport of the Slovak Republic
-  (VEGA Grant No.1/0113/18).
+  (VEGA Grant No.~1/0113/18).
 \end{acknowledgements}
-
-% BibTeX users please use one of
-%\bibliographystyle{spbasic}      % basic style, author-year citations
-%\bibliographystyle{spmpsci}      % mathematics and physical sciences
-%\bibliographystyle{spphys}       % APS-like style for physics
-%\providecommand{\urlprefix}{}
-%\bibliography{references.bib}   % name your BibTeX data base
-
-% \newblock \doi{10.1140/epja/s10050-020-00127-7}.
-% \newblock \urlprefix\url{https://doi.org/10.1140/epja/s10050-020-00127-7}
 
 \begin{thebibliography}{99}
 \bibitem{pom51}
@@ -593,7 +567,7 @@ is in progress.
   V.I. Sharov et al. Eur. Phys. J. A \textbf{39}, 267 (2009)
   % https://doi.org/10.1140/epja/i2008-10719-x
 \bibitem{sha09_2}
-  V.I. Sharov et al., Phys. At. Nucl. \textbf{72}, 1007 (2009) \\
+  V.I. Sharov et al., Phys. At. Nucl. \textbf{72}, 1007 (2009) \\ % !!!
   V.I. Sharov et al., Phys. At. Nucl. \textbf{72}, 1021 (2009)
   % https://doi.org/10.1134/S1063778809060131
   % https://doi.org/10.1134/S1063778809060143
@@ -608,7 +582,7 @@ is in progress.
 \bibitem{tro14}
   Yu.A. Troyan et al., Phys. Part. Nucl. Lett. \textbf{11}, 101 (2014)
 \bibitem{bas14}
-  S.N. Basilev et al., PoS(Baldin ISHEPP XXII), 137, 2014
+  S.N. Basilev et al., PoS (Baldin ISHEPP XXII), 137, 2014
 \bibitem{bas16}
   S.N. Basilev et al., J. Phys. Conf. Ser. \textbf{678}, 012040, 2016
 \end{thebibliography}
