@@ -1,4 +1,4 @@
-// 2020-05-21
+// 2020-10-05
 // Jan Musinsky
 
 void DoIt(TH1 *h);
@@ -30,6 +30,9 @@ void p1_plus_p2()
   c->Divide(1, 2, 0.001, 0.001);
   c->cd(1);
   gPad->SetGridx();
+  h_CH2->SetLineColor(kBlack);
+  h_C->SetLineColor(kBlue);
+  h_C->SetLineStyle(2);
   h_CH2->Draw();
   h_C->Draw("same");
   TLegend *legend = new TLegend(0.24, 0.66, 0.48, 0.77);
@@ -46,7 +49,8 @@ void p1_plus_p2()
   c->cd(2);
   gPad->SetGridx();
   h_del->SetLineStyle(1);
-  h_del->SetLineColor(kViolet+3);
+  //  h_del->SetLineColor(kViolet+3);
+  h_del->SetLineColor(kBlack);
   h_del->Draw();
   legend = new TLegend(0.24, 0.66, 0.48, 0.77);
   legend->SetTextSize(0.04);
