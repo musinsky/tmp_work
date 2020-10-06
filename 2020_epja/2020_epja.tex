@@ -1,3 +1,5 @@
+% tlmgr install newtx fontaxes xstring sttools
+
 \documentclass[twocolumn,epjc3]{svjour3}
 
 \usepackage[T1]{fontenc}
@@ -344,16 +346,15 @@ determined by carbon nuclei equivalent. Carbon target was used to account for
 the background events. The shape of targets CH$_2$ and C are cylindrical, both
 with diameters of 60 mm. The length of targets CH$_2$ and C are 48 mm and 54 mm,
 respectively. The density of H nuclei per cm$^2$ for CH$_2$ target is (4.74
-$\pm$ 0.05)$\times$10$^{23}$ ???/cm$^2$.
-% co za jednotky, nie je to v poriadku ?!
-The background from other channels of the $dp$ reaction and the influence of
-carbon nuclei have been estimated by the use of the GEANT3 simulation package
-for transporting the reaction products (taken from the corresponding events of
-the one meter bubble chamber at the momenta 3.35 \GeVc) through the experimental
-setup. More details about the chamber experiment can be found in
-\cite{gla02,gla08}. There is also shown that the \dpchex reaction proceeding
-predominantly as a quasi free nucleon interaction and intermediate isobaric
-states does not influence the differential cross section at $t = 0$.
+$\pm$ 0.05)$\times$10$^{23}$ cm$^{-2}$. The background from other channels of
+the $dp$ reaction and the influence of carbon nuclei have been estimated by the
+use of the GEANT3 simulation package for transporting the reaction products
+(taken from the corresponding events of the one meter bubble chamber at the
+momenta 3.35 \GeVc) through the experimental setup. More details about the
+chamber experiment can be found in \cite{gla02,gla08}. There is also shown that
+the \dpchex reaction proceeding predominantly as a quasi free nucleon
+interaction and intermediate isobaric states does not influence the differential
+cross section at $t = 0$.
 
 \section{Data analysis and experimental results}
 The experimental facility has been irradiated in the beam of deuterons with 3.5
@@ -368,7 +369,7 @@ The topology of this events is shown in Fig. \ref{fig:STRELA_layout}.
   \centering
   \includegraphics[width=0.48\textwidth]{p1_plus_p2_1.pdf}
   \caption{Distributions of the sum of the two protons momenta from $dp$
-    reaction, experimental results: (a) target CH$_2$ red line, target C blue
+    reaction, experimental results: (a) target CH$_2$ full line, target C dashed
     line, (b) difference between CH$_2-$\,C targets.}
   \label{fig:p1p2exp}
 \end{figure}
@@ -448,7 +449,7 @@ The cross section was calculated using the relation
   %  \sigma =
   %  \frac{1}{n\,lb_w}\ln\left(1\middle/\left(1-\frac{N_{int}}{N_0}\right)\right)
 \end{equation}
-where $n$ is the concentration of H nuclei ?!in cm$^3$?! in target, $l$ is the
+where $n$ is the concentration of H nuclei in cm$^{-3}$ in target, $l$ is the
 target length, $b_w$ is the histogram bin width, $N_{int}$ is the number of
 interactions and $N_0$ is the number of beam triggers. The number of triggers is
 corrected for the efficiency of chambers.
@@ -570,8 +571,8 @@ higher energies on STRELA setup is in progress.
   V.I. Sharov et al. Eur. Phys. J. A \textbf{39}, 267 (2009)
   % https://doi.org/10.1140/epja/i2008-10719-x
 \bibitem{sha09_2}
-  V.I. Sharov et al., Phys. At. Nucl. \textbf{72}, 1007 (2009) \\ % !!!
-  V.I. Sharov et al., Phys. At. Nucl. \textbf{72}, 1021 (2009)
+  V.I. Sharov et al., Phys. At. Nucl. \textbf{72}, 1007 (2009)
+  %  V.I. Sharov et al., Phys. At. Nucl. \textbf{72}, 1021 (2009)
   % https://doi.org/10.1134/S1063778809060131
   % https://doi.org/10.1134/S1063778809060143
 \bibitem{shi11}
