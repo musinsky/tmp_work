@@ -1,4 +1,5 @@
-% tlmgr install newtx fontaxes xstring sttools
+% 2020-10-06
+% TeX Live 2020: tlmgr install newtx fontaxes xstring sttools
 
 \documentclass[twocolumn,epjc3]{svjour3}
 
@@ -110,39 +111,70 @@ system can be presented as \cite{gla02}
   \label{eq:mat_full}
   \begin{split}
     M =\ a\ +\ &b
-    (\boldsymbol{\sigma}_1\,\mathbf{n})
-    (\boldsymbol{\sigma}_2\,\mathbf{n})\ +\ c\bigl[
-    (\boldsymbol{\sigma}_1\,\mathbf{n}) +
-    (\boldsymbol{\sigma}_2\,\mathbf{n})\bigr]\ \ + \\
+    (\boldsymbol{\sigma}\,\mathbf{n})
+    (\boldsymbol{\sigma}_i\,\mathbf{n})\ +\ c\bigl[
+    (\boldsymbol{\sigma}\,\mathbf{n}) +
+    (\boldsymbol{\sigma}_i\,\mathbf{n})\bigr]\ \ + \\
     +\ &e
-    (\boldsymbol{\sigma}_1\,\mathbf{m})
-    (\boldsymbol{\sigma}_2\,\mathbf{m})\ +\ f
-    (\boldsymbol{\sigma}_1\,\mathbf{l})
-    (\boldsymbol{\sigma}_2\,\mathbf{l})\,,
+    (\boldsymbol{\sigma}\,\mathbf{m})
+    (\boldsymbol{\sigma}_i\,\mathbf{m})\ +\ f
+    (\boldsymbol{\sigma}\,\mathbf{l})
+    (\boldsymbol{\sigma}_i\,\mathbf{l})\,,
   \end{split}
 \end{equation}
 where the orthonormal basis
 \begin{equation}
   \mathbf{l} =
-  \frac{\mathbf{k}_f + \mathbf{k}_i}{|\mathbf{k}_f + \mathbf{k}_i|}\,, \quad
+  \frac{\mathbf{k} + \mathbf{k}'}{|\mathbf{k} + \mathbf{k}'|}\,, \quad
   \mathbf{m} =
-  \frac{\mathbf{k}_f - \mathbf{k}_i}{|\mathbf{k}_f - \mathbf{k}_i|}\,, \quad
+  \frac{\mathbf{k} - \mathbf{k}'}{|\mathbf{k} - \mathbf{k}'|}\,, \quad
   \mathbf{n} =
-  \frac{\mathbf{k}_i \times \mathbf{k}_f}{|\mathbf{k}_i \times \mathbf{k}_f|}\,,
+  \frac{\mathbf{k} \times \mathbf{k}'}{|\mathbf{k} \times \mathbf{k}'|}\,,
 \end{equation}
-introduced in \cite{gol66} is used. The unit vectors $\mathbf{k}_i$ and
-$\mathbf{k}_f$ are the initial and final nucleons momenta, respectively.
-$\boldsymbol{\sigma_1}$ and $\boldsymbol{\sigma}_2$ are the Pauli $2\times2$
-matrices corresponding to the beam and target nucleons. The coefficients
-$a, b, c, e$ and $f$ are complex scattering amplitudes which are functions of
-the interacting particles energies and scattering angles.
+introduced in \cite{gol66} is used. The unit vectors $\mathbf{k}$ and
+$\mathbf{k}'$ are the initial and final nucleons momenta, respectively.
+$\boldsymbol{\sigma}$ and $\boldsymbol{\sigma}_i$ are the Pauli $2\times2$
+matrices corresponding to the beam and the target nucleons, respectively.
 
-% The vectors $\mathbf{p}_i$ and $\mathbf{p}_f$ are the initial and final
-% nucleons momenta, respectively, $\boldsymbol{\sigma}$ and
-% $\boldsymbol{\sigma}_i$ are the Pauli matrices of incident particle and $i$-th
-% nucleon from the deuteron !!!, respectively. The coefficients $a, b, c, e$ and
-% $f$ are complex functions of the interacting particles energies and scattering
-% angles.
+% In the general case the nucleon-nucleon ($NN$) amplitude in the centre of mass
+% system can be presented as \cite{gla02}
+% \begin{equation}
+%   \label{eq:mat_full}
+%   \begin{split}
+%     M =\ a\ +\ &b
+%     (\boldsymbol{\sigma}_1\,\mathbf{n})
+%     (\boldsymbol{\sigma}_2\,\mathbf{n})\ +\ c\bigl[
+%     (\boldsymbol{\sigma}_1\,\mathbf{n}) +
+%     (\boldsymbol{\sigma}_2\,\mathbf{n})\bigr]\ \ + \\
+%     +\ &e
+%     (\boldsymbol{\sigma}_1\,\mathbf{m})
+%     (\boldsymbol{\sigma}_2\,\mathbf{m})\ +\ f
+%     (\boldsymbol{\sigma}_1\,\mathbf{l})
+%     (\boldsymbol{\sigma}_2\,\mathbf{l})\,,
+%   \end{split}
+% \end{equation}
+% where the orthonormal basis
+% \begin{equation}
+%   \mathbf{l} =
+%   \frac{\mathbf{k}_f + \mathbf{k}_i}{|\mathbf{k}_f + \mathbf{k}_i|}\,, \quad
+%   \mathbf{m} =
+%   \frac{\mathbf{k}_f - \mathbf{k}_i}{|\mathbf{k}_f - \mathbf{k}_i|}\,, \quad
+%   \mathbf{n} =
+%   \frac{\mathbf{k}_i \times \mathbf{k}_f}{|\mathbf{k}_i \times \mathbf{k}_f|}\,,
+% \end{equation}
+% introduced in \cite{gol66} is used. The unit vectors $\mathbf{k}_i$ and
+% $\mathbf{k}_f$ are the initial and final nucleons momenta, respectively.
+% $\boldsymbol{\sigma_1}$ and $\boldsymbol{\sigma}_2$ are the Pauli $2\times2$
+% matrices corresponding to the beam and target nucleons. The coefficients
+% $a, b, c, e$ and $f$ are complex scattering amplitudes which are functions of
+% the interacting particles energies and scattering angles.
+
+% % The vectors $\mathbf{p}_i$ and $\mathbf{p}_f$ are the initial and final
+% % nucleons momenta, respectively, $\boldsymbol{\sigma}$ and
+% % $\boldsymbol{\sigma}_i$ are the Pauli matrices of incident particle and $i$-th
+% % nucleon from the deuteron !!!, respectively. The coefficients $a, b, c, e$ and
+% % $f$ are complex functions of the interacting particles energies and scattering
+% % angles.
 
 The differential cross section of the elementary \np charge exchange can be
 represented as a sum of the spin-independent (superscript $SI$) and
@@ -164,9 +196,9 @@ $NN$-amplitudes via
     &\bigl[1 - 1/3\,F_d(t)\bigr]\,(d\sigma/dt)^{SD}_{\np}\,,
   \end{split}
 \end{equation}
-where $F_d(t)$ denotes the deuteron form factor, $t$ is the 4-momentum transfer
-squared, $t = (P_d - P_1 - P_2)^2$, $P_1$, $P_2$ are the final fast protons
-four-momenta w.r.t. laboratory frame,
+where $F_d(t)$ denotes the deuteron form factor, $t$ is the 4-mo\-mentum
+transfer squared, $t = (P_d - P_1 - P_2)^2$, $P_1$, $P_2$ are the final fast
+protons four-momenta w.r.t. laboratory frame,
 \begin{equation}
   \begin{split}
     (d\sigma/dt)^{SI}_{\np} &= |a|^2 +|c|^2\,,\\
@@ -192,6 +224,7 @@ $F_d(0) = 1$, the differential cross section reduces to
   \label{eq:dp_23np}
   (d\sigma/dt)_{\dpchex} = 2/3\,(d\sigma/dt)^{SD}_{\np}\,.
 \end{equation}
+
 So, the charge exchange breakup reaction of the unpolarized deuteron on the
 unpolarized proton target at zero transfer ($t = 0$) is completely determined by
 the spin-dependent part of the elementary \np backward scattering in CMS, so the
