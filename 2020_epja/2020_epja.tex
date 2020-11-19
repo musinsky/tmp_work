@@ -1,4 +1,4 @@
-% 2020-10-19
+% 2020-11-19
 % TeX Live 2020: tlmgr install newtx fontaxes xstring sttools
 
 \documentclass[twocolumn,epjc3]{svjour3}
@@ -36,7 +36,7 @@
   D.~A.~Kirillov\thanksref{jinr}   \and N.~V.~Kostyaeva\thanksref{jinr}  \and
   A.~D.~Kovalenko\thanksref{jinr}  \and A.~N.~Livanov\thanksref{jinr}    \and
   P.~K.~Manyakov\thanksref{jinr}   \and G.~Martinsk\'{a}\thanksref{upjs} \and
-  J.~Musinsky\thanksref{saske}     \and N.~M.~Piskunov\thanksref{jinr}   \and
+  J.~Musinsky\thanksref{saske,e1}  \and N.~M.~Piskunov\thanksref{jinr}   \and
   A.~A.~Povtoreiko\thanksref{jinr} \and P.~A.~Rukoyatkin\thanksref{jinr} \and
   R.~A.~Shindin\thanksref{jinr}    \and I.~M.~Sitnik\thanksref{jinr}     \and
   V.~M.~Slepnev\thanksref{jinr}    \and I.~V.~Slepnev\thanksref{jinr}    \and
@@ -51,7 +51,7 @@
   \,Institute of Experimental Physics, Watsonova 47, 04001 Ko\v{s}ice,
   Slovak Republic\label{saske}
 }
-\thankstext{e1}{\,e-mail: contact@example.com (corresponding author)}
+\thankstext{e1}{\,e-mail: musinsky@saske.sk}
 
 \date{Received: date / Accepted: date}
 % The correct dates will be entered by the editor
@@ -134,7 +134,8 @@ where the orthonormal basis
 introduced in \cite{gol66} is used. The unit vectors $\mathbf{k}$ and
 $\mathbf{k}'$ are the initial and final nucleons momenta, respectively.
 $\boldsymbol{\sigma}$ and $\boldsymbol{\sigma}_i$ are the Pauli $2\times2$
-matrices corresponding to the beam and the target nucleons, respectively.
+matrices corresponding to the fast particle and the struck nucleon from the
+deuteron, respectively.
 
 % In the general case the nucleon-nucleon ($NN$) amplitude in the centre of mass
 % system can be presented as \cite{gla02}
@@ -292,14 +293,16 @@ Fig. \ref{fig:STRELA_layout}.
 \end{figure*}
 
 The sensitive areas of the drift chambers are the following: 12.5 $\times$ 12.5
-cm$^2$ for DC1, DC2 (small chambers) and 25 $\times$ 25 cm$^2$ for DC3, DC4 (large
-chambers). The right handed coordinate system has been used, where the $z$ axis
-is in the beam direction and $x$ and $y$ axis lie in the plane of the
+cm$^2$ for DC1, DC2 (small chambers) and 25 $\times$ 25 cm$^2$ for DC3, DC4
+(large chambers). The right handed coordinate system has been used, where the
+$z$ axis is in the beam direction and $x$ and $y$ axis lie in the plane of the
 chambers. All chambers contain an (Ar$_2$CH$_4$) gas mixture and have
-alternating, orthogonal $x$ and $y$ coordinate planes. DC1 and DC3 are composed
-of 8 sensitive planes ($4x$, $4y$) while DC2 and DC4 are composed of 4 sensitive
-planes ($2x$, $2y$). The analyzing magnet M of field intensity $B = 0.85$ T is
-used to separate deuterons and two protons, respectively.
+alternating, orthogonal $x$ and $y$ coordinate planes. Chambers DC1, DC3, DC4
+are equiped with $xy$ wires and DC2 only with $x$ wires. DC1 and DC3 are
+composed of 8 sensitive planes ($4y$, $4x$), DC4 is composed of 4 sensitive
+planes ($2y$, $2x$) while the DC2 contains 4 sensitive planes ($4x$). The
+analyzing magnet M of field intensity $B = 0.85$ T is used to separate deuterons
+and two protons, respectively.
 
 The drift length for all chambers is $r_{max} = 21$ mm. The basic
 characteristics of the drift chambers have been established from irradiation of
@@ -391,7 +394,8 @@ cross section at $t = 0$.
 
 \section{Data analysis and experimental results}
 The experimental facility has been irradiated in the beam of deuterons with 3.5
-\GeVc momenta. In the last run of March 2014 one billion triggers were received.
+\GeVc momenta and one billion triggers were received.
+%In the last run of March 2014
 The first step in the analysis was to decode events. Calibration procedure and
 the track reconstruction in the drift chambers transformed the raw data into
 physical quantities. For the further processing and physical analysis three
