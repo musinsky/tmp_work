@@ -1,5 +1,4 @@
-% 2020-11-19
-% TeX Live 2020: tlmgr install newtx fontaxes xstring sttools
+% 2020-11-23
 
 \documentclass[twocolumn,epjc3]{svjour3}
 
@@ -136,46 +135,6 @@ $\mathbf{k}'$ are the initial and final nucleons momenta, respectively.
 $\boldsymbol{\sigma}$ and $\boldsymbol{\sigma}_i$ are the Pauli $2\times2$
 matrices corresponding to the fast particle and the struck nucleon from the
 deuteron, respectively.
-
-% In the general case the nucleon-nucleon ($NN$) amplitude in the centre of mass
-% system can be presented as \cite{gla02}
-% \begin{equation}
-%   \label{eq:mat_full}
-%   \begin{split}
-%     M =\ a\ +\ &b
-%     (\boldsymbol{\sigma}_1\,\mathbf{n})
-%     (\boldsymbol{\sigma}_2\,\mathbf{n})\ +\ c\bigl[
-%     (\boldsymbol{\sigma}_1\,\mathbf{n}) +
-%     (\boldsymbol{\sigma}_2\,\mathbf{n})\bigr]\ \ + \\
-%     +\ &e
-%     (\boldsymbol{\sigma}_1\,\mathbf{m})
-%     (\boldsymbol{\sigma}_2\,\mathbf{m})\ +\ f
-%     (\boldsymbol{\sigma}_1\,\mathbf{l})
-%     (\boldsymbol{\sigma}_2\,\mathbf{l})\,,
-%   \end{split}
-% \end{equation}
-% where the orthonormal basis
-% \begin{equation}
-%   \mathbf{l} =
-%   \frac{\mathbf{k}_f + \mathbf{k}_i}{|\mathbf{k}_f + \mathbf{k}_i|}\,, \quad
-%   \mathbf{m} =
-%   \frac{\mathbf{k}_f - \mathbf{k}_i}{|\mathbf{k}_f - \mathbf{k}_i|}\,, \quad
-%   \mathbf{n} =
-%   \frac{\mathbf{k}_i \times \mathbf{k}_f}{|\mathbf{k}_i \times \mathbf{k}_f|}\,,
-% \end{equation}
-% introduced in \cite{gol66} is used. The unit vectors $\mathbf{k}_i$ and
-% $\mathbf{k}_f$ are the initial and final nucleons momenta, respectively.
-% $\boldsymbol{\sigma_1}$ and $\boldsymbol{\sigma}_2$ are the Pauli $2\times2$
-% matrices corresponding to the beam and target nucleons. The coefficients
-% $a, b, c, e$ and $f$ are complex scattering amplitudes which are functions of
-% the interacting particles energies and scattering angles.
-
-% % The vectors $\mathbf{p}_i$ and $\mathbf{p}_f$ are the initial and final
-% % nucleons momenta, respectively, $\boldsymbol{\sigma}$ and
-% % $\boldsymbol{\sigma}_i$ are the Pauli matrices of incident particle and $i$-th
-% % nucleon from the deuteron !!!, respectively. The coefficients $a, b, c, e$ and
-% % $f$ are complex functions of the interacting particles energies and scattering
-% % angles.
 
 The differential cross section of the elementary \np charge exchange can be
 represented as a sum of the spin-independent (superscript $SI$) and
@@ -349,7 +308,7 @@ facility for the studied process of charge exchange reaction is close to 100~\%.
 
 The dipole electromagnet 2SP-40, with transverse dimensions 100 $\times$ 30
 cm$^2$, was used as an analyzing magnet. The magnet creates the required
-magnetic field in the range of \ 0.7\,--1.0 T at a distance of 150 cm along the
+magnetic field in the range of \,0.7~--~1.0 T at a distance of 150 cm along the
 path of the particles. The spreads in space of the non interacting deuteron beam
 and that of the recorded protons from the examined reaction are bended to the
 blocks of large drift chambers for detection. The radius of the curvature of the
@@ -394,13 +353,12 @@ cross section at $t = 0$.
 
 \section{Data analysis and experimental results}
 The experimental facility has been irradiated in the beam of deuterons with 3.5
-\GeVc momenta and one billion triggers were received.
-%In the last run of March 2014
-The first step in the analysis was to decode events. Calibration procedure and
-the track reconstruction in the drift chambers transformed the raw data into
-physical quantities. For the further processing and physical analysis three
-tracks in the $xz$ plane were selected: one before the target and two behind it.
-The topology of this events is shown in Fig. \ref{fig:STRELA_layout}.
+\GeVc momenta and one billion triggers were received. The first step in the
+analysis was to decode events. Calibration procedure and the track
+reconstruction in the drift chambers transformed the raw data into physical
+quantities. For the further processing and physical analysis three tracks in the
+$xz$ plane were selected: one before the target and two behind it.  The topology
+of this events is shown in Fig. \ref{fig:STRELA_layout}.
 
 \begin{figure}[h]
   \centering
@@ -425,10 +383,9 @@ from the \dpfrag reaction (Fig. \ref{fig:p1p2exp} (b)). The contribution from
 the background reactions, other than the studied \dpfrag reaction, which could
 also produce the two positively charged track in the forward direction, is
 negligible (Fig. \ref{fig:p1p2sim} (b)). Into the differential cross section
-$d\sigma/dt$
-% for \dpchex reaction
-only those events have been included, where the sum of the two charged particle
-momenta is in the interval (3.5 $\pm$ 0.2) \GeVc (Fig. \ref{fig:p1p2exp} (b)).
+$d\sigma/dt$ only those events have been included, where the sum of the two
+charged particle momenta is in the interval (3.5 $\pm$ 0.2) \GeVc
+(Fig. \ref{fig:p1p2exp} (b)).
 
 \begin{figure}[h]
   \centering
@@ -469,9 +426,9 @@ $(d\sigma/dt)|\,_{t=0}=(30.56\,\pm\,0.48$) mb$/$(\GeVc)$^{\,2}$.
 % 3x artificial a thin space
 The quoted \,error is statistical \,only. \,Systematic uncertainties which
 affect the overall normalization of the cross sections have been estimated to be
-about 5~\%. This uncertainty stems mainly from the deuteron flux
-determination. The uncertainty from the target thickness and the histogram bin
-width are comparably small.
+about 5~\%. This uncertainty stems mainly from the deuteron flux determination.
+The uncertainty from the target thickness and the histogram bin width are
+comparably small.
 
 \begin{figure}[h]
   \centering
@@ -485,8 +442,6 @@ The cross section was calculated using the relation
 \begin{equation}
   \sigma =
   \frac{1}{n\,lb_w}\ln\bigg(1\Big/\Big(1-\frac{N_{int}}{N_0}\Big)\bigg)\,,
-  %  \sigma =
-  %  \frac{1}{n\,lb_w}\ln\left(1\middle/\left(1-\frac{N_{int}}{N_0}\right)\right)
 \end{equation}
 where $n$ is the concentration of H nuclei in cm$^{-3}$ in target, $l$ is the
 target length, $b_w$ is the histogram bin width, $N_{int}$ is the number of
@@ -507,7 +462,7 @@ incident momenta is shown in Fig. \ref{fig:npsigma}. Each individual
 differential cross sections from Bizard et al. \cite{biz75} are transformed into
 $d\sigma/dt$ versus $t$ in the region of momenta 1.4~--~2.0 \GeVc and
 extrapolated at each momentum to $t=0$ by fitting the expression
-$d\sigma/dt = a\,\exp(b\,t + c\,t^2)$. %in interval $t < 0.01$ \GeVc.
+$d\sigma/dt = a\,\exp(b\,t + c\,t^2)$.
 
 \begin{figure}[ht]
   \centering
@@ -609,15 +564,10 @@ higher energies on STRELA setup is in progress.
   V.V. Glagolev et al., Instrum. Exp. Tech. \textbf{56}, 387 (2013)
 \bibitem{sha09}
   V.I. Sharov et al. Eur. Phys. J. A \textbf{39}, 267 (2009)
-  % https://doi.org/10.1140/epja/i2008-10719-x
 \bibitem{sha09_2}
   V.I. Sharov et al., Phys. At. Nucl. \textbf{72}, 1007 (2009)
-  %  V.I. Sharov et al., Phys. At. Nucl. \textbf{72}, 1021 (2009)
-  % https://doi.org/10.1134/S1063778809060131
-  % https://doi.org/10.1134/S1063778809060143
 \bibitem{shi11}
   R.A. Shindin et al., Phys. Part. Nucl. Lett. \textbf{8}, 90 (2011)
-  % https://doi.org/10.1134/S1547477111020129
 \bibitem{biz75}
   G. Bizard et al., Nucl. Phys B \textbf{85}, 14 (1975)
 \bibitem{bys78}
@@ -632,8 +582,3 @@ higher energies on STRELA setup is in progress.
 \end{thebibliography}
 
 \end{document}
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:
