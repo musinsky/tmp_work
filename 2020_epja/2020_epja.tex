@@ -1,4 +1,4 @@
-% 2021-02-09
+% 2021-02-10
 % TeX Live 2020: tlmgr install newtx fontaxes xstring sttools
 
 \documentclass[twocolumn,epjc3]{svjour3}
@@ -229,11 +229,10 @@ storage ring carried out an extensive study of the \dpchex charge exchange
 reaction in vector and tensor polarized deuteron beams at four energies from 0.6
 to 1.135 \GeV per nucleon \cite{chi09,mch13}.
 
-The aim of the present study is to extract information on the elementary \np
-% najprv zmerat ucinny prirez charge exchange a az potom urcovat R
-charge exchange channel using the \dpchex charge exchange reaction at 3.5 \GeVc
-unpolarized deuteron momenta by the STRELA spectrometer and compare with
-existing experimental results.
+The aim of the present study is to determine the differential cross section of
+charge exchange reaction \dpchex at $t = 0$ in unpolarized deuteron beam
+by the STRELA spectrometer and extract information on the elementary \np
+charge exchange amplitude and compare with the existing experimental results.
 
 \section{Experimental facility STRELA}
 Based on the above mentioned ideas and experimental results, obtained using the
@@ -244,6 +243,7 @@ and detect charge exchange events in deuteron proton collisions. The experiment
 demands registration of two protons with momenta approximately equal to the half
 of the primary deuteron beam momenta. STRELA is a typical one arm magnetic
 spectrometer composed of scintillator detectors S1, S2 used to trigger the setup
+% dopisat S3 !!! prerobit obrazok, dodat S3 za DC3-4
 and blocks of drift chambers (DC1 -- DC4) used as coordinate detector and
 analyzing magnet M. The recent version of the experimental setup is shown in
 Fig. \ref{fig:STRELA_layout}.
@@ -303,13 +303,16 @@ algorithm of the track reconstruction can be found in \cite{gla13}.
 The experimental setup was started by the two polysty\-rene based scintillation
 counters S1 (dimensions 10 $\times$ 10 $\times$ 0.5 cm$^3$) and S2 (dimensions 7
 $\times$ 7 $\times$ 0.5 cm$^3$). The light guides are made of plexiglass. For
+% kedze sme na zaciatku dodali S3, spomenut, opisat ho aj tu
 light readout XP 2020 photomultipliers were used. The signals from the
 photomultipliers are connected to the shaper inputs. The use of these shapers
 allows to compensate the time spread of the signals caused by the leading edge
 of the amplitude of the photomultiplier signal. The time and amplitude
 information from the counters is digitized and recorded in each event for the
 subsequent monitoring of the counters and the entire trigger system
-functionality. The trigger system of the setup must ensure selection of events
+functionality.
+% Tuto vetu radsej celu vyhodit.
+The trigger system of the setup must ensure selection of events
 of the deuteron breakup reaction at zero angle (or close to zero) between the
 incoming deuteron and scattering protons.
 
@@ -368,8 +371,8 @@ protons of the charge exchange reaction are fully in the detector acceptance.
 
 \section{Data analysis and experimental results}
 The experimental facility has been irradiated in the beam of deuterons with 3.5
-\GeVc momenta and one billion triggers were received. The first step in the
-analysis was to decode events. Calibration procedure and the track
+\GeVc momenta and approximately milliard triggers were taken. The first step in
+the analysis was to decode events. Calibration procedure and the track
 reconstruction in the drift chambers transformed the raw data into physical
 quantities. For the further processing and physical analysis three tracks in the
 $xz$ plane drift chambers were selected: one before the target and two behind
@@ -413,11 +416,13 @@ interval (3.5 $\pm$ 0.2) \GeVc (Fig. \ref{fig:p1p2exp} (b)).
   \label{fig:p1p2sim}
 \end{figure}
 
-The plot of momenta $p_1$ \textit{vs.} $p_2$ of the two charged particles (two
-protons) from $dp$ reaction is shown in Fig. \ref{fig:p1vsp2}. From the
-comparison of the simulation results (a) and (c) with the experimental results
-(b), it can be seen that the background from other channels of the $dp$ reaction
-may be eliminated.
+% toto cele je presunute na koniec odtstavca predchadzajucej kapitoly
+%
+% The plot of momenta $p_1$ \textit{vs.} $p_2$ of the two charged particles (two
+% protons) from $dp$ reaction is shown in Fig. \ref{fig:p1vsp2}. From the
+% comparison of the simulation results (a) and (c) with the experimental results
+% (b), it can be seen that the background from other channels of the $dp$ reaction
+% may be eliminated.
 
 \begin{figure}[t]
   \centering
@@ -429,28 +434,42 @@ may be eliminated.
   \label{fig:p1vsp2}
 \end{figure}
 
-In accordance with theory the aim of the present experiment is to determine the
-value of the differential cross section for four-momentum transfer squared
-$|t| = 0$. This value can only be obtained by extrapolating the distribution
-$dN/dt$ to $|t|\mapsto0$, where $N$ is the number of interactions.
-% alebo to dat az za fit, ma zmysel uvadzat co je N ?
-The measured differential distribution $dN/dt$ of the \dpchex reaction is
-%                                      $dN\,/\,dt$
-displayed in Fig. \ref{fig:dndt} together with the curve corresponding to fit by
-expression
+The main goal of present experiment is to determine the differential cross
+section $(d\sigma/dt)|\,_{t=0}$ of \dpchex, which can be done as an
+extrapolation of the measured data to $|t|\mapsto0$. This can be connected according
+to Eq. \eqref{eq:dp_23np} with the spin dependent part of the \np process.
+
+%In accordance with theory the aim of the present experiment is to determine the
+%value of the differential cross section for four-momentum transfer squared
+%$|t| = 0$. This value can only be obtained by extrapolating the distribution
+%$dN/dt$ to $|t|\mapsto0$, where $N$ is the number of interactions.
+
+The measured $dN/dt$ distribution of the \dpchex reaction is
+%            $dN\,/\,dt$
+displayed in Fig. \ref{fig:dndt} together with the curve corresponding to a fit
+by empirically well established expression
 \begin{equation}
   \label{eq:dndtfit}
   dN/dt = a\,\exp(b\,t)\,,
 \end{equation}
-with parameters $a=(435.6\,\pm\,6.8)$ and $b=(-440.9\,\pm\,9.1)$. The fitting
+with parameters $a=(435.6\,\pm\,6.8)$ and $b=(-440.9\,\pm\,9.1)$.
 % where parameter $a$ is equal the number of ?events?
-function is completely empirical.
 
-% TU PRESUNUT VZOREC NA PREPOCET dN/dt na dSigma/dt
+The value $(dN/dt)|\,_{t=0}$ was transformed to cross section
+\begin{equation}
+  % \sigma =
+  % \frac{1}{n\,lb_w}\ln\bigg(1\Big/\Big(1-\frac{N_{int}}{N_0}\Big)\bigg)\,,
+  \frac{d\sigma}{dt} =
+  \frac{a}{n\,l\,b_w}\ln\bigg(\frac{N_0}{N_0-N_{int}}\bigg)\,,
+\end{equation}
+where $n$ is the number of H nuclei in cm$^{-3}$ in target, $l$ is the target
+length in cm, $b_w$ is the histogram bin width. The number of interactions
+$N_{int}$ and the number of incoming deuterons $N_0$ were corrected for the
+efficiency of chambers.
 
-The value $(dN/dt)|\,_{t=0}=(435.6\,\pm\,6.8)$
-N$/$(\GeVc)$^{\,2}$ corresponds to the charge exchange reaction differential
-cross section $(d\sigma/dt)|\,_{t=0}=(30.56\,\pm\,0.48$) mb$/$(\GeVc)$^{\,2}$.
+The value $(dN/dt)|\,_{t=0}=(435.6\,\pm\,6.8)$ N$/$(\GeVc)$^{\,2}$ corresponds
+to the charge exchange reaction differential cross section
+$(d\sigma/dt)|\,_{t=0}=(30.56\,\pm\,0.48$) mb$/$(\GeVc)$^{\,2}$.
 % 3x artificial a thin space
 % The quoted \,error is statistical \,only. \,Systematic uncertainties which
 The quoted error is statistical only. Systematic uncertainties which
@@ -467,15 +486,17 @@ comparably small.
   \label{fig:dndt}
 \end{figure}
 
-The cross section was calculated using the relation
-\begin{equation}
-  \sigma =
-  \frac{1}{n\,lb_w}\ln\bigg(1\Big/\Big(1-\frac{N_{int}}{N_0}\Big)\bigg)\,,
-\end{equation}
-where $n$ is the concentration of H nuclei in cm$^{-3}$ in target, $l$ is the
-target length, $b_w$ is the histogram bin width, $N_{int}$ is the number of
-interactions and $N_0$ is the number of beam triggers. The number of triggers is
-corrected for the efficiency of chambers.
+% The cross section was calculated using the relation
+% \begin{equation}
+%   % \sigma =
+%   % \frac{1}{n\,lb_w}\ln\bigg(1\Big/\Big(1-\frac{N_{int}}{N_0}\Big)\bigg)\,,
+%   \frac{d\sigma}{dt} =
+%   \frac{1}{n\,l\,b_w}\ln\bigg(\frac{N_0}{N_0-N_{int}}\bigg)\,,
+% \end{equation}
+% where $n$ is the concentration of H nuclei in cm$^{-3}$ in target, $l$ is the
+% target length, $b_w$ is the histogram bin width, $N_{int}$ is the number of
+% interactions and $N_0$ is the number of beam triggers. The number of triggers is
+% corrected for the efficiency of chambers.
 
 The obtained charge exchange differential cross section on the deuteron at $t=0$
 was compared with the available data from \np reaction at the same interpolated
@@ -540,11 +561,6 @@ the fit procedure. Preliminary data published in \cite{bas14,bas16} are not
 contradicting the presented results.
 
 
-
-
-
-
-
 \section{Conclusions and outlook}
 
 
@@ -574,11 +590,6 @@ conclusion on the individual amplitudes of the $pn$ scattering. On the other
 hand, the spin-independent amplitude $\alpha$, whose magnitude can only be
 estimated by comparing the deuteron data with the free \np differential cross
 section absent.
-
-
-
-
-
 
 The spectrometric complex has been developed on the basis of the STRELA setup to
 study the charge exchange reaction in unpolarized deuteron beam. The value of
