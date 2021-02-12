@@ -1,7 +1,11 @@
-% 2021-02-10
+% 2021-02-12
 % TeX Live 2020: tlmgr install newtx fontaxes xstring sttools
 
 \documentclass[twocolumn,epjc3]{svjour3}
+
+\usepackage{todonotes}
+%\usepackage{xcolor}
+%\newcommand\muchanote[1]{\textcolor{red}{#1}}
 
 \usepackage[T1]{fontenc}
 %\usepackage{mathptmx}   % no bold math fonts (in title), known bug
@@ -235,18 +239,6 @@ by the STRELA spectrometer and extract information on the elementary \np
 charge exchange amplitude and compare with the existing experimental results.
 
 \section{Experimental facility STRELA}
-Based on the above mentioned ideas and experimental results, obtained using the
-one meter HBC \cite{gla02,gla08}, the experiment STRELA has been designed and
-constructed in the Veksler Baldin Laboratory for High Energy Physics (VBLHEP) of
-the Joint Institute for Nuclear Research (JINR) in Dubna with the aim to select
-and detect charge exchange events in deuteron proton collisions. The experiment
-demands registration of two protons with momenta approximately equal to the half
-of the primary deuteron beam momenta. STRELA is a typical one arm magnetic
-spectrometer composed of scintillator detectors S1, S2 used to trigger the setup
-% dopisat S3 !!! prerobit obrazok, dodat S3 za DC3-4
-and blocks of drift chambers (DC1 -- DC4) used as coordinate detector and
-analyzing magnet M. The recent version of the experimental setup is shown in
-Fig. \ref{fig:STRELA_layout}.
 
 \begin{figure*}[t] % two-column wide
   \centering
@@ -256,6 +248,21 @@ Fig. \ref{fig:STRELA_layout}.
     -- DC4), analyzing magnet M and target T.}
   \label{fig:STRELA_layout}
 \end{figure*}
+
+Based on the above mentioned ideas and experimental results, obtained using the
+one meter HBC \cite{gla02,gla08}, the experiment STRELA has been designed and
+constructed in the Veksler Baldin Laboratory for High Energy Physics (VBLHEP) of
+the Joint Institute for Nuclear Research (JINR) in Dubna with the aim to select
+and detect charge exchange events in deuteron proton collisions. The experiment
+demands registration of two protons with momenta approximately equal to the half
+of the primary deuteron beam momenta. STRELA is a typical one arm magnetic
+spectrometer composed of scintillator detectors S1, S2
+\todo[fancyline]{MUSINSKY: S1--S3 + prerobit obrazok}
+% dopisat S3 !!! prerobit obrazok, dodat S3 za DC3-4
+used to trigger the setup
+and blocks of drift chambers (DC1 -- DC4) used as coordinate detector and
+analyzing magnet M. The recent version of the experimental setup is shown in
+Fig. \ref{fig:STRELA_layout}.
 
 The sensitive areas of the drift chambers are the following: 12.5 $\times$ 12.5
 cm$^2$ for DC1, DC2 (small chambers) and 25 $\times$ 25 cm$^2$ for DC3, DC4
@@ -302,8 +309,10 @@ algorithm of the track reconstruction can be found in \cite{gla13}.
 
 The experimental setup was started by the two polysty\-rene based scintillation
 counters S1 (dimensions 10 $\times$ 10 $\times$ 0.5 cm$^3$) and S2 (dimensions 7
-$\times$ 7 $\times$ 0.5 cm$^3$). The light guides are made of plexiglass. For
+$\times$ 7 $\times$ 0.5 cm$^3$).
+\todo[inline]{MUSINSKY: doplnit popis S3}
 % kedze sme na zaciatku dodali S3, spomenut, opisat ho aj tu
+The light guides are made of plexiglass. For
 light readout XP 2020 photomultipliers were used. The signals from the
 photomultipliers are connected to the shaper inputs. The use of these shapers
 allows to compensate the time spread of the signals caused by the leading edge
@@ -312,9 +321,13 @@ information from the counters is digitized and recorded in each event for the
 subsequent monitoring of the counters and the entire trigger system
 functionality.
 % Tuto vetu radsej celu vyhodit.
-The trigger system of the setup must ensure selection of events
-of the deuteron breakup reaction at zero angle (or close to zero) between the
-incoming deuteron and scattering protons.
+\todo[inline, backgroundcolor=white]{
+  The trigger system of the setup must ensure selection of events
+  of the deuteron breakup reaction at zero angle (or close to zero) between the
+  incoming deuteron and scattering protons.
+}
+\todo[inline]{URBAN: nechavame tak tuto vetu, ale potom potrebne upravit ? alebo
+  ju celu asi vyhodit ?}
 
 The analyzing dipole electromagnet 2SP-40, with transverse dimensions 100
 $\times$ 30 cm$^2$, was used as an analyzing magnet. The magnet creates the
@@ -348,26 +361,54 @@ is different from run to run and is in the interval 0.85~--~0.89. The track of
 deuteron beam in drift chambers DC1, DC2 before magnet and behind DC3, DC4 are
 reconstructed using the track reconstruction algorithm \cite{gla13}.
 
-The deuteron breakup events reaching the drift chambers DC3 and DC4 are supposed
-to contain:
-\begin{itemize}
-\item two protons with close momenta, approximately equal to the half of the
-  incident deuteron beam momenta, from the charge exchange reaction \dpchex,
-\item or a single proton from the charge retention \dpret channel, where the
-  recoil proton is filtered out with the magnet.
-\end{itemize}
-The detector performance was estimated by the use of the GEANT3 package for
-transporting the $dp$ reaction products from the 1m HBC events through the
-experimental setup. The plots of momenta $p_1$ \textit{vs.} $p_2$ of the two
-charged particles reaching the DC3 and DC4 chambers are shown in
-Fig. \ref{fig:p1vsp2}: simulation including all $dp$ reaction channels (a),
-simulation \dpfrag channel alone (b) and recent experimental distribution
-(c). Comparing experimental data with simulation it can be seen that the two
-protons of the charge exchange reaction are fully in the detector acceptance.
-% doplnit info ohladom vychadzovania castic z inych kanalov
-% t.j. two charged particles = two protons
+\todo[inline, backgroundcolor=white]{
+  The deuteron breakup events reaching the drift chambers DC3 and DC4 are supposed
+  to contain:
+  %\begin{itemize}
+  %\item
 
-% !!! OBRAZOK prerobit
+  111) two protons with close momenta, approximately equal to the half of the
+  incident deuteron beam momenta, from the charge exchange reaction \dpchex,
+  %\item
+
+  222) or a single proton from the charge retention \dpret channel, where the
+  recoil proton is filtered out with the magnet.
+  %\end{itemize}
+
+  The detector performance was estimated by the use of the GEANT3 package for
+  transporting the $dp$ reaction products from the 1m HBC events through the
+  experimental setup. The plots of momenta $p_1$ \textit{vs.} $p_2$ of the two
+  charged particles reaching the DC3 and DC4 chambers are shown in
+  Fig. \ref{fig:p1vsp2}: simulation including all $dp$ reaction channels (a),
+  simulation \dpfrag channel alone (b) and recent experimental distribution
+  (c). Comparing experimental data with simulation it can be seen that the two
+  protons of the charge exchange reaction are fully in the detector acceptance.
+  % doplnit info ohladom vychadzovania castic z inych kanalov
+  % t.j. two charged particles = two protons
+  % !!! OBRAZOK prerobit
+
+  POVODNY POPIS OBR. 5 The plot of momenta $p_1$ \textit{vs.} $p_2$ of the two
+  charged particles (two protons) from $dp$ reaction is shown in
+  Fig. \ref{fig:p1vsp2}. From the comparison of the simulation results (a) and
+  (c) with the experimental results (b), it can be seen that the background from
+  other channels of the $dp$ reaction may be eliminated.  }
+
+\todo[inline]{URBAN: akceptancia odstavec, prepisat\\
+  1) vysvetlnie ohladom \dpfrag = \dpchex + \dpret asi nechat, kedze nikde inde
+  sa o tomto nezmienujeme, ALE\\
+  2) nas zaujimaju DVE NABITE CASTICE (dve drahy), ktore doletili az do DC3,4\\
+  3) dva protony z charge exchange detekujeme na 100\%, co vidno z obrazku 5:
+  simulaciu + realny experiment. Preto STRELA setup, resp. geometry bola takto
+  navrhnuta\\
+  4) okrem toho na obrazku vidime, ze lahko mozmeme vyhodit background z inych
+  dvojcasticovy kanalov reakcie $dp$ (nieco podobne je uvedene aj na
+  nasledujucej strane, vid nasledujuca poznamka)\\
+  5) neviem ci to ma zmysel spomenut, kedze STRELA bola pri 3.5 GeV/c a 1m HBC
+  pri 3.35 GeV/c, tak preto na obrazku 5 vidno mierne posunutie medzi STRELA
+  experiment a simulaciou z 1m HBC. Podla uvazenia}
+
+\todo[inline]{MUSINSKY: obrazok 5 prehodit poradie a,b,c. Nove poradie asi bude
+  c,a,b + obrazok premiestnit na toto miesto, t.j. pred obrazok 4}
 
 \section{Data analysis and experimental results}
 The experimental facility has been irradiated in the beam of deuterons with 3.5
@@ -392,18 +433,27 @@ of the charged particle after passing through the magnet M.
 The distribution of the sum of the two charged particles (two protons) momenta
 for both targets are obtained.
 % The background from C and CH$_2$ targets can be neglected.
+% Nikde inde to asi nie je uvedene, kedze sa prerabal cely odstavec ohladom
+% akceptnacie
 The dependencies of the sum of the two proton
 momenta from $dp$ reaction are presented in Fig. \ref{fig:p1p2exp} for CH$_2$
 and C targets (a) and their difference CH$_2-\,$C (b). The results of simulation
 (Fig. \ref{fig:p1p2sim}) include all channels $dp$ reaction (a) and channel
-\dpfrag only (b). Note that for the simulation real events from the one meter
+\dpfrag only (b).
+% ak bude info ohladom 3.5 GeV STRELA a 3.35 GEV 1m HBC spomenute uz v odstavci
+% ohladom akceptnacie, tak tuto vyhodit
+Note that for the simulation real events from the one meter
 bubble chamber at the momenta 3.35~\GeVc (with relatively small statistics) were
 used. As one can see, the distribution has a characteristic peak near the
 incoming deuteron momentum kinematically associated with the pair of protons
-from the \dpfrag reaction (Fig. \ref{fig:p1p2exp} (b)). The contribution from
-the background reactions, other than the studied \dpfrag reaction, which could
-also produce the two positively charged track in the forward direction, is
-negligible (Fig. \ref{fig:p1p2sim} (b)). For further analysis only those events
+from the \dpfrag reaction (Fig. \ref{fig:p1p2exp} (b)).
+\todo[inline, backgroundcolor=white]{ The contribution from the background
+  reactions, other than the studied \dpfrag reaction, which could also produce
+  the two positively charged track in the forward direction, is negligible
+  (Fig. \ref{fig:p1p2sim} (b)). }
+\todo[inline]{URBAN: asi bude uz nieco podobne v odstavci o akceptancii ?}
+% podobne info asi bude v odstavci o akcpetancii
+For further analysis only those events
 have been included, which the sum of momenta of two charge particles is in the
 interval (3.5 $\pm$ 0.2) \GeVc (Fig. \ref{fig:p1p2exp} (b)).
 
@@ -434,6 +484,8 @@ interval (3.5 $\pm$ 0.2) \GeVc (Fig. \ref{fig:p1p2exp} (b)).
   \label{fig:p1vsp2}
 \end{figure}
 
+\todo[inline]{URBAN: prosim prekontrolujte nasledujuce tri odstavce, ktore sme
+  prerabali v stredu, prepocet $(d\sigma/dt)|{t=0}$}
 The main goal of present experiment is to determine the differential cross
 section $(d\sigma/dt)|\,_{t=0}$ of \dpchex, which can be done as an
 extrapolation of the measured data to $|t|\mapsto0$. This can be connected according
@@ -561,36 +613,20 @@ the fit procedure. Preliminary data published in \cite{bas14,bas16} are not
 contradicting the presented results.
 
 
-\section{Conclusions and outlook}
+\section{Conclusion and outlook}
 
+\todo[inline]{URBAN: zaver a diskusia\\
+  1) STRELA namerala $(d\sigma/dt)|\,_{t=0}$ take a take \\
+  2) pri pouziti dat Bizarda sme ziskali $R$ take a take\\
+  3) porovname sa s 1m HBC, viac menej OK, ale podstatne vacsia statistika a
+  teda mensia chyba\\
+  4) "preverili" sme, ze STRELA funguje a mozeme merat pri vyssich energiach
+  neskor, ked sa dostavia novy LHEP Accelerator Complex in Dubna, kde taketo
+  exp. data viac menej neexistuju\\
+  5) diskutujeme ohladom Delta-Sigma a ANKE
+}
 
-
-In the region above 1 \GeV the results of study reaction $nd \rightarrow p(nn)$
-in a neutron beam of the Delta-Sigma group \cite{sha09,sha09_2,shi11} are known,
-where the $R_{dp}(0) = (d\sigma/dt)_{\,nd} / (d\sigma/dt)_{\,np}$ ratios have
-been successfully measured. Seven data points at the energies $T_n = 0.5 - 2.0$
-\GeV have been obtained using liquid D$_2$ / H$_2$ and solid CD$_2$ / CH$_2$ / C
-targets. The contribution of non flip to flip ratio in the \np charge exchange
-process have been estimated via $R_{dp}(0)$ values which are from the interval
-0.551~--~0.589 depending on energy. The experiment with monochromatic fast
-deuterons is more rational in respect to the analysis of experimental data: the
-two secondary protons, products of the charge exchange on deuteron \dpchex, are
-fast moving in the forward direction at small angles, and so they are easily
-detectable.
-
-In the works \cite{chi09,mch13} the \dpfrag reaction as a method to study
-neutron proton charge exchange amplitudes was studied with the ANKE spectrometer
-at the COSY storage ring at nearby energies of 0.6, 0.8, 0.9 and 1.135 \GeV per
-% nebude lepsie cela energia (x2) pre deuteron ?
-nucleon using deuteron beam. A rich set of data have been obtained. There is not
-only the differential cross section of the \dpchex charge exchange reaction, but
-also vector and tensor analyzing powers as well as the spin correlation
-parameters have been measured. The whole set of data allowed to draw a
-conclusion on the individual amplitudes of the $pn$ scattering. On the other
-hand, the spin-independent amplitude $\alpha$, whose magnitude can only be
-estimated by comparing the deuteron data with the free \np differential cross
-section absent.
-
+\noindent (STRELA a 1m HBC info, povodny mierne upraveny zaver)\\
 The spectrometric complex has been developed on the basis of the STRELA setup to
 study the charge exchange reaction in unpolarized deuteron beam. The value of
 the charge exchange reaction \dpchex differential cross section
@@ -607,6 +643,36 @@ scattering. The obtained ratio depends on the $(d\sigma/dt)|\,_{t=0}$ the \np
 reaction extracted from published data. Continuation of these researches at
 higher energies on STRELA setup is in progress.
 % velmi casto v tomto odstavci "obtained"
+
+\vspace{0.25cm}
+\noindent (Delta-Sigma info)\\
+In the region above 1 \GeV the results of study reaction $nd \rightarrow p(nn)$
+in a neutron beam of the Delta-Sigma group \cite{sha09,sha09_2,shi11} are known,
+where the $R_{dp}(0) = (d\sigma/dt)_{\,nd} / (d\sigma/dt)_{\,np}$ ratios have
+been successfully measured. Seven data points at the energies $T_n = 0.5 - 2.0$
+\GeV have been obtained using liquid D$_2$ / H$_2$ and solid CD$_2$ / CH$_2$ / C
+targets. The contribution of non flip to flip ratio in the \np charge exchange
+process have been estimated via $R_{dp}(0)$ values which are from the interval
+0.551~--~0.589 depending on energy. The experiment with monochromatic fast
+deuterons is more rational in respect to the analysis of experimental data: the
+two secondary protons, products of the charge exchange on deuteron \dpchex, are
+fast moving in the forward direction at small angles, and so they are easily
+detectable.
+
+\vspace{0.25cm}
+\noindent (ANKE info)\\
+In the works \cite{chi09,mch13} the \dpfrag reaction as a method to study
+neutron proton charge exchange amplitudes was studied with the ANKE spectrometer
+at the COSY storage ring at nearby energies of 0.6, 0.8, 0.9 and 1.135 \GeV per
+% nebude lepsie cela energia (x2) pre deuteron ?
+nucleon using deuteron beam. A rich set of data have been obtained. There is not
+only the differential cross section of the \dpchex charge exchange reaction, but
+also vector and tensor analyzing powers as well as the spin correlation
+parameters have been measured. The whole set of data allowed to draw a
+conclusion on the individual amplitudes of the $pn$ scattering. On the other
+hand, the spin-independent amplitude $\alpha$, whose magnitude can only be
+estimated by comparing the deuteron data with the free \np differential cross
+section absent.
 
 \begin{acknowledgements}
   The authors are grateful to the JINR VBLHEP directorate for supporting their
