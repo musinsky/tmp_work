@@ -1,4 +1,4 @@
-% 2021-02-12
+% 2021-02-14
 % TeX Live 2020: tlmgr install newtx fontaxes xstring sttools
 
 \documentclass[twocolumn,epjc3]{svjour3}
@@ -243,9 +243,9 @@ charge exchange amplitude and compare with the existing experimental results.
 \begin{figure*}[t] % two-column wide
   \centering
   \includegraphics[width=1.00\textwidth]{STRELA_layout.pdf}
-  \caption{Layout of the experimental setup for determining the spin-dependent
-    part of \np scattering: scintillator counters S1 and S2, drift chambers (DC1
-    -- DC4), analyzing magnet M and target T.}
+  \caption{Schematic layout of the experimental setup for determining the
+    spin-dependent part of \np scattering: scintillator counters (S1 -- S3),
+    drift chambers (DC1 -- DC4), analyzing magnet M and target T.}
   \label{fig:STRELA_layout}
 \end{figure*}
 
@@ -256,8 +256,8 @@ the Joint Institute for Nuclear Research (JINR) in Dubna with the aim to select
 and detect charge exchange events in deuteron proton collisions. The experiment
 demands registration of two protons with momenta approximately equal to the half
 of the primary deuteron beam momenta. STRELA is a typical one arm magnetic
-spectrometer composed of scintillator detectors S1, S2
-\todo[fancyline]{MUSINSKY: S1--S3 + prerobit obrazok}
+spectrometer composed of scintillator detectors (S1 -- S3)
+\todo[fancyline]{MUSINSKY: S1--S3 + prerobit obrazok, DONE}
 % dopisat S3 !!! prerobit obrazok, dodat S3 za DC3-4
 used to trigger the setup
 and blocks of drift chambers (DC1 -- DC4) used as coordinate detector and
@@ -308,9 +308,10 @@ algorithm of the track reconstruction can be found in \cite{gla13}.
 \end{figure}
 
 The experimental setup was started by the two polysty\-rene based scintillation
-counters S1 (dimensions 10 $\times$ 10 $\times$ 0.5 cm$^3$) and S2 (dimensions 7
-$\times$ 7 $\times$ 0.5 cm$^3$).
-\todo[inline]{MUSINSKY: doplnit popis S3}
+counters S1 (dimensions 10 $\times$ 10 $\times$ 0.5 cm$^3$), S2 (dimensions 7
+$\times$ 7 $\times$ 0.5 cm$^3$) and S3 (dimensions 25 $\times$ 22 $\times$ 1.0
+cm$^3$).
+\todo[inline]{MUSINSKY: add S3, DONE, ale veta zacina started by the two ...?!}
 % kedze sme na zaciatku dodali S3, spomenut, opisat ho aj tu
 The light guides are made of plexiglass. For
 light readout XP 2020 photomultipliers were used. The signals from the
@@ -506,6 +507,7 @@ by empirically well established expression
 \end{equation}
 with parameters $a=(435.6\,\pm\,6.8)$ and $b=(-440.9\,\pm\,9.1)$.
 % where parameter $a$ is equal the number of ?events?
+% najdeny Chi2/ndf = 77.93/78 (entries=4373, xbins=80)
 
 The value $(dN/dt)|\,_{t=0}$ was transformed to cross section
 \begin{equation}
