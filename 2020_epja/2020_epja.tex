@@ -1,4 +1,4 @@
-% 2021-02-14
+% 2021-02-15
 % TeX Live 2020: tlmgr install newtx fontaxes xstring sttools
 
 \documentclass[twocolumn,epjc3]{svjour3}
@@ -256,11 +256,8 @@ the Joint Institute for Nuclear Research (JINR) in Dubna with the aim to select
 and detect charge exchange events in deuteron proton collisions. The experiment
 demands registration of two protons with momenta approximately equal to the half
 of the primary deuteron beam momenta. STRELA is a typical one arm magnetic
-spectrometer composed of scintillator detectors (S1 -- S3)
-\todo[fancyline]{MUSINSKY: S1--S3 + prerobit obrazok, DONE}
-% dopisat S3 !!! prerobit obrazok, dodat S3 za DC3-4
-used to trigger the setup
-and blocks of drift chambers (DC1 -- DC4) used as coordinate detector and
+spectrometer composed of scintillator detectors (S1 -- S3) used to trigger the
+setup and blocks of drift chambers (DC1 -- DC4) used as coordinate detector and
 analyzing magnet M. The recent version of the experimental setup is shown in
 Fig. \ref{fig:STRELA_layout}.
 
@@ -307,28 +304,16 @@ algorithm of the track reconstruction can be found in \cite{gla13}.
   \label{fig:res_chambers}
 \end{figure}
 
-The experimental setup was started by the two polysty\-rene based scintillation
-counters S1 (dimensions 10 $\times$ 10 $\times$ 0.5 cm$^3$), S2 (dimensions 7
-$\times$ 7 $\times$ 0.5 cm$^3$) and S3 (dimensions 25 $\times$ 22 $\times$ 1.0
-cm$^3$).
-\todo[inline]{MUSINSKY: add S3, DONE, ale veta zacina started by the two ...?!}
-% kedze sme na zaciatku dodali S3, spomenut, opisat ho aj tu
-The light guides are made of plexiglass. For
-light readout XP 2020 photomultipliers were used. The signals from the
-photomultipliers are connected to the shaper inputs. The use of these shapers
-allows to compensate the time spread of the signals caused by the leading edge
-of the amplitude of the photomultiplier signal. The time and amplitude
-information from the counters is digitized and recorded in each event for the
-subsequent monitoring of the counters and the entire trigger system
-functionality.
-% Tuto vetu radsej celu vyhodit.
-\todo[inline, backgroundcolor=white]{
-  The trigger system of the setup must ensure selection of events
-  of the deuteron breakup reaction at zero angle (or close to zero) between the
-  incoming deuteron and scattering protons.
-}
-\todo[inline]{URBAN: nechavame tak tuto vetu, ale potom potrebne upravit ? alebo
-  ju celu asi vyhodit ?}
+The experimental setup begins with the two polystyrene based scintillators S1
+(dimensions 10 $\times$ 10 $\times$ 0.5 cm$^3$), S2 (dimensions 7 $\times$ 7
+$\times$ 0.5 cm$^3$) and ends with S3 scintillator (dimensions 25 $\times$ 22
+$\times$ 1.0 cm$^3$). The light guides are made of plexiglass. For light readout
+XP 2020 photomultipliers were used. The signals from the photomultipliers are
+connected to the shaper inputs. The use of these shapers allows to compensate
+the time spread of the signals caused by the leading edge of the amplitude of
+the photomultiplier signal. The time and amplitude information from the counters
+is digitized and recorded in each event for the subsequent monitoring of the
+counters and the entire trigger system functionality.
 
 The analyzing dipole electromagnet 2SP-40, with transverse dimensions 100
 $\times$ 30 cm$^2$, was used as an analyzing magnet. The magnet creates the
@@ -358,9 +343,44 @@ or below is reached at the target. The deuteron flux (number of triggers) has
 been determined using S1 and S2 scintillation counters (monitored numbers) in
 coincidence. This is corrected for the efficiency of the drift chambers and
 admixture in the beam using a direct deuteron beam. The value of the correction
-is different from run to run and is in the interval 0.85~--~0.89. The track of
-deuteron beam in drift chambers DC1, DC2 before magnet and behind DC3, DC4 are
-reconstructed using the track reconstruction algorithm \cite{gla13}.
+is different from run to run and is in the interval 0.85~--~0.89.
+
+% povodna veta
+% The trigger system of the setup must ensure selection of events of the deuteron
+% breakup reaction at zero angle (or close to zero) between the incoming deuteron
+% and scattering protons.
+% URBAN prepisana veta
+% The trigger system selects events of the deuteron breakup reaction, where at
+% least one charged track inclined by magnet reaches the drift chambers DC3 and
+% DC4.
+The trigger system selects events of the deuteron breakup reaction, where at
+least one charged track inclined by magnet reaches the drift chambers DC3 and
+DC4. The momenta of the tracks in the event are reconstructed using information
+form the magnet a and from the drift chambers. % DC3 and DC4. The detailed track
+% reconstruction algorithm can be found in \cite{gla13}. (citacia je uz skor)
+Into the analysis only the events containing two reconstructed tracks are
+involved.
+% "Into the analysis" => into physical analysis alebo pre vypocet ucinneho
+% prierezu \dpchex
+
+The detector performance for two-track events was estimated by the use of the
+GEANT3 package for transporting the $dp$ reaction products from the 1m HBC
+events through the STRELA experimental setup. The plots of momenta $p_1$
+\textit{vs.}  $p_2$ of the two charged particles reaching the DC3 and DC4
+chambers are shown in Fig. \ref{fig:p1vsp2}. Simulation including all $dp$
+reaction channels (a), simulation \dpfrag channel alone (b). From this
+comparison and the fact that 1m HBC is full solid angle detector one can judge
+that the two protons of the charge exchange reaction are fully in the detector
+acceptance.
+
+
+
+
+
+
+% The track of
+% deuteron beam in drift chambers DC1, DC2 before magnet and behind DC3, DC4 are
+% reconstructed using the track reconstruction algorithm \cite{gla13}.
 
 \todo[inline, backgroundcolor=white]{
   The deuteron breakup events reaching the drift chambers DC3 and DC4 are supposed
@@ -443,20 +463,43 @@ and C targets (a) and their difference CH$_2-\,$C (b). The results of simulation
 \dpfrag only (b).
 % ak bude info ohladom 3.5 GeV STRELA a 3.35 GEV 1m HBC spomenute uz v odstavci
 % ohladom akceptnacie, tak tuto vyhodit
-Note that for the simulation real events from the one meter
-bubble chamber at the momenta 3.35~\GeVc (with relatively small statistics) were
-used. As one can see, the distribution has a characteristic peak near the
-incoming deuteron momentum kinematically associated with the pair of protons
-from the \dpfrag reaction (Fig. \ref{fig:p1p2exp} (b)).
-\todo[inline, backgroundcolor=white]{ The contribution from the background
-  reactions, other than the studied \dpfrag reaction, which could also produce
-  the two positively charged track in the forward direction, is negligible
-  (Fig. \ref{fig:p1p2sim} (b)). }
-\todo[inline]{URBAN: asi bude uz nieco podobne v odstavci o akceptancii ?}
+Note that for the simulation real events (with relatively small statistics) from
+the 1m HBC at the momenta 3.35~\GeVc were used. As one can see, the distribution
+has a characteristic peak near the incoming deuteron momentum kinematically
+associated with the pair of protons from the \dpfrag reaction
+(Fig. \ref{fig:p1p2exp} (b)).
+
+
+The deuteron breakup events reaching the drift chambers DC3 and DC4 are supposed
+to contain: two protons with close momenta, approximately equal to the half of
+the incident deuteron beam momenta, from the charge exchange reaction \dpchex,
+or a single proton from the charge retention \dpfrag channel, where the recoil
+proton is filtered out by the magnet.
+
+In the presented data (Fig. NOVY) two well-seperated areas can be distinguished
+as well as in the simulated ones (Fig. STARONOVYa). The more populated ellipse
+like area in Fig. STARONOVYa can be ascribed to the charge exchange events if
+one compare with the results of \dpchex simulation in STARONOVYb. This
+crosschecks the statements made about the detector acceptance above. The
+arch like areas in STARONOVYa) and NOVY correspond to none charge exchange to
+two-track events. A simple cut on the sum of the two reconstructed momenta can
+remove the events from the arch like area.
+
+For further analysis only those events have been
+included, which the sum of momenta of two charge particles is in the interval
+(3.5 $\pm$ 0.2) \GeVc.
+
+
+% \todo[inline, backgroundcolor=white]{ The contribution from the background
+%   reactions, other than the studied \dpfrag reaction, which could also produce
+%   the two positively charged track in the forward direction, is negligible
+%   (Fig. \ref{fig:p1p2sim} (b)). }
+%\todo[inline]{URBAN: asi bude uz nieco podobne v odstavci o akceptancii ?}
 % podobne info asi bude v odstavci o akcpetancii
-For further analysis only those events
-have been included, which the sum of momenta of two charge particles is in the
-interval (3.5 $\pm$ 0.2) \GeVc (Fig. \ref{fig:p1p2exp} (b)).
+
+
+
+
 
 \begin{figure}[h]
   \centering
@@ -466,6 +509,19 @@ interval (3.5 $\pm$ 0.2) \GeVc (Fig. \ref{fig:p1p2exp} (b)).
     channel \dpfrag only.}
   \label{fig:p1p2sim}
 \end{figure}
+
+
+% URBAN nova veta
+%In the measured data (Fig. novy) two well-seperated areas can be distinguished
+%as well as in the simulated ones (Fig. 5a).
+
+%The more populated ellipse like area in
+%Fig. 5 c can be ascribed to the charge exchange events if one compare with the
+%results of dp->(pp)n simulation in Fig. 5b. From this comparison one can also
+%judge that the two protons of the charge exchange reaction arefully in the
+%detector acceptance.
+
+
 
 % toto cele je presunute na koniec odtstavca predchadzajucej kapitoly
 %
