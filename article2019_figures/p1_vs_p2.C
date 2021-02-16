@@ -1,4 +1,4 @@
-// 2020-05-21
+// 2021-02-16
 // Jan Musinsky
 
 void DoIt(TH2 *h);
@@ -28,9 +28,9 @@ void p1_vs_p2()
   DoIt(h_MC_dpall);
   DoIt(h_MC_dpppn);
 
-  TCanvas *c = new TCanvas("c", "c", 0, 0, 450, 1200); //450*3 - 15*3);
-  c->Divide(1, 3, 0.001, 0.001);
-  c->cd(1);
+  TCanvas *c1 = new TCanvas("c1", "c1", 0, 0, 390, 800); // histos are squares
+  c1->Divide(1, 2, 0.001, 0.001);
+  c1->cd(1);
   gPad->SetGrid();
   h_MC_dpall->Draw();
   TText *tex = new TText(0.815, 0.820,"(a)");
@@ -38,28 +38,27 @@ void p1_vs_p2()
   tex->SetTextFont(42);
   tex->SetTextAlign(22);
   tex->Draw();
-  c->cd(2);
+  c1->cd(2);
   gPad->SetGrid();
-  h_2p->Draw("cont");
+  h_MC_dpppn->Draw();
   tex = new TText(0.815, 0.820,"(b)");
   tex->SetNDC();
   tex->SetTextFont(42);
   tex->SetTextAlign(22);
   tex->Draw();
-  c->cd(3);
-  gPad->SetGrid();
-  h_MC_dpppn->Draw();
-  tex = new TText(0.815, 0.820,"(c)");
-  tex->SetNDC();
-  tex->SetTextFont(42);
-  tex->SetTextAlign(22);
-  tex->Draw();
-  c->cd();
+  c1->cd();
   gPad->Modified();
   gPad->Update();
-  c->Print("p1_vs_p2_1.eps");
-  c->Print("p1_vs_p2_1.pdf");
-  //  c->Print("p1_vs_p2_1.png");
+  c1->Print("p1_vs_p2_1.eps");
+  c1->Print("p1_vs_p2_1.pdf");
+
+  TCanvas *c2 = new TCanvas("c2", "c2", 400, 0, 390, 410); // histo is square
+  gPad->SetGrid();
+  h_2p->Draw("cont");
+  gPad->Modified();
+  gPad->Update();
+  c2->Print("p1_vs_p2_2.eps");
+  c2->Print("p1_vs_p2_2.pdf");
 }
 
 void DoIt(TH2 *h)
