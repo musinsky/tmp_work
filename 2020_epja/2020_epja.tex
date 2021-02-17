@@ -1,11 +1,10 @@
-% 2021-02-16
+% dp reaction => do interaction
+
+
+% 2021-02-17
 % TeX Live 2020: tlmgr install newtx fontaxes xstring sttools
 
 \documentclass[twocolumn,epjc3]{svjour3}
-
-\usepackage{todonotes}
-%\usepackage{xcolor}
-%\newcommand\muchanote[1]{\textcolor{red}{#1}}
 
 \usepackage[T1]{fontenc}
 %\usepackage{mathptmx}   % no bold math fonts (in title), known bug
@@ -90,10 +89,11 @@ spin-dependent term of the \np scattering amplitude in the context of the
 impulse approximation. The effect can be understood qualitatively in the
 following way. Two nucleons, bound in the deuteron may be in $^3S_1$ and $^3D_1$
 $(T = 0)$ spatial and spin symmetric states; their isospin is antisymmetric. In
-the charge exchange at $0^\circ$ w.r.t. laboratory frame (proton rest frame),
-the transition from $^3S_1$ or $^3D_1$ to a charge symmetric $^1S_0$ or $^1D_2$
-state of the two protons requires spin flip, in order to satisfy the Pauli
-principle and ensure an antisymmetric total wave function. In this way, the
+the \dpchex charge exchange on the proton target the transition from $^3S_1$ or
+$^3D_1$ to a charge symmetric $^1S_0$ or $^1D_2$ state of the two protons
+requires spin flip, in order to satisfy the Pauli principle and ensure an
+antisymmetric total wave function. The two secondary protons are produced at
+angle close to $0^\circ$ w.r.t. the incoming deuteron. In this way, the
 spin-dependent part of the elementary charge exchange amplitude will be
 reflected through the probability of the charge exchange process on the
 deuteron.
@@ -101,7 +101,7 @@ deuteron.
 The original idea to take use of the charge exchange reaction on the unpolarized
 deuteron to determine the spin-dependent part of the \np charge exchange was
 proposed by Pomeranchuk \cite{pom51} and Chew \cite{chew51}. Later this
-possibility was emphasized in a series of works partly
+possibility was emphasized in a series of works
 \cite{mig55,pom51_2,lap57,dea72,dea72_2,ala75,ala75_2,bug87}. The mathematical
 description was developed later by Dean \cite{dea72,dea72_2}. These formulas
 were obtained under certain assumptions, namely relying on the validity of the
@@ -115,15 +115,15 @@ system can be presented as \cite{gla02}
   \label{eq:mat_full}
   \begin{split}
     M =\ a\ +\ &b
-    (\boldsymbol{\sigma}\,\mathbf{n})
-    (\boldsymbol{\sigma}_i\,\mathbf{n})\ +\ c\bigl[
-    (\boldsymbol{\sigma}\,\mathbf{n}) +
-    (\boldsymbol{\sigma}_i\,\mathbf{n})\bigr]\ \ + \\
+    (\boldsymbol{\sigma}_1\,\mathbf{n})
+    (\boldsymbol{\sigma}_2\,\mathbf{n})\ +\ c\bigl[
+    (\boldsymbol{\sigma}_1\,\mathbf{n}) +
+    (\boldsymbol{\sigma}_2\,\mathbf{n})\bigr]\ \ + \\
     +\ &e
-    (\boldsymbol{\sigma}\,\mathbf{m})
-    (\boldsymbol{\sigma}_i\,\mathbf{m})\ +\ f
-    (\boldsymbol{\sigma}\,\mathbf{l})
-    (\boldsymbol{\sigma}_i\,\mathbf{l})\,,
+    (\boldsymbol{\sigma}_1\,\mathbf{m})
+    (\boldsymbol{\sigma}_2\,\mathbf{m})\ +\ f
+    (\boldsymbol{\sigma}_1\,\mathbf{l})
+    (\boldsymbol{\sigma}_2\,\mathbf{l})\,,
   \end{split}
 \end{equation}
 where the orthonormal basis
@@ -136,10 +136,15 @@ where the orthonormal basis
   \frac{\mathbf{k} \times \mathbf{k}'}{|\mathbf{k} \times \mathbf{k}'|}\,,
 \end{equation}
 introduced in \cite{gol66} is used. The unit vectors $\mathbf{k}$ and
-$\mathbf{k}'$ are the initial and final nucleons momenta, respectively.
-$\boldsymbol{\sigma}$ and $\boldsymbol{\sigma}_i$ are the Pauli $2\times2$
-matrices corresponding to the fast particle and the struck nucleon from the
-deuteron, respectively.
+$\mathbf{k}'$ are in the direction of the incoming and scattered particles,
+respectively. $\boldsymbol{\sigma}_1$ and $\boldsymbol{\sigma}_2$ are the Pauli
+$2\times2$ matrices for the beam and target nucleons.
+
+% % The unit vectors $\mathbf{k}$ and
+% % $\mathbf{k}'$ are the initial and final nucleons momenta, respectively.
+% % $\boldsymbol{\sigma}$ and $\boldsymbol{\sigma}_i$ are the Pauli $2\times2$
+% % matrices corresponding to the fast particle and the struck nucleon from the
+% % deuteron, respectively.
 
 The differential cross section of the elementary \np charge exchange can be
 represented as a sum of the spin-independent (superscript $SI$) and
@@ -176,9 +181,9 @@ and the coefficients $a, b, c, e$ and $f$ refer to spin invariants of the
 elementary charge exchange amplitude in Eq. \eqref{eq:mat_full}
 \cite{dea72,ala75_2}.
 
-In this paper we consider the case, when the scattering angle $\theta$ is very
-small, close to zero. Under such kinematical conditions one obtains $b = e$ and
-$c = 0$ and for the elementary cross sections simple expressions can be written
+In this paper we consider the case, when the scattering angle is very small,
+close to zero. Under such kinematical conditions one obtains $b = e$ and $c = 0$
+and for the elementary cross sections simple expressions can be written
 \begin{equation}
   (d\sigma/dt)^{SI}_{\np} = |a|^2\,,
   (d\sigma/dt)^{SD}_{\np} = 2\,|b|^2 + |f|^2\,,
@@ -243,11 +248,9 @@ amplitude and compare with the existing experimental results.
 \begin{figure*}[t] % two-column wide
   \centering
   \includegraphics[width=1.00\textwidth]{STRELA_layout.pdf}
-  \caption{Schematic layout of the experimental setup for determining the
-    spin-dependent part of \np scattering: scintillator counters (S1 -- S3),
+  \caption{Schematic layout of the experimental setup to study the \dpchex
+    charge exchange channel, consisting of scintillator counters (S1~--~S3),
     drift chambers (DC1 -- DC4), analyzing magnet M and target T.}
-  % ZLE, len to takto pletie cloveka
-  % v popise nie je spomenuta dp, resp. dp->ppn, resp. np->pn mozno vynechat
   \label{fig:STRELA_layout}
 \end{figure*}
 
@@ -320,11 +323,11 @@ counters and the entire trigger system functionality.
 The analyzing dipole electromagnet 2SP-40, with transverse dimensions 100
 $\times$ 30 cm$^2$, was used as an analyzing magnet. The magnet creates the
 required magnetic field in the range of \,0.7~--~1.0 T at a distance of 150 cm
-along the path of the particles. The spreads in space of the non interacting
-deuteron beam and that of the recorded protons from the examined reaction are
-bended to the blocks of large drift chambers for detection. The radius of the
-curvature of the stripping protons trajectory in the magnet is about 7 m at the
-value of the magnetic field 0.83 T.
+along the path of the particles. The separation of the non interacting deuteron
+beam and that of the recorded protons from the examined reaction are bended to
+the blocks of large drift chambers for detection. The radius of the curvature of
+the stripping protons trajectory in the magnet is about 7 m at the value of the
+magnetic field 0.83 T.
 
 Carbon (C) and polyethylene (CH$_2$) targets have been used to extract the $dp$
 interaction. Carbon target was used to account for the background events. The
@@ -341,9 +344,17 @@ chambers are operable at intensities lower than $\sim 10^{6}$ particles per
 spill, a steel collimator with a rectangular aperture of 4 $\times$ 4 mm$^2$ and
 a length of 1.2 m has to be used to reduce the intensity. After applying the
 collimator the deuteron beam intensity of $\sim 5\times10^5$ particles per spill
-or below is reached at the target. The deuteron flux (number of triggers) has
+or below is reached at the target.
+
+The deuteron flux was determined using S1 and S2 coincidence and the number of
+events reaching DC3 and DC4 was monitored by S3.
+
+The deuteron flux (number of triggers) has
 been determined using S1 and S2 scintillation counters (monitored numbers) in
-coincidence. This is corrected for the efficiency of the drift chambers and
+coincidence.
+
+
+This is corrected for the efficiency of the drift chambers and
 admixture in the beam using a direct deuteron beam. The value of the correction
 is different from run to run and is in the interval 0.85~--~0.89.
 
@@ -352,8 +363,6 @@ least one charged track inclined by magnet reaches the drift chambers DC3 and
 DC4. The momenta of the tracks in the event are reconstructed using information
 form the magnet a and from the drift chambers. Into the analysis only the events
 containing two reconstructed tracks are involved.
-% "Into the analysis" => into physical analysis alebo pre vypocet ucinneho
-% prierezu \dpchex (asi mozno nechat, analyza nie je rekonstrukcia pripadov)
 
 The detector performance for two-track events was estimated by the use of the
 GEANT3 package for transporting the $dp$ reaction products from the 1m HBC
@@ -362,7 +371,6 @@ $p_1$~\textit{vs.}~$p_2$ of the two charged particles reaching the DC3 and DC4
 chambers are shown in Fig. \ref{fig:p1vsp2_sim}. Simulation including all $dp$
 reaction channels (a) and \dpfrag channel only (b). From this comparison and the
 fact that 1m HBC is full solid angle detector one can judge that the two protons
-%                                                 can see (judge "hovorove")
 of the charge exchange reaction are fully in the detector acceptance.
 
 \begin{figure}[t]
@@ -406,9 +414,8 @@ magnet.
   \centering
   \includegraphics[width=0.37\textwidth]{p1_plus_p2_1.pdf}    % 0.48
   \caption{Distributions of the sum of the two protons momenta from
-    $d$~+~CH$_{2}$ and $d$ + C reactions, experimental results: target CH$_2$
-    full line, target C dashed line (a) and difference between CH$_2-\,$C
-    targets (b).}
+    $d$~+~CH$_{2}$ and $d$ + C interactions, experimental results: CH$_2$ target
+    long dashed line, C target dashed line and their difference full line.}
   \label{fig:p1p2exp}
 \end{figure}
 
@@ -416,29 +423,41 @@ In the presented data (Fig. \ref{fig:p1vsp2_exp}) two well-seperated areas can
 be distinguished as well as in the simulated ones
 (Fig.~\ref{fig:p1vsp2_sim}~(a)). The more populated ellipse like area in
 Fig. \ref{fig:p1vsp2_sim}~(a) can be ascribed to the charge exchange events if
-one compares with the results of simulation in % radsej nepisat dp->(pp)n
-% one compares with the results of \dpchex simulation in
+one compares with the results of simulation in
 Fig. \ref{fig:p1vsp2_sim}~(b). This crosschecks the statements made about the
 detector acceptance above. The arch like areas in Fig. \ref{fig:p1vsp2_sim}~(a)
 and Fig. \ref{fig:p1vsp2_exp} correspond to background two-track events. A
 simple cut on the sum of the two reconstructed momenta can remove the events
 from the arch like area.
 
-The distribution of the sum of the two charged particles (two protons) momenta
-for both targets are obtained.
-% The background from C and CH$_2$ targets can be neglected.
-% Nikde inde to nie je uvedene, nechavame ??? alebo mazeme ???
-% asi mazat kedze pred tym spominame backgroud v 2D obrazku p1 vs p2 experiment
-The dependencies of the sum of the two proton momenta from $dp$ reaction are
-presented in Fig. \ref{fig:p1p2exp} for CH$_2$ and C targets (a) and their
-difference CH$_2-\,$C (b). The results of simulation (Fig. \ref{fig:p1p2sim})
-include all channels $dp$ reaction (a) and channel \dpfrag only (b). Note that
-for the simulation real events (with relatively small statistics) from the 1m
-HBC at the momenta 3.35~\GeVc were used. As one can see, the distribution has a
+The obtained distribution of the sum of the two charged particles (two protons)
+momenta for both CH$_2$ and C targets are displayed in Fig. \ref{fig:p1p2exp},
+distinguished by long dashed and dashed lines, respectively. The difference of
+the two distributions (full line) shows that the background from C target can be
+neglected. The results of simulation (Fig. \ref{fig:p1p2sim}) include all
+channels of the $dp$ interaction (a) and \dpfrag channel only (b). Note that for
+the simulation real events (with relatively small statistics) from the 1m HBC at
+the momenta 3.35~\GeVc were used. As one can see, the distribution has a
 characteristic peak near the incoming deuteron momentum kinematically associated
-with the pair of protons from the \dpfrag reaction (Fig. \ref{fig:p1p2exp} (b)).
-For further analysis only those events have been included, which the sum of
-momenta of two charge particles is in the interval (3.5 $\pm$ 0.2) \GeVc.
+with the pair of protons from the \dpfrag reaction (Fig. \ref{fig:p1p2exp}).
+Into the further analysis only those events have been included, where the sum of
+two charge particles momenta is in the interval (3.5 $\pm$ 0.2) \GeVc.
+
+% The distribution of the sum of the two charged particles (two protons) momenta
+% for both targets are obtained.
+% % The background from C and CH$_2$ targets can be neglected.
+% % Nikde inde to nie je uvedene, nechavame ??? alebo mazeme ???
+% % asi mazat kedze pred tym spominame backgroud v 2D obrazku p1 vs p2 experiment
+% The dependencies of the sum of the two proton momenta from $dp$ reaction are
+% presented in Fig. \ref{fig:p1p2exp} for CH$_2$ and C targets (a) and their
+% difference CH$_2-\,$C (b). The results of simulation (Fig. \ref{fig:p1p2sim})
+% include all channels $dp$ reaction (a) and channel \dpfrag only (b). Note that
+% for the simulation real events (with relatively small statistics) from the 1m
+% HBC at the momenta 3.35~\GeVc were used. As one can see, the distribution has a
+% characteristic peak near the incoming deuteron momentum kinematically associated
+% with the pair of protons from the \dpfrag reaction (Fig. \ref{fig:p1p2exp} (b)).
+% For further analysis only those events have been included, which the sum of
+% momenta of two charge particles is in the interval (3.5 $\pm$ 0.2) \GeVc.
 
 \begin{figure}[b]
   \centering
@@ -582,10 +601,10 @@ flip ratio in the \np charge exchange are estimated between 0.551 and 0.589
 depending on energy. The value of $R_{dp}(0) = 0.553 \pm 0.026$ at 1.0 \GeV
 \cite{sha09} is within the experimental uncertainties consistent with our
 result. The experiment with monochromatic fast deuterons is more rational in
-%       The STRELA experiment         alebo    deuterons (like as STRELA) is
-respect to the analysis of experimental data. The two secondary protons,
-products of the charge exchange on deuteron \dpchex are fast moving in the
-forward direction at small angles, and so they are easily detectable.
+respect to the analysis of experimental data, \textit{e.g.} STRELA. The two
+secondary protons, products of the charge exchange on deuteron \dpchex are fast
+moving in the forward direction at small angles, and so they are easily
+detectable.
 
 In the works \cite{chi09,mch13} the \dpfrag reaction as was used to study
 neutron proton charge exchange amplitudes on the ANKE spectrometer at the COSY
@@ -598,8 +617,7 @@ spin-independent amplitude $\alpha$, whose magnitude can only be estimated by
 comparing the deuteron data with the free \np differential cross section, is
 absent.
 
-% So, ... nie je to prilis "hovorove"             + STRELA (rozdelena)
-So, to extend the researches to higher energies on STRE\-LA setup is acceptable
+So, to extend the studies to higher energies on STRELA setup is acceptable
 and the preparation is in progress.
 
 \begin{acknowledgements}
