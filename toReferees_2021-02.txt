@@ -1,24 +1,24 @@
-Dear Professor Alexandre Obertelli,
-in answer to the referees of article Manuscript ID EPJA-105992. The suggestions of the referees were accepted and the article correspondingly edited.
+Dear Professor Obertelli,
+In answer to the referees of Manuscript ID EPJA-105992. The suggestions of the referees were accepted and correspondingly the article was seriously modified.
 
 Referee: 1
-All the comments were accepted and some of them we would like however to comment.
+All the comments were accepted, however some of them we would like to comment.
 
-Page 1, line 45, left col.: The statement sound trivial, did the authors mean "possibility to determine ... " from a limited set of observables?
-
+"Page 1, line 45, left col.: The statement sound trivial, did the authors mean "possibility to determine ... " from a limited set of observables?"
 Yes, we have in mind the limited set of observables as explained in next sentence.
 
-Page 1, line 56, 57, left col.: what is the "fast particle" and "the struck nucleon in the deuteron" in the context of a general eq. 1 for NN-interaction?
+"Page 1, line 56, 57, left col.: what is the "fast particle" and "the struck nucleon in the deuteron" in the context of a general eq. 1 for NN-interaction?"
+By fast particle we meant the scattered nucleon and by struck in the deuteron we meant the participant nucleon from the deuteron. In the new version the paragraph was rewritten.
 
-By recoiled nucleon we meant the participant nucleon from the deuteron.
+"Page 6, equation 9, How was this formula obtained?"
+The formula used for cross section is the classical definition N_int = N_0*(1 - e^-#sigma*n*l). The whole paragraph was rewritten.
 
-Page 6, equation 9, How was this formula obtained?
-The formula used for cross section is the classical definition N_int = N_0*(1 - e^-#sigma*n*l)
 
 Referee: 2
-All the comments were accepted.
+All the comments were accepted and included into the text.
+
 
 We would like to express our acknowledgment towards the referees. Their remarks and suggestions were indeed useful and will improve the quality and readability of the paper.
 
-
 Best regards,
+Musinsky

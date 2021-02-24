@@ -1,4 +1,4 @@
-% 2021-02-23
+% 2021-02-24
 % TeX Live 2020: tlmgr install newtx fontaxes xstring sttools
 
 \documentclass[twocolumn,epjc3]{svjour3}
@@ -28,8 +28,8 @@
 
 \title{Charge exchange
   $\boldsymbol{{\dpchex}}$ % correct bold math fonts (not for mathptmx)
-  %reaction study at 1.75 A \GeVc by the STRELA spectrometer}
-  reaction study at 1.75 \GeVc per nucleon by the STRELA spectrometer}
+  reaction study at 1.75 A \GeVc by the STRELA spectrometer}
+%reaction study at 1.75 \GeVc per nucleon by the STRELA spectrometer}
 
 \author{\raggedright
   S.~N.~Basilev\thanksref{jinr}    \and Yu.~P.~Bushuev\thanksref{jinr}   \and
@@ -174,9 +174,10 @@ and the coefficients $a, b, c, e$ and $f$ refer to spin invariants of the
 elementary charge exchange amplitude in Eq. \eqref{eq:mat_full}
 \cite{dea72,ala75_2}.
 
-In this paper we consider the case, when the scattering angle is very small,
-close to zero. Under such kinematical conditions one obtains $b = e$ and $c = 0$
-and for the elementary cross sections simple expressions can be written
+In this paper we consider the case, when the scattering angle (between the
+incoming and scattered particles) is very small, close to zero. Under such
+kinematical conditions one obtains $b = e$ and $c = 0$ and for the elementary
+cross sections simple expressions can be written
 \begin{equation}
   (d\sigma/dt)^{SI}_{\np} = |a|^2\,,
   (d\sigma/dt)^{SD}_{\np} = 2\,|b|^2 + |f|^2\,,
@@ -253,11 +254,12 @@ Based on the above mentioned ideas and experimental results, obtained using the
 constructed in the Veksler Baldin Laboratory for High Energy Physics (VBLHEP) of
 the Joint Institute for Nuclear Research (JINR) in Dubna with the aim to select
 and detect charge exchange events in deuteron proton collisions. The experiment
-demands registration of two protons with momenta approximately equal to the half
-of the primary deuteron beam momenta. STRELA is a typical one arm magnetic
-spectrometer, consisting of scintillator detectors (S1 -- S3) used to trigger
-the setup, blocks of drift chambers (DC1 -- DC4) used as coordinate detector,
-analyzing magnet M and targets (C and CH$_2$), see Fig.~\ref{fig:STRELA_layout}.
+demands registration of two final state protons with momenta approximately equal
+to the half of the primary deuteron beam momenta. STRELA is a typical one arm
+magnetic spectrometer, consisting of scintillator detectors (S1 -- S3) used to
+trigger the setup, blocks of drift chambers (DC1 -- DC4) used as coordinate
+detector, analyzing magnet M and targets (C and CH$_2$), see
+Fig.~\ref{fig:STRELA_layout}.
 
 The sensitive areas of the drift chambers are the following: 12.5 $\times$ 12.5
 cm$^2$ for DC1, DC2 (small chambers) and 25 $\times$ 25 cm$^2$ for DC3, DC4
@@ -402,7 +404,7 @@ The obtained distribution of the sum of the two charged particles (two protons)
 momenta for both CH$_2$ and C targets are displayed in Fig. \ref{fig:p1p2exp},
 distinguished by long dashed and dashed lines, respectively. The difference of
 the two distributions (full line) shows that the background from C target can be
-neglected. The results of simulation shown in Fig.~\ref{fig:p1p2sim} include all
+reduced. The results of simulation shown in Fig.~\ref{fig:p1p2sim} include all
 channels of the $dp$ interaction (a) and \dpfrag channel only (b). Note that for
 the simulation real events (with relatively small statistics) from the 1m HBC at
 the momenta 3.35~\GeVc were used. As one can see, the distribution has a
@@ -471,7 +473,7 @@ The quoted \,error is statistical \,only. \,Systematic uncertainties which
 affect the overall normalization of the cross sections have been estimated to be
 about 5~\%. This uncertainty stems mainly from the deuteron flux determination.
 The uncertainty from the target thickness and the histogram bin width are
-comparably small.
+relatively small.
 
 The obtained charge exchange differential cross section on the deuteron at $t=0$
 was compared with the available data from \np reaction at the same interpolated
@@ -622,10 +624,9 @@ flip ratio in the \np charge exchange are estimated between 0.551 and 0.589
 depending on energy. The value of $R_{dp}(0) = 0.553 \pm 0.026$ at 1.0 \GeV
 \cite{sha09} is within the experimental uncertainties consistent with our
 result. The experiment with monochromatic fast deuterons is more rational in
-respect to the analysis of experimental data, \textit{e.g.} STRELA. The two
-secondary protons, products of the charge exchange on deuteron \dpchex are fast
-moving in the forward direction at small angles, and so they are easily
-detectable.
+respect to the analysis of experimental data, \textit{e.g.} STRELA, because the
+two secondary protons, products of the \dpchex channel, are fast moving in the
+forward direction at small angles, and so they are easily detectable.
 
 In the works \cite{chi09,mch13} the \dpfrag reaction as was used to study
 neutron proton charge exchange amplitudes on the ANKE spectrometer at the COSY
