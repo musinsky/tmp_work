@@ -1,4 +1,4 @@
-% 2021-02-24
+% 2021-02-25
 % TeX Live 2020: tlmgr install newtx fontaxes xstring sttools
 
 \documentclass[twocolumn,epjc3]{svjour3}
@@ -29,7 +29,6 @@
 \title{Charge exchange
   $\boldsymbol{{\dpchex}}$ % correct bold math fonts (not for mathptmx)
   reaction study at 1.75 A \GeVc by the STRELA spectrometer}
-%reaction study at 1.75 \GeVc per nucleon by the STRELA spectrometer}
 
 \author{\raggedright
   S.~N.~Basilev\thanksref{jinr}    \and Yu.~P.~Bushuev\thanksref{jinr}   \and
@@ -217,12 +216,11 @@ are easily detectable.
 
 These studies made it possible to propose the layout of a counter experiment for
 studying the charge exchange reaction with sufficient statistical accuracy in
-unpolarized deuteron beams at energies above 1~\GeV. Several variants of the
-detector layout and magnet for the prepared experiment STRELA were suggested and
-realized. For the observation of the proton pairs in a narrow cone coming from
-the \dpchex reaction several variants of experimental setup were suggested and
-realized. For the optimization of the experiment geometry the above $dp$ events
-from 1m HBC were used as input the GEANT3 tracking simulations \cite{gla13}.
+unpolarized deuteron beams at energies above 1~\GeV. For the observation of the
+proton pairs in a narrow cone coming from the \dpchex reaction several variants
+of experimental setup for the prepared experiment STRELA were suggested and
+realized \cite{gla13}. For the optimization of the experiment geometry the above
+$dp$ events from 1m HBC were used as input the GEANT3 tracking simulations.
 
 In the meantime the interest to obtain information on the cross section of the
 spin-dependent part of the \np scattering renewed. In the region above 1 \GeV
@@ -297,7 +295,7 @@ algorithm of the track reconstruction can be found in \cite{gla13}.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.46\textwidth]{res_chambers.pdf} % original 0.48
+  \includegraphics[width=0.48\textwidth]{res_chambers.pdf}
   \caption{Example of distribution of track residuals $\Delta r$ in the $xz$
     plane of drift chambers: (a) small and (b) large. The solid curve is a
     double Gaussian approximation \cite{gla13}.}
@@ -324,8 +322,8 @@ about 1~\%.
 Carbon (C) and polyethylene (CH$_2$) targets are used to extract the $dp$
 interaction by subtracting CH$_2$ and C distributions. The volume of the targets
 is determined by carbon nuclei equivalent. Their shapes are cylindrical, both
-with diameters of 60 mm. The length of targets CH$_2$ and C are 48 mm and 54 mm,
-respectively. The density of H nuclei per cm$^2$ for CH$_2$ target is (4.74
+with diameters of 60 mm. The length of targets CH$_2$ and C are 48~mm and 54~mm,
+respectively. The density of H nuclei per~cm$^2$ for CH$_2$ target is (4.74
 $\pm$ 0.05)$\times$10$^{23}$ cm$^{-2}$.
 
 The measurement was done at the intensities of beam of 2~--~3~$\times$~10$^5$
@@ -353,9 +351,9 @@ protons of the charge exchange reaction are fully in the detector acceptance.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.43\textwidth]{p1_vs_p2_1.pdf} % original 0.40
-  \caption{Plot of the GEANT3 tracked 1m HBC two charged particles momenta
-    $p_1$ \textit{vs.} $p_2$ from $dp$: all channels (a) and \dpfrag only~(b).}
+  \includegraphics[width=0.43\textwidth]{p1_vs_p2_1.pdf}
+  \caption{Plot of the GEANT3 tracked 1m HBC two charged particles momenta $p_1$
+    \textit{vs.} $p_2$ from $dp$: all channels (a) and \dpfrag only~(b).}
   \label{fig:p1vsp2_sim}
 \end{figure}
 
@@ -377,7 +375,7 @@ approximately equal to the half of the beam momenta, or a single fast proton
 from the charge retention \dpret channel, where the recoil slow proton is
 filtered out by the magnet.
 
-In the presented data (Fig. \ref{fig:p1vsp2_exp}) two well-seperated areas can
+In the presented data (Fig. \ref{fig:p1vsp2_exp}) two well-separated areas can
 be distinguished as well as in the simulated ones
 (Fig.~\ref{fig:p1vsp2_sim}~(a)). The more populated ellipse like area in
 Fig. \ref{fig:p1vsp2_sim}~(a) can be ascribed to the charge exchange events if
@@ -393,10 +391,6 @@ from the arch like area.
   \includegraphics[width=0.43\textwidth]{p1_vs_p2_2.pdf}
   \caption{Plot of the measured momenta $p_1$ \textit{vs.} $p_2$ of the two
     tracks from $d$ + CH$_{2}$ interaction, experimental result.}
-  % bod1: x=1.6, y=2.1   3.5+0.2
-  % bod2: x=1.9, y=1.8
-  % bod1: x=1.6, y=1.7   3.5-0.2
-  % bod2: x=1.9, y=1.4
   \label{fig:p1vsp2_exp}
 \end{figure}
 
@@ -411,19 +405,19 @@ the momenta 3.35~\GeVc were used. As one can see, the distribution has a
 characteristic peak near the incoming deuteron momentum kinematically associated
 with the pair of protons from the \dpfrag reaction (Fig. \ref{fig:p1p2exp}).
 Into the further analysis only those events have been included, where the sum of
-two charge particles momenta is in the interval (3.5 $\pm$ 0.2) \GeVc.
+the two protons momenta is in the interval (3.5 $\pm$ 0.2) \GeVc.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.46\textwidth]{p1_plus_p2_1.pdf}    % 0.48
+  \includegraphics[width=0.43\textwidth]{p1_plus_p2_1.pdf}
   \caption{Distributions of the sum of the two protons momenta from
     $d$~+~CH$_{2}$ and $d$ + C interactions, experimental results: CH$_2$ target
     long dashed line, C target dashed line and their difference full line.}
   \label{fig:p1p2exp}
 \end{figure}
-\begin{figure}[!h]
+\begin{figure}[t]
   \centering
-  \includegraphics[width=0.46\textwidth]{p1_plus_p2_2.pdf}    % crop 0.37
+  \includegraphics[width=0.43\textwidth]{p1_plus_p2_2.pdf}
   \caption{Distributions of the sum of the two protons momenta from GEANT3
     tracked 1m HBC: $dp$ all channels (a) and \dpfrag channel only (b).}
   \label{fig:p1p2sim}
@@ -439,16 +433,12 @@ The measured $dN/dt$ distribution of the \dpchex reaction is displayed in
 Fig. \ref{fig:dndt} together with the curve corresponding to a fit by
 empirically well established expression
 \begin{equation}
-  \label{eq:dndtfit}
   dN/dt = a\,\exp(b\,t)\,,
+  \label{eq:dndtfit}
 \end{equation}
-with parameters $a=(435.6 \pm 6.8)$ and $b=(-440.9 \pm 9.1)$.
-% Chi2/ndf = 77.93/78 (entries=4373, xbins=80)
-The value $(dN/dt)|\,_{t=0}$ was transformed to cross section
+with parameters $a=(435.6 \pm 6.8)$ and $b=(-440.9 \pm 9.1)$. The value
+$(dN/dt)|\,_{t=0}$ was transformed to cross section
 \begin{equation}
-  % \sigma =
-  % \frac{1}{n\,lb_w}\ln\bigg(1\Big/\Big(1-\frac{N_{int}}{N_0}\Big)\bigg)\,,
-  % \bigg(\frac{d\sigma}{dt}\bigg)\Big|_{t=0} =
   \frac{d\sigma}{dt}\Big|_{\,t=0} =
   \frac{a}{n\,l\,b_w}\ln\bigg(\frac{N_0}{N_0-N_{rec}}\bigg)\,,
 \end{equation}
@@ -480,7 +470,7 @@ was compared with the available data from \np reaction at the same interpolated
 energy from published data. The closest energy data comes from measurements made
 at the SATURN accelerator \cite{biz75,bys78}. Unlike to the other similar
 experiments, Bizard et al. \cite{biz75} used quasi monochromatic neutrons from
-accelerated deuteron stripping with a momentum spread of 5~\%. New data about
+accelerated deuteron stripping with a momentum spread of~5~\%. New data about
 \np scattering at the momenta of incident quasi monochromatic neutrons at 1.43,
 2.23 and 5.20 \GeVc have been obtained in \cite{tro14}.
 
@@ -492,7 +482,7 @@ extrapolated at each momentum to $t=0$ by fitting the expression
 $d\sigma/dt = a\,\exp(b\,t + c\,t^2)$. This reference dependence has already
 been used in \cite{gla08}.
 
-\begin{figure}[ht]
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.48\textwidth]{np_dSigma.pdf}
   \caption{The dependence of the $(d\sigma/dt)|\,_{t=0}$ for the \np reaction on
@@ -516,7 +506,6 @@ scattering (charge exchange) on the deuteron and proton
   \begin{split}
     R_{\np} &= \frac{(d\sigma/dt)_{\dpchex}}{(d\sigma/dt)_{\np}} \\
     &= 0.64 \pm 0.01\,\mathrm{(stat.)} \pm 0.04\,\mathrm{(syst.)}.
-    \label{eq:rnp}
   \end{split}
 \end{equation}
 Under the assumption Eq. \eqref{eq:dp_23np} and Eq. \eqref{eq:np_sum} stated
@@ -531,7 +520,6 @@ two parts of the elastic \np charge exchange cross section, has been obtained as
     R^{\,ID}_{\np} &= \frac{(d\sigma/dt)^{SI}_{\np}}{(d\sigma/dt)^{SD}_{\np}}
     = \frac{2}{3\,R_{\np}} \ - \ 1 \\
     &= 0.05 \pm 0.02\,\mathrm{(stat.)} \pm 0.07\,\mathrm{(syst.)}.
-    \label{eq:rid}
   \end{split}
 \end{equation}
 It should be emphasized that the obtained contribution, of course, depends on
@@ -553,67 +541,10 @@ at $t=0$ for \dpchex and that of \np reaction
 $R_{\np} = 0.64 \pm 0.01\,\mathrm{(stat.)} \pm 0.04\,\mathrm{(syst.)}$ testifies
 the prevailing contribution of the spin-dependent part to the \np scattering.
 This conclusion is in accordance with \cite{gla08}, where the quantities are
-published with considerably large errors.
-For illustration of the improvement in this experiment one can quote,
-\textit{e.g.}, the $R^{\,ID}_{\np} = 0.21 \pm 0.17$ \cite{gla08} and the present
-ratio
+published with considerably large errors. For illustration of the improvement in
+this experiment one can quote, \textit{e.g.}, the
+$R^{\,ID}_{\np} = 0.21 \pm 0.17$ \cite{gla08} and the present ratio
 $R^{\,ID}_{\np} = 0.05 \pm 0.02\,\mathrm{(stat.)} \pm 0.07\,\mathrm{(syst.)}$.
-
-% These ratios depend on the $(d\sigma/dt)|\,_{t=0}$ of the \np reaction
-% extracted from published data.
-
-
-
-%%%This value agrees with the differential
-% cross section $(d\sigma/dt)|\,_{t=0}=(30.2\,\pm\,4.1$) mb$/$(\GeVc)$^{\,2}$
-% obtained by means of the one meter hydrogen bubble chamber at 1.675 A \GeVc per
-% nucleon. The obtained ratio of the charge exchange differential cross sections
-% at $t=0$ for \dpchex and \np reactions
-% $R_{\np} = 0.64 \pm 0.01\,\mathrm{(stat.)} \pm 0.04\,\mathrm{(syst.)}$ testifies
-% the prevailing contribution of the spin-dependent part to the \np scattering.
-% This ratio depends on the $(d\sigma/dt)|\,_{t=0}$ of the \np reaction extracted
-% from published data.
-
-%The obtained ratios Eq. \eqref{eq:rnp} and \eqref{eq:rid}, within the
-%uncertainties, are consistent with those of 1m HBC \cite{gla08},
-%determined with considerably large errors.
-
-% The value of the
-% \dpchex channel differential cross section
-% $(d\sigma/dt)|\,_{t=0}=(30.56\,\pm\,0.48$) mb$/$(\GeVc)$^{\,2}$ has been
-% established at 1.75 A \GeVc per nucleon. This value agrees with the differential
-% cross section $(d\sigma/dt)|\,_{t=0}=(30.2\,\pm\,4.1$) mb$/$(\GeVc)$^{\,2}$ and
-% the obtained ratios Eq. \eqref{eq:rnp} and \eqref{eq:rid}, within the
-% uncertainties, are also consistent with the results of 1m HBC \cite{gla08},
-% where the errors are large.
-
-
-% The determined
-% ratio of the charge exchange differential cross sections at $t=0$ for \dpchex
-% to \np reactions
-% $R_{\np} = 0.64 \pm 0.01\,\mathrm{(stat.)} \pm 0.04\,\mathrm{(syst.)}$ testifies
-% the prevailing contribution of the spin-dependent part to the \np scattering.
-% The obtained contribution of the spin-independent part
-% $R^{\,ID}_{\np} = 0.05 \pm 0.02\,\mathrm{(stat.)} \pm 0.07\,\mathrm{(syst.)}$
-% and the ratio $R_{\np}$ are within the uncertainties consistent with the results
-% of 1m HBC \cite{gla08}. Both ratios depend on the $(d\sigma/dt)|\,_{t=0}$ of the
-% \np reaction extracted from published data.
-
-% The spectrometric complex has been developed on the basis of the STRELA setup to
-% study the charge exchange reaction in unpolarized deuteron beam. The value of
-% the charge exchange reaction \dpchex differential cross section
-% $(d\sigma/dt)|\,_{t=0}=(30.56\,\pm\,0.48$) mb$/$(\GeVc)$^{\,2}$ has been
-% obtained at 1.75 A \GeVc per nucleon. This value agrees with the differential
-% cross section $(d\sigma/dt)|\,_{t=0}=(30.2\,\pm\,4.1$) mb$/$(\GeVc)$^{\,2}$
-% obtained by means of the one meter hydrogen bubble chamber at 1.675 A \GeVc per
-% nucleon. The obtained ratio of the charge exchange differential cross sections
-% at $t=0$ for \dpchex and \np reactions
-% $R_{\np} = 0.64 \pm 0.01\,\mathrm{(stat.)} \pm 0.04\,\mathrm{(syst.)}$ testifies
-% the prevailing contribution of the spin-dependent part to the \np scattering.
-% This ratio depends on the $(d\sigma/dt)|\,_{t=0}$ of the \np reaction extracted
-% from published data.
-
-
 
 In the region above 1 \GeV Delta-Sigma group published the
 $R_{dp}(0) = (d\sigma/dt)_{\,nd} / (d\sigma/dt)_{\,np}$ ratios
@@ -705,255 +636,6 @@ the preparation is in progress.
 \end{thebibliography}
 
 \end{document}
-
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: t
-%%% End:
-
-
-
-\iffalse
-% BORDEL
-
-
-% povodne odstavce pred Piskunovom
-The experimental setup begins with the two polystyrene based scintillators S1
-(dimensions 10 $\times$ 10 $\times$ 0.5 cm$^3$), S2 (dimensions 7 $\times$ 7
-$\times$ 0.5 cm$^3$) and ends with S3 scintillator (dimensions 25 $\times$ 22
-$\times$ 1.0 cm$^3$). The light guides are made of plexiglass. For light readout
-XP 2020 photomultipliers were used. The signals from the photomultipliers are
-connected to the shaper inputs. The use of these shapers allows to compensate
-the time spread of the signals caused by the leading edge of the amplitude of
-the photomultiplier signal. The time and amplitude information from the counters
-is digitized and recorded in each event for the subsequent monitoring of the
-counters and the entire trigger system functionality.
-
-The analyzing dipole electromagnet 2SP-40, with transverse dimensions 100
-$\times$ 30 cm$^2$, was used as an analyzing magnet. The magnet creates the
-required magnetic field in the range of \,0.7~--~1.0 T at a distance of 150 cm
-along the path of the particles. The separation of the non interacting deuteron
-beam and that of the recorded protons from the examined reaction are bended to
-the blocks of large drift chambers for detection. The radius of the curvature of
-the stripping protons trajectory in the magnet is about 7 m at the value of the
-magnetic field 0.83 T.
-
-Carbon (C) and polyethylene (CH$_2$) targets have been used to extract the $dp$
-interaction. Carbon target was used to account for the background events. The
-final distributions of the $dp$ interactions are obtained by subtracting CH$_2$
-and C distributions with coefficient one. The size of the targets have been
-determined by carbon nuclei equivalent. The shape of targets CH$_2$ and C are
-cylindrical, both with diameters of 60 mm. The length of targets CH$_2$ and C
-are 48 mm and 54 mm, respectively. The density of H nuclei per cm$^2$ for CH$_2$
-target is (4.74 $\pm$ 0.05)$\times$10$^{23}$ cm$^{-2}$.
-
-
-The setup was irradiated in deuteron beams of an incident momentum of 3.5 \GeVc
-with intensity not lower then $\sim 10^{7}$ particles per spill. Since the drift
-chambers are operable at intensities lower than $\sim 10^{6}$ particles per
-spill, a steel collimator with a rectangular aperture of 4 $\times$ 4 mm$^2$ and
-a length of 1.2 m has to be used to reduce the intensity. After applying the
-collimator the deuteron beam intensity of $\sim 5\times10^5$ particles per spill
-or below is reached at the target.
-% zacali sme prerabat s Urbanom (a v tom poslal Piskunov komentar)
-The deuteron flux was determined using S1 and S2 coincidence and the number of
-events reaching DC3 and DC4 was monitored by S3.
-% povodna veta
-The deuteron flux (number of triggers) has been determined using S1 and S2
-scintillation counters (monitored numbers) in coincidence.
-%
-This is corrected for the efficiency of the drift chambers and
-admixture in the beam using a direct deuteron beam. The value of the correction
-is different from run to run and is in the interval 0.85~--~0.89.
-% koniec Piskunov zmeny
-
-
-
-% povodna veta
-% The trigger system of the setup must ensure selection of events of the deuteron
-% breakup reaction at zero angle (or close to zero) between the incoming deuteron
-% and scattering protons.
-% URBAN prepisana veta
-% The trigger system selects events of the deuteron breakup reaction, where at
-% least one charged track inclined by magnet reaches the drift chambers DC3 and
-% DC4.
-
-% The track of deuteron beam in drift chambers DC1, DC2 before magnet and behind
-% DC3, DC4 are reconstructed using the track reconstruction algorithm
-% \cite{gla13}.
-
-% akceptancia
-\todo[inline, backgroundcolor=white]{
-  The deuteron breakup events reaching the drift chambers DC3 and DC4 are supposed
-  to contain:
-  111) two protons with close momenta, approximately equal to the half of the
-  incident deuteron beam momenta, from the charge exchange reaction \dpchex,
-  222) or a single proton from the charge retention \dpret channel, where the
-  recoil proton is filtered out with the magnet.
-
-  The detector performance was estimated by the use of the GEANT3 package for
-  transporting the $dp$ interaction products from the 1m HBC events through the
-  experimental setup. The plots of momenta $p_1$ \textit{vs.} $p_2$ of the two
-  charged particles reaching the DC3 and DC4 chambers are shown in
-  Fig. \ref{fig:p1vsp2}: simulation including all $dp$ interaction channels (a),
-  simulation \dpfrag channel alone (b) and recent experimental distribution
-  (c). Comparing experimental data with simulation it can be seen that the two
-  protons of the charge exchange reaction are fully in the detector acceptance.
-  % doplnit info ohladom vychadzovania castic z inych kanalov t.j. two charged
-  % particles = two protons !!! OBRAZOK prerobit
-
-  POVODNY TEXT OBR. 5 The plot of momenta $p_1$ \textit{vs.} $p_2$ of the two
-  charged particles (two protons) from $dp$ interaction is shown in
-  Fig. \ref{fig:p1vsp2}. From the comparison of the simulation results (a) and
-  (c) with the experimental results (b), it can be seen that the background from
-  other channels of the $dp$ interaction may be eliminated.  }
-
-\todo[inline]{URBAN: akceptancia odstavec, prepisat\\
-  1) vysvetlnie ohladom \dpfrag = \dpchex + \dpret asi nechat, kedze nikde inde
-  sa o tomto nezmienujeme, ALE\\
-  2) nas zaujimaju DVE NABITE CASTICE (dve drahy), ktore doletili az do DC3,4\\
-  3) dva protony z charge exchange detekujeme na 100\%, co vidno z obrazku 5:
-  simulaciu + realny experiment. Preto STRELA setup, resp. geometry bola takto
-  navrhnuta\\
-  4) okrem toho na obrazku vidime, ze lahko mozmeme vyhodit background z inych
-  dvojcasticovy kanalov reakcie $dp$ (nieco podobne je uvedene aj na
-  nasledujucej strane, vid nasledujuca poznamka)\\
-  5) neviem ci to ma zmysel spomenut, kedze STRELA bola pri 3.5 GeV/c a 1m HBC
-  pri 3.35 GeV/c, tak preto na obrazku 5 vidno mierne posunutie medzi STRELA
-  experiment a simulaciou z 1m HBC. Podla uvazenia}
-
-\todo[inline]{MUSINSKY: obrazok 5 prehodit poradie a,b,c. Nove poradie asi bude
-  c,a,b + obrazok premiestnit na toto miesto, t.j. pred obrazok 4}
-
-% \todo[inline, backgroundcolor=white]{ The contribution from the background
-%   reactions, other than the studied \dpfrag reaction, which could also produce
-%   the two positively charged track in the forward direction, is negligible
-%   (Fig. \ref{fig:p1p2sim} (b)). }
-%\todo[inline]{URBAN: asi bude uz nieco podobne v odstavci o akceptancii ?}
-% podobne info asi bude v odstavci o akcpetancii
-
-%
-% The plot of momenta $p_1$ \textit{vs.} $p_2$ of the two charged particles (two
-% protons) from $dp$ reaction is shown in Fig. \ref{fig:p1vsp2}. From the
-% comparison of the simulation results (a) and (c) with the experimental results
-% (b), it can be seen that the background from other channels of the $dp$ reaction
-% may be eliminated.
-
-
-%In accordance with theory the aim of the present experiment is to determine the
-%value of the differential cross section for four-momentum transfer squared
-%$|t| = 0$. This value can only be obtained by extrapolating the distribution
-%$dN/dt$ to $|t|\mapsto0$, where $N$ is the number of interactions.
-
-
-% The distribution of the sum of the two charged particles (two protons) momenta
-% for both targets are obtained.
-% % The background from C and CH$_2$ targets can be neglected.
-% % Nikde inde to nie je uvedene, nechavame ??? alebo mazeme ???
-% % asi mazat kedze pred tym spominame backgroud v 2D obrazku p1 vs p2 experiment
-% The dependencies of the sum of the two proton momenta from $dp$ reaction are
-% presented in Fig. \ref{fig:p1p2exp} for CH$_2$ and C targets (a) and their
-% difference CH$_2-\,$C (b). The results of simulation (Fig. \ref{fig:p1p2sim})
-% include all channels $dp$ reaction (a) and channel \dpfrag only (b). Note that
-% for the simulation real events (with relatively small statistics) from the 1m
-% HBC at the momenta 3.35~\GeVc were used. As one can see, the distribution has a
-% characteristic peak near the incoming deuteron momentum kinematically associated
-% with the pair of protons from the \dpfrag reaction (Fig. \ref{fig:p1p2exp} (b)).
-% For further analysis only those events have been included, which the sum of
-% momenta of two charge particles is in the interval (3.5 $\pm$ 0.2) \GeVc.
-
-
-
-
-measuring the differential cross section
-of the \dpchex reaction. The extrapolation to $t=0$ gave the value of
-$(d\sigma/dt)|\,_{t=0}=(30.2\,\pm\,4.1$) mb$/$(\GeVc)$^{\,2}$, the quoted error
-is only statistical. The obtained ratio of charge exchange differential cross
-section at $t=0$ for \dpchex to that of the \np reaction is
-$R_{\np} = 0.55 \pm 0.08$. The ratio of the elementary spin-independent to
-spin-dependent elastic \np charge exchange cross sections
-$R^{\,ID}_{\,\np} = 0.21 \pm 0.17$ has been obtained \cite{gla08}. This result
-testifies the prevailing contribution of the spin-dependent part to the the \np
-amplitude \cite{gla02,gla08}.
-
-% original
-The study of the charge exchange reaction using the chamber based technique made
-it possible to propose a layout of an electronic experiment for studying the
-charge exchange reaction for obtaining a statistically justified result the
-elementary $np$ scattering amplitude using a unpolarized deuteron beam in the
-energy range above 1 \GeV. For the observation of the proton pairs in a narrow
-cone coming from the \dpchex reaction several variants of experimental setup,
-named STRELA, have been suggested and realized. The specific geometry of the
-experiment was selected based on real events and Monte Carlo calculations with
-the aid of the GEANT3 software package. Using real events of $dp$ interactions
-in a hydrogen bubble chamber as input a variant of layout the spectrometer for
-measurement differential cross section at $t=0$ was simulated \cite{gla13}.
-
-The aim of the present study is to extract information on the elementary \np
-charge exchange channel using the \dpchex charge exchange reaction at 3.5 \GeVc
-deuteron momenta by the STRELA spectrometer \cite{gla13}. The existing data on
-that reaction at the energies above 1 \GeV are still very scanty. During the
-past few years, interest in obtaining information on the cross section of the
-spin-dependent part of the \np scattering renewed. This is partly connected with
-achievements of the polarization research method at Dubna JINR VBLHEP
-(Nuclotron) and Juelich (COSY). It is important to stress that Nuclotron
-accelerator to provide beams of multi charged ions with energies of up to 6 \GeV
-per nucleon, protons and unpolarized or polarized deuterons. The maximum energy
-of COSY accelerator is 1.15 \GeV per nucleon. The chance of restoring the
-% 1.15 GEV to vieme urcite ? https://accelconf.web.cern.ch/r04/papers/TUAI01.PDF
-% deuteron momentum az do 3.7. GeV/c (ale to je len plan) !!!
-amplitudes and phases of the nucleon-nucleon scattering in the region of
-energies below and above 1 \GeV has significantly enhanced.
-% Najprv uvadzame celu enrgiu deuteron a potom Nuclotron a COSY energia
-% per nucleon ?! To iste potom v popise ANKE energia per nucleon ?!
-% Viac menej OK porovnavame urychlovace, ale potom aspon pri ANKE opisu nechat
-% energiu celu energiu pre deuteron.
-
-
-% The cross section was calculated using the relation
-% \begin{equation}
-%   % \sigma =
-%   % \frac{1}{n\,lb_w}\ln\bigg(1\Big/\Big(1-\frac{N_{int}}{N_0}\Big)\bigg)\,,
-%   \frac{d\sigma}{dt} =
-%   \frac{1}{n\,l\,b_w}\ln\bigg(\frac{N_0}{N_0-N_{int}}\bigg)\,,
-% \end{equation}
-% where $n$ is the concentration of H nuclei in cm$^{-3}$ in target, $l$ is the
-% target length, $b_w$ is the histogram bin width, $N_{int}$ is the number of
-% interactions and $N_0$ is the number of beam triggers. The number of triggers is
-% corrected for the efficiency of chambers.
-
-
-\noindent (Delta-Sigma info)\\
-In the region above 1 \GeV the results of study reaction $nd \rightarrow p(nn)$
-in a neutron beam of the Delta-Sigma group \cite{sha09,sha09_2,shi11} are known,
-where the $R_{dp}(0) = (d\sigma/dt)_{\,nd} / (d\sigma/dt)_{\,np}$ ratios have
-been successfully measured. Seven data points at the energies $T_n = 0.5 - 2.0$
-\GeV have been obtained using liquid D$_2$ / H$_2$ and solid CD$_2$ / CH$_2$ / C
-targets. The contribution of non flip to flip ratio in the \np charge exchange
-process have been estimated via $R_{dp}(0)$ values which are from the interval
-0.551~--~0.589 depending on energy. The experiment with monochromatic fast
-deuterons is more rational in respect to the analysis of experimental data: the
-two secondary protons, products of the charge exchange on deuteron \dpchex, are
-fast moving in the forward direction at small angles, and so they are easily
-detectable.
-
-\noindent (ANKE info)\\
-In the works \cite{chi09,mch13} the \dpfrag reaction as a method to study
-neutron proton charge exchange amplitudes was studied with the ANKE spectrometer
-at the COSY storage ring at nearby energies of 0.6, 0.8, 0.9 and 1.135 \GeV per
-% nebude lepsie cela energia (x2) pre deuteron ?
-nucleon using deuteron beam. A rich set of data have been obtained. There is not
-only the differential cross section of the \dpchex charge exchange reaction, but
-also vector and tensor analyzing powers as well as the spin correlation
-parameters have been measured. The whole set of data allowed to draw a
-conclusion on the individual amplitudes of the $pn$ scattering. On the other
-hand, the spin-independent amplitude $\alpha$, whose magnitude can only be
-estimated by comparing the deuteron data with the free \np differential cross
-section absent.
-
-
-
-\fi
 
 %%% Local Variables:
 %%% mode: latex
