@@ -1,8 +1,0 @@
-https://twiki.cern.ch/twiki/bin/viewauth/ALICE/GuidelineEditing
-
-??? \RequirePackage{fix-cm} % ???
-% https://tex.stackexchange.com/search?q=svjour3
-% https://tex.stackexchange.com/questions/482867/svjour3-vec-redefinition
-% In order to avoid the spurious warning about size substitutions, load fix-cm
-
-%%\usepackage[debugshow]{tracefnt}
