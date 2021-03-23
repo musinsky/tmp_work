@@ -1,11 +1,13 @@
 // 2020-05-21
 // Jan Musinsky
 
+#include "res_GetHisto.C"
+
 void DoIt(TH1D *h);
 
 void res_chambers()
 {
-  R__LOAD_LIBRARY(res_GetHisto.C);
+  //  R__LOAD_LIBRARY(res_GetHisto.C);
   TH1D *hs_4 = (TH1D *)res_GetHisto("res_small_OK_orig.C", "tra_3_iter4");
   TH1D *hb_4 = (TH1D *)res_GetHisto("res_big_OK_orig.C", "tra_1_iter4");
 
