@@ -1,0 +1,263 @@
+PRIKLADY (dir `regress`): jpg => jpg-eps, eps-lzw, a pod.
+https://nih.at/img2eps/
+https://github.com/nih-at/img2eps/
+
+$ identify -verbose col.jpg | grep -i qual
+$ convert col.jpg col.ppm   # ppm je bezstratovy, takze je to plne identicke originalu
+$ convert -quality 75 col.ppm col_reconvert.jpg # JE alebo NIE JE to to iste ako original ?!
+$
+$ jpegtopnm col.jpg > col_jpegtopnm.ppm
+$ $ diff col.ppm col_jpegtopnm.ppm
+2d1
+< #Created with The GIMP
+
+# NAKONIEC
+$ a2ping -d --compress=none --nolossy jpg-lzw.eps
+$ pdfimages -j jpg-lzw.pdf jpg-lzw
+$ convert col.jpg col.ppm
+$ diff jpg-lzw-000.ppm col.ppm.
+1a2
+> #Created with The GIMP
+
+# takto musim volat prikza `gs` (s takymito opciami ako napr. a2ping), aby bol prevod eps->pdf bezstratovy
+# BEGIN /opt/texlive/2020/bin/x86_64-linux/a2ping
+  my $imagesopts=($::opt_lossy ? "
+/AutoFilterMonoImages true
+/AutoFilterGrayImages true
+/AutoFilterColorImages true
+/MonoImageFilter /CCITTFaxEncode
+/GrayImageFilter /DCTEncode
+/ColorImageFilter /DCTEncode
+" : "
+/AutoFilterMonoImages false
+/AutoFilterGrayImages false
+/AutoFilterColorImages false
+/MonoImageFilter /LZWEncode
+/GrayImageFilter /LZWEncode
+/ColorImageFilter /LZWEncode
+"); # Dat: assumes new, patent-free LZW
+  if (is_pdfmark()) {
+    # Dat: CompatibilityLevel 1.3 is required for font embedding & all
+
+/UseFlateCompression ".($::opt_compression ne 'none'?"true":"false")."
+
+### option gs
+debug "Output FileFormat: $FileFormat";
+$::opt_compression='zip' if $::opt_compression ne 'none';
+if ($FileFormat eq 'PDF' or $FileFormat eq 'PDF1') {
+  debug "Ghostscript ps2pdf command: $GS  $GSOPTS";
+  debug "Compression: $::opt_compression";
+} elsif ($FileFormat eq 'PCL5') {
+  debug "Ghostscript ps2ljet command: $GS  $GSOPTS";
+} elsif (is_sampled()) {
+  debug "Ghostscript ps2sampled command: $GS  $GSOPTS";
+}
+# END /opt/texlive/2020/bin/x86_64-linux/a2ping
+
+
+$ mutool info jpg-lzw.pdf
+$ mutool extract jpg-lzw.pdf   # vytvory png, tazke asi nie ?!
+
+
+https://stackoverflow.com/questions/46789830/extract-raster-and-vector-images-from-pdf-with-a-bash-script
+https://tex.stackexchange.com/questions/2872/what-are-good-ways-to-convert-eps-to-pdf
+!!! NAKONIEC !!! (ako urboit z eps pdf bezstratovo)
+man a2ping
+cat /opt/texlive/2020/bin/x86_64-linux/a2ping
+Vela vseobecnej informacii, dobre prestudovat (ten madar evidentne robi s tymto uz dlho)
+https://ctan.org/pkg/a2ping
+https://github.com/pts/a2ping
+https://ctan.org/pkg/sam2p
+https://ctan.org/tex-archive/graphics/sam2p
+https://github.com/pts/sam2p     => sam2p-master.zip and successful recompile on fedoa
+
+https://unix.stackexchange.com/questions/11835/pdf-to-jpg-without-quality-loss-gscan2pdf
+pdfimages looks through the PDF for embedded bitmap images and exports each one to a file. It simply ignores any text or vector drawing commands in the PDF.
+As a result, if what you have is a PDF that's just a wrapper around a series of bitmaps, pdfimages will do a much better job of extracting them, because it gets you the raw data at its original size. You probably also want to use the -j option to pdfimages, because a PDF can contain raw JPEG data. By default, pdfimages converts everything to PNM format, and converting JPEG > PPM > JPEG is a lossy process.
+I tried this command on a PDF that I had made myself from a sequence of JPEG images. The extracted JPEGs were byte-for-byte identical to the source images. You can't get higher quality than that.
+
+https://tex.stackexchange.com/questions/2092/which-figure-type-to-use-pdf-or-eps/2093
+tu presne pisu, ze epstopdf je stratove a mozu byt problemy
+These conversion procedures will often cause unwanted changes to the graphics, such as lossy JPEG encoding of embedded bitmap images.
+EPS doesn't support transparency and embeds bitmap images without compression. PDF all the way.
+
+https://stackoverflow.com/questions/10004858/setting-auto-height-width-for-converted-jpeg-from-pdf-using-ghostscript
+https://serverfault.com/questions/167573/fast-pdf-to-jpg-conversion-on-linux-wanted
+
+vyvucnut raw image
+https://stackoverflow.com/questions/27335229/extract-an-embedded-image-from-an-eps-file
+https://legacy.imagemagick.org/discourse-server/viewtopic.php?t=28113
+$ tr '\015' '\012' < n_beam_375.eps | sed -n -e '/^BegImg/,/^EndImg/{//!p}'  > ooo
+
+Hello, world
+=>to ascii85
+<~87cURD_*#TDfTZ)~>
+
+# fedora package rubygem-Ascii85 => ascii85
+# fedora package ncompress => compress uncompress (LZW)
+# ncompress a (github lzws) robi v podstate to iste
+# https://github.com/andrew-aladev/lzws
+# https://github.com/andrew-aladev/lzws/releases/download/v1.4.2/lzws-linked-list-1.4.2.x86_64.rpm
+
+
+https://gist.github.com/averagesecurityguy/ba8d9ed3c59c1deffbd1390dafa5a3c2
+https://tools.kali.org/forensics/pdf-parser
+https://blog.didierstevens.com/programs/pdf-tools/
+https://blog.didierstevens.com/2008/04/09/quickpost-about-the-physical-and-logical-structure-of-pdf-files/
+
+!!! nastudovat co je ! cairo ! !!!
+
+## Figures
+Some figures are in raster format (jpg/png) and encapsulated in vector format (pdf/eps). This causes unnecessary confusion.
+* `fig01_gepgmp.pdf` vector (original `gepgmp_allpol_final_lin_lin.pdf` vector)
+```
+qpdf --rotate=-90 gepgmp_allpol_final_lin_lin.pdf - | pdfcrop - fig01_gepgmp.pdf
+```
+* `fig02_gengmn.pdf` vector (original `gengmn.pdf` vector)
+```
+pdfcrop gengmn.pdf fig02_gengmn.pdf
+```
+* `fig03_A_Y_Comb1a.pdf` vector (original `A_Y_Comb1a.pdf` vector)
+```
+pdfcrop A_Y_Comb1a.pdf fig03_A_Y_Comb1a.pdf
+```
+* `fig04_npPol3.pdf` vector (original `npPol3.pdf` vector)
+```
+pdfcrop npPol3.pdf fig04_npPol3.pdf
+```
+* `fig05_ALPOM_Fig3b.pdf` vector (original `ALPOM-Fig3b.pdf` vector)
+```
+pdfcrop ALPOM-Fig3b.pdf fig05_ALPOM_Fig3b.pdf
+```
+* `fig06_NeutronFoM1.pdf` vector (original `NeutronFoM1.pdf` vector)
+```
+pdfcrop NeutronFoM1.pdf fig06_NeutronFoM1.pdf
+```
+* `fig07_ALPOM2SetUp.png` raster (original `ALPOM2SetUp.pdf` raster in vector)
+```
+pdfimages -all ALPOM2SetUp.pdf ALPOM2SetUp
+convert ALPOM2SetUp-000.png -trim fig07_ALPOM2SetUp.png   # convert (8-bit sRGB 73312B) => (8-bit Gray 256c 38090B)
+```
+* `fig08_p_beam_375.jpg` raster (original `p_beam_375.jpg` raster)
+```
+convert p_beam_375.jpg -trim -resize 600x -quality 85 fig08_p_beam_375.jpg
+```
+* `fig08_n_beam_375.jpg` raster (original `n_beam_375.eps` raster+vector in vector)
+```
+gs -dBATCH -dNOPAUSE -dSAFER -sDEVICE=jpeg -dJPEGQ=100 -r300 -dEPSCrop -sOutputFile=n_beam_375_q100_r300.jpg n_beam_375.eps
+convert n_beam_375_q100_r300.jpg -trim -resize 600x -quality 85 fig08_n_beam_375.jpg
+```
+* `fig09_cal_375_CH2left.pdf` vector (original `cal_375_CH2left.eps` vector)
+```
+cat cal_375_CH2left.eps | epstopdf --filter | pdfcrop - fig09_cal_375_CH2left.pdf
+```
+* `fig09_cal_60_CH2right.pdf` vector (original `cal_60_CH2right.eps` vector)
+```
+cat cal_60_CH2right.eps | epstopdf --filter | pdfcrop - fig09_cal_60_CH2right.pdf
+```
+* `fig10_HadCalDesign.png` raster (original `HadCalDesign.pdf` raster in vector)
+```
+pdfimages -all HadCalDesign.pdf HadCalDesign
+convert HadCalDesign-000.png -trim -resize 800x fig10_HadCalDesign.png
+```
+* `fig11_Fig11.jpg` raster (original `Fig11.eps` raster in vector)
+```
+cat Fig11.eps | epstopdf --filter | pdfimages - -all Fig11
+convert Fig11-000.jpg -crop 0x0-40+0 -trim fig11_Fig11.jpg
+```
+* `fig12_Fig12.jpg` raster (original `Fig12.pdf` raster+vector in vector)
+```
+gs -dBATCH -dNOPAUSE -dSAFER -sDEVICE=jpeg -dJPEGQ=100 -r1200 -sOutputFile=Fig12.jpg Fig12.pdf
+convert Fig12.jpg -trim -resize 800x -quality 85 fig12_Fig12.jpg
+# other options
+# pdfimages -all Fig12.pdf Fig12   # create 4 separate high quality png images
+# LibreOffice Draw: Export As PDF: JPEG compression Quality 75%, Reduce image resolution 150 DPI
+                                   => create ~250kB very well quality image
+```
+* `fig13_pol_F3.pdf` vector (original `pol_F3.eps` vector)
+```
+cat pol_F3.eps | epstopdf --filter | pdfcrop - fig13_pol_F3.pdf
+```
+* `fig14_nC_pt2.pdf`vector (original `nC_pt2.eps` vector)
+```
+cat nC_pt2.eps | epstopdf --filter | pdfcrop - fig14_nC_pt2.pdf
+```
+* `fig15_pCH2_pt2.pdf` vector (original `pCH2_pt2.eps` vector)
+```
+cat pCH2_pt2.eps | epstopdf --filter | pdfcrop - fig15_pCH2_pt2.pdf
+```
+* `fig16_control_meas.pdf` vector (original `control_meas.eps` vector)
+```
+cat control_meas.eps | epstopdf --filter | pdfcrop - fig16_control_meas.pdf
+```
+* `fig17_hadcal_asym.pdf` vector (original `hadcal_asym_corr.eps` vector)
+```
+cat hadcal_asym_corr.eps | epstopdf --filter | pdfcrop - fig17_hadcal_asym.pdf
+```
+* `fig18_nCH2_3-42.pdf` vector (original `nCH2_3-42.eps` vector)
+```
+cat nCH2_3-42.eps | epstopdf --filter | pdfcrop - fig18_nCH2_3-42.pdf
+```
+* `fig18_nAll_375.pdf` vector (original `nAll_375.eps` vector)
+```
+cat nAll_375.eps | epstopdf --filter | pdfcrop - fig18_nAll_375.pdf
+```
+* `fig19_p_n_Cu_hadcal.pdf` vector (original `p_n_Cu_hadcal.eps` vector)
+```
+cat p_n_Cu_hadcal.eps | epstopdf --filter | pdfcrop - fig19_p_n_Cu_hadcal.pdf
+```
+
+$ convert n_beam_375.eps -trim n_beam_375.jpg                 => size: 461x433 px
+
+# takto nie, vid nizsie !!!!!!!!
+$ gs -dBATCH -dNOPAUSE -dSAFER -sDEVICE=jpeg -dJPEGQ=85 -r100 -dEPSCrop -sOutputFile=out.jpeg n_beam_375.eps # 800x707
+# takto ano
+$ gs -dBATCH -dNOPAUSE -dSAFER -sDEVICE=jpeg -dJPEGQ=100 -r300 -dEPSCrop -sOutputFile=n_beam_375_HQ.jpg n_beam_375.eps
+=> 2400x2121 px, pri q=100% vekost 1.5MB
+=> 2400x2121 px, pri q=095% vekost 809.2kB !!! takto asi bol "vyrobeny" p_beam_375_orig.jpg, kde nemam eps ani pdf
+$ convert -resize 800x -quality 85 n_beam_375_HQ.jpg n_beam_375.jpg      # 800x707, velkost 95.2kB
+
+#p_beam_375_orig.jpg => 2400x2118 px, velkost 748.0kB !!!
+#$ convert -resize 800x -quality 85 p_beam_375_orig.jpg p_beam_375.jpg    # 800x706, velkost 100.1kB
+
+$ gs -dBATCH -dNOPAUSE -dSAFER -sDEVICE=pdfwrite -dEPSCrop -sOutputFile=n_beam_375.pdf n_beam_375.eps (PDF 1.7)
+to je ekvivalent toho isteho ako
+$ ps2pdf -dEPSCrop n_beam_375.eps (PDF 1.4)
+a to pouziva PDFSETTINGS=/default  (podla velkosti sa to asi rovna ebook)
+gs -dBATCH -dNOPAUSE -dSAFER -sDEVICE=pdfwrite -dPDFSETTINGS=/default -dEPSCrop -sOutputFile=n_beam_375.pdf n_beam_375.eps
+$ epstopdf asi pouziva  PDFSETTINGS=/prepress (podla velksoti)
+$ epstopdf --debug n_beam_375.eps   ANO PRESNE TAK AKO SOM PREDPOKLADAL !!!!!
+
+$ pdfcrop --debug (pdfcrop and epstopdf perl scripts from texlive)
+
+$ epstopdf n_beam_375.eps
+$ mutool extract n_beam_375.pdf
+# pipe
+ https://github.com/qpdf/qpdf/issues/54
+ namiesto eps (a teda mozem pipe-ovat)
+ ps2pdf -dEPSCrop "$name" - | pdfcrop --margins '10 10 10 10' - "${name%.ps}.pdf"
+
+    eps2pes, pdf2ps, ps2ps, ps2pdf(ps2pdfwr) vsetky pouzivaju -sDEVICE=pdfwrite
+
+```
+$ for f in *.eps; do epstopdf "$f" ; done
+
+# reduce image file size
+$ convert n_beam_375.eps -trim n_beam_375.jpg                 => size: 461x433 px
+$ convert -resize x500 p_beam_375.jpg -trim p_beam_375_OK.jpg => size: 466x433 px
+$ convert Fig12.pdf -trim fig12.jpg  => size: 655x569 px
+
+# convert "no-vector pdf" to png/jpg
+$ pdfimages -j ALPOM2SetUp.pdf ALPOM2SetUp
+$ convert ALPOM2SetUp-000.ppm ALPOM2SetUp.png
+
+$ epstopdf Fig11.eps
+$ pdfimages -all Fig11.pdf Fig11
+
+# Fig12.pdf is not vector (pdf) format !
+in LibreOffice Draw: Export As PDF  => JPEG quality 75%, Reduce image resolution 150 dpi
+
+$ pdfimages -png HadCalDesign.pdf HadCalDesign
+$ pdftocairo -jpeg HadCalDesign.pdf             # AJ TOTO VYZERA OK, nastudovat co je ! cairo !
+$ pdftocairo -png HadCalDesign.pdf
+```
