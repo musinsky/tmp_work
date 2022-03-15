@@ -5,7 +5,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(mediawiki-site-alist
-   '(("UEFI" "http://alice.saske.sk/mediawiki/" "musinsky" "Sestra1" nil "UEFI")))
+   '(("UEFI" "http://alice.saske.sk/mediawiki/" "musinsky" "my_passwd" nil "UEFI")))
  '(mediawiki-site-default "UEFI")
  '(package-selected-packages '(mediawiki markdown-mode)))
 (custom-set-faces
