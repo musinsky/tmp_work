@@ -1,0 +1,44 @@
+# 2023-02-17
+
+# Analyza velkeho poctu entries (vytvarame tree resp. histo)
+
+1) tree = TTree, TNtuple
+* standardny sposob, priprava medzi-vysledku a potom finalne histogram-ovanie
+* jedina, ale podstatna nevyhoda, cim vacsi pocet analyzovanych entries, tym vacsi subor
+* tree po naplneni urciteho buffera (by default) sa uklada na storage
+* v podstate "nepotrebuju" CPU, len stream-uju entries
+
+2) histo = TH1, TH2, TH3, THn, THnSparse
+* histogramy maju urcitu specificku velkost, ktora NEZAVISI od poctu analyzovanych entries
+* ich velkost zavisi len od poctu axis a bins (aka tabulka 1,2,3,n-rozmerna)
+* histo su pocas celej analyzy v pamati a az na konci analyzy sa ukladaju na storage
+* CPU narocnejsie, pre kazde jedno entry potrebujem najst bin
+
+Je vhodnejsie robit analyzu pomocou tree, poskytuju velku variabilitu pri finalnej analyze.
+Problem nastava pri velkom pocte entries, kedy tree-subor moze mat mega rozmery. Prave vtedy
+sme "nuteni" pouzit histo.
+
+histo ~ de facto tree, kde vzdy "zaokruhlim" hodnotu na bin a pamatam si len jeho pocetnost,
+radikalne zmensenie, 10.000.000 hodnot vs 1000 hodnot (1 axis a 1000 binov). Problem s histo
+zacina so zvacsovanim poctu axis a poctu binov. Vsetko potrebujem mat v pamati.
+
+# Problem s histo->Fill
+
+PRINCIPALNY PROBLEM s plnenim histo, ak mi raz staci pamat len na 100.000 hodnot (nepodstatne
+ci je to TH1, TH2, TH3, THn, THnSparse) a potrebujem pracovat s 500.000 hodnotami, tak musim
+rozbit na 5 x 100.000 hodnot, resp. na 5 suborov, ktore budem neustale ukladat a citat. Ak
+analyzujem 1.000.000 entries, tak je dost velka pravdepodobnost, ze budem musiet 200.000 krat
+citat a ukladat 5 roznych suborov !!! co je absolutne I/O super neefektivne, resp. cesta do pekla.
+
+Riesenim by bolo, ak by som vedel najprv analyzovat hodnoty "len pre prve" histo, ulozim,
+pokracujem a analyzujem hodnoty "len pre druhe" histo, ulozim, az nakoniec "len pre piate histo".
+Summarum, ukladal by som subor len 5 krat (a nie 200.000 krat read/write). Toto vsak principalne
+nie je mozne. 1.000.000 entries maju hodnoty ake maju (potreboval by som ich najprv sort-ovat,
+t.j. potreboval by som tree a som na zaciatku problemu).
+
+Inymi slovami, ak mi raz pamat staci len 100.000 hodnot, je jedno (z pohladu pamate), ci to
+bude 1x100.000 alebo 2x50.000 alebo 10x10.000. Problem je, ze potrebujeme ulozit 500.000 hodnot
+a teda potrebujeme 5 krat subor, kde bude tych max. 100.000 hodnot ulozenych. Problem je,
+ze k tymto 5 suborom potrebujem 1.000.000 / 5 krat = 200.000 krat pristupovat !!!
+
+# THn vs THnSparse
