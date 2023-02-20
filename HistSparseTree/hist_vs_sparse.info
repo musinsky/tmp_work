@@ -1,18 +1,18 @@
-# 2023-02-17
+# 2023-02-20
 
-# Analyza velkeho poctu entries (vytvarame tree resp. histo)
+# Ulozenie analyzy velkeho poctu entries (vytvarame tree resp. histo)
 
 1) tree = TTree, TNtuple
 * standardny sposob, priprava medzi-vysledku a potom finalne histogram-ovanie
-* jedina, ale podstatna nevyhoda, cim vacsi pocet analyzovanych entries, tym vacsi subor
+* podstatna nevyhoda, cim vacsi pocet analyzovanych entries, tym vacsi subor + narocnejsie
 * tree po naplneni urciteho buffera (by default) sa uklada na storage
 * v podstate "nepotrebuju" CPU, len stream-uju entries
 
 2) histo = TH1, TH2, TH3, THn, THnSparse
 * histogramy maju urcitu specificku velkost, ktora NEZAVISI od poctu analyzovanych entries
-* ich velkost zavisi len od poctu axis a bins (aka tabulka 1,2,3,n-rozmerna)
+* ich velkost zavisi len od poctu axis a bins (tabulka 1, 2, 3, n-rozmerna)
 * histo su pocas celej analyzy v pamati a az na konci analyzy sa ukladaju na storage
-* CPU narocnejsie, pre kazde jedno entry potrebujem najst bin
+* CPU narocnejsie, pre kazde jedno entry vzdy potrebujem najst bin
 
 Je vhodnejsie robit analyzu pomocou tree, poskytuju velku variabilitu pri finalnej analyze.
 Problem nastava pri velkom pocte entries, kedy tree-subor moze mat mega rozmery. Prave vtedy
@@ -24,9 +24,67 @@ zacina so zvacsovanim poctu axis a poctu binov. Vsetko potrebujem mat v pamati.
 
 # Problem s histo->Fill
 
-PRINCIPALNY PROBLEM s plnenim histo, ak mi raz staci pamat len na 100.000 hodnot (nepodstatne
+Principalny PROBLEM s plnenim histo, ak mi raz staci pamat len na 100.000 hodnot (nepodstatne
 ci je to TH1, TH2, TH3, THn, THnSparse) a potrebujem pracovat s 500.000 hodnotami, tak musim
-rozbit na 5 x 100.000 hodnot, resp. na 5 suborov, ktore budem neustale ukladat a citat. Ak
+rozbit min. na 5 x 100.000 hodnot, resp. na 5 suborov. Taketo histogramy (z 5 suborov
+po 100.000 hodnot) principialne NEMOZEM z-merge-ovat (pamat mam stale len na 100.0000 hodnot).
+
+# TH1, TH2, TH3, THn vs. THnSparse
+TH2 (2 osi) 100x100 binov = potrebuje vzdy pamat na 10.000 hodnot, ci bude histogram polo-prazdny,
+ci pre-analyzujem male alebo obrovske mnozstvo entries
+
+THn (5 osi) 100x100x100x100x100 binov = potrebuje vzdy pamat na 10.000.000.000 hodnot, ci bude
+histogram polo-prazdny, ci pre-analyzujem male alebo obrovske mnozstvo entries
+
+THnSparse (5 osi) 100x100x100x100x100 binov = vopred neviem kolko hodnot budem potrebovat,
+podla potreby sa vzdy potrebny bin vytvori, az ked je realne potrebny, na rozdiel od TH1, TH2, THn,
+kedy sa vsetky bins vopred alokuju.
+
+Inymi slovami, ak mam TH2 100x100 bins, vzdy potrebujem 10.000 hodnot v pamati, aj ked mam
+zaplnenych len zopar binov, tie nezaplnene bins maju hodnotu 0, ktora su tiez v pamati. Ale ak
+mam THnSparse 100x100 bins, tak v pamati su len tie bin hodnoty, ktore su realne zaplnene
+(toto nie je uplne pravda, ale pre teraz nepodstatne), resp. THnSparse si "nepamata" bins
+s hodnotou 0 ("sparse" = zriedkavy, roztruseny). Cim je TH2 "plnsie" zaplneny, tym sa rozdiel
+medzi TH2 a THnSparse straca.
+
+Cim vacsi pocet osi a vacsi pocet binov, tym pomer skutocne "potrebnych" a "nepotrebnych" binov
+sa moze radikalne zvacsovat !!! a preto to aj ROOT vyspekuloval a implementoval.
+
+# priklad s THnSparse
+https://eos.ndmspc.io/eos/ndmspc/scratch/alice.cern.ch/user/a/alitrain/PWGLF/LF_pp_AOD/987/phi_leading_3s/AnalysisResults.root
+
+THnSparseT<TArrayF> (*0x55693be47770): "Mixing" ""
+  6 dimensions, 6.48798e+07 entries in 3547947 filled bins
+    axis 0 "": 95 bins (0.985..1.08), variable bin sizes
+    axis 1 "": 10 bins (0..10), variable bin sizes
+    axis 2 "": 10 bins (0..100), variable bin sizes
+    axis 3 "": 36 bins (-1.5708..4.71239), variable bin sizes
+    axis 4 "": 15 bins (0..30), variable bin sizes
+    axis 5 "": 16 bins (-1.6..1.6), variable bin sizes
+
+95*10*10*36*15*16 = 82.080.000 bins !!! ALE LEN !!! 3.547.947 filled bins !!!
+Ak by to bol obycajny THn so 6 osami a rovnakym poctom bins, tak potrebujem pamat
+na 82.080.000 hodnot, na rozdiel od THnSparse, ktory potrebuje pamat len na 3.547.947 hodnot,
+t.j. (ne)pomer skutocne "potrebnych" a "nepotrebnych" binov je obrovsky
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+, ktore budem neustale ukladat a citat. Ak
 analyzujem 1.000.000 entries, tak je dost velka pravdepodobnost, ze budem musiet 200.000 krat
 citat a ukladat 5 roznych suborov !!! co je absolutne I/O super neefektivne, resp. cesta do pekla.
 
@@ -41,4 +99,3 @@ bude 1x100.000 alebo 2x50.000 alebo 10x10.000. Problem je, ze potrebujeme ulozit
 a teda potrebujeme 5 krat subor, kde bude tych max. 100.000 hodnot ulozenych. Problem je,
 ze k tymto 5 suborom potrebujem 1.000.000 / 5 krat = 200.000 krat pristupovat !!!
 
-# THn vs THnSparse
