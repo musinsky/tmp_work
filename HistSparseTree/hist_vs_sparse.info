@@ -50,7 +50,7 @@ medzi TH2 a THnSparse straca.
 Cim vacsi pocet osi a vacsi pocet binov, tym pomer skutocne "potrebnych" a "nepotrebnych" binov
 sa moze radikalne zvacsovat !!! a preto to aj ROOT vyspekuloval a implementoval.
 
-# priklad s THnSparse
+# konkretny priklad s THnSparse
 https://eos.ndmspc.io/eos/ndmspc/scratch/alice.cern.ch/user/a/alitrain/PWGLF/LF_pp_AOD/987/phi_leading_3s/AnalysisResults.root
 
 THnSparseT<TArrayF> (*0x55693be47770): "Mixing" ""
@@ -67,35 +67,45 @@ Ak by to bol obycajny THn so 6 osami a rovnakym poctom bins, tak potrebujem pama
 na 82.080.000 hodnot, na rozdiel od THnSparse, ktory potrebuje pamat len na 3.547.947 hodnot,
 t.j. (ne)pomer skutocne "potrebnych" a "nepotrebnych" binov je obrovsky
 
+Dalej budeme uvazovat tento priklad + predpokladame, ze nase PC ma max. pamat na 4.000.000 hodnot.
 
+# problem 1
+Analyza konci s tym, ze out of memory, resp. nas THnSparse nevosiel do pamate.
 
+Riesenie, budeme kontrolovat pocet filled bins. Ak sa priblizi ku kritickej hodnote, napr. tych
+vyssie spomenutych 4.000.000 hodnot, tak THnSparse ulozime, vymazeme z pamate a vytvorime dalsi,
+novy THnSparse. POZOR, tieto THnSparse na nasom PC (max. 4.000.000 hodnot) principialne nebude
+vediet z-merge-ovat ako celok, co s tym, vid nizsie.
 
+# problem 2
+Analyza presla, ideme merge-ovat THnSparse (z roznych workers), ale znova problem out of memory.
 
+Predpokladajme THnSparse1 z worker1 ma 3.547.947 filled bins a nech napr. THnSparse2 z worker2
+ma 3.400.000 filled bins.
 
+V com je problem ? Aj ked THnSparse2 ma o nieco menej filled bins ako THnSparse1, to vobec
+neznamena, ze vysledny z-merge-ovany THnSparse bude mat priblizne rovnaky pocet filled bins.
+Vsetko zavisi od toho, nakolko sa filled bins z dvoch roznych THnSparse budu "prekryvat",
+resp. budu identicke. Ak by filled bins z obidvoch THnSparse boli identicke, tak vysledny
+THnSparse nebude mat viac ako 3.547.947 filled bins (a teda nenastal by vobec problem out of
+memory pri merge-ovanim).
 
+Podstatne vacsia pravdepodobnost je, ze pri merge-ovani THnSparse1 (3.547.947 filled bins)
+a THnSparse2 (3.400.000 filled bins), bude vysledny THnSparse mat napr. 4.500.000 filled bins,
+co prave sposobi problem out of memory (nase PC ma max. 4.000.000 hodnot).
 
+Teoreticky je mozne, ze vysledny THnSparse bude potrebovat az 6.947.947 filled bins, ak by
+v oboch THnSparse boli jedinecne, neopakovatelne bins. Ale stale je to radikalne menej
+ako 95*10*10*36*15*16 = 82.080.000 bins v pripade THn.
 
+Aka je teda riesenie ?
+1) Principialne ak raz ma nase PC max. 4.000.000 hodnot, nemozeme THnSparse z-merge-ovat.
+   Mozeme ale zmenit (zmensit) binning, resp. pracovat nie so vsetkymi osami sucasne,
+   ale len s vybranymi. Potom budeme moct pracovat priamo z THnSparse, ale "len okliestenym".
 
+2) Kopirujeme subory na PC s vacsou RAM, tam je velka pravdepodobnost, ze sa nam podari
+   THnSparse z-merge-ovat.
 
+3) Prevedieme THnSparse na TTree, univerzalne riesenie.
 
-
-
-
-
-
-
-, ktore budem neustale ukladat a citat. Ak
-analyzujem 1.000.000 entries, tak je dost velka pravdepodobnost, ze budem musiet 200.000 krat
-citat a ukladat 5 roznych suborov !!! co je absolutne I/O super neefektivne, resp. cesta do pekla.
-
-Riesenim by bolo, ak by som vedel najprv analyzovat hodnoty "len pre prve" histo, ulozim,
-pokracujem a analyzujem hodnoty "len pre druhe" histo, ulozim, az nakoniec "len pre piate histo".
-Summarum, ukladal by som subor len 5 krat (a nie 200.000 krat read/write). Toto vsak principalne
-nie je mozne. 1.000.000 entries maju hodnoty ake maju (potreboval by som ich najprv sort-ovat,
-t.j. potreboval by som tree a som na zaciatku problemu).
-
-Inymi slovami, ak mi raz pamat staci len 100.000 hodnot, je jedno (z pohladu pamate), ci to
-bude 1x100.000 alebo 2x50.000 alebo 10x10.000. Problem je, ze potrebujeme ulozit 500.000 hodnot
-a teda potrebujeme 5 krat subor, kde bude tych max. 100.000 hodnot ulozenych. Problem je,
-ze k tymto 5 suborom potrebujem 1.000.000 / 5 krat = 200.000 krat pristupovat !!!
-
+# THnSparse -> TTree
