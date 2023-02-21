@@ -129,8 +129,8 @@ Na ilustraciu, vypis prvych piatich (z 3.547.947) filled bins z tohoto THnSparse
  Bin at (69,2,2,6,1,9)   = 175
 
 Vytvorime tree, ktore bude mat branchA - pole o velkosti nasich 6 osi (alebo 6 roznych branches,
-uvidime, co bude optimalnejsie), branchB - samotny bin content z THnSparse. Takyto tree naplnime
-3.547.947 krat poctom filled bins.
+uvidime, co bude optimalnejsie), branchB - samotny bin content z THnSparse. Kazde entry bude
+obsahovat 6*bin + bin content. Takyto tree naplnime 3.547.947 krat poctom filled bins.
 
 Hrubo povedane:
 THnSparse drzi v pamati 3.547.947 hodnot + nejaku mapu, kde indexuje tie hodnoty
@@ -161,3 +161,10 @@ a jednoznacne indexovat hodnotu v nasom 6-rozmernom konkretnom priklade.
 Otazka, ci budeme vobec nuteni pouzivat takuto optimalizacia ukaze az prax. Samotny pomer velkosti
 tree vs. THnSparse nebude az taky velky + zapnuta kompresia (by default) robi nieco podobne,
 len nie tak efektivne.
+
+file size     default(compress)   no compress
+THnSparse     22M                 55M
+tree(int)     27M                 95M
+tree(short)   16M                 55M
+
+Z toho vidno, ze s nejakou optimalizaciou sa vobec asi nebudeme musiet ani trapit.
