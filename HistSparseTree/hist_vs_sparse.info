@@ -1,6 +1,6 @@
 # 2023-02-21
 
-# Analyza velkeho poctu entries (vytvarame tree resp. histo)
+# Analyza velkeho poctu entries (vytvarame tree vs. histo)
 
 1) tree = TTree, TNtuple
 * standardny sposob, priprava medzi-vysledku a potom finalne histogram-ovanie
@@ -10,33 +10,33 @@
 
 2) histo = TH1, TH2, TH3, THn a THnSparse
 * histogramy maju urcitu specificku velkost, ktora NEZAVISI od poctu analyzovanych entries
-* ich velkost zavisi len od poctu axis a bins (tabulka 1, 2, 3, n-rozmerna)
+* ich velkost zavisi len od poctu axis a bins (ala tabulka 1, 2, 3, n-rozmerna)
 * histo su pocas celej analyzy v pamati a az na konci analyzy uklada uzivatel na storage
-* CPU narocnejsie, pre kazde jedno analyzing entry vzdy potrebujem najst bin
+* CPU narocnejsie, pre kazde jedno analyzing entry vzdy potrebujeme najst bin
 
 Je vhodnejsie robit analyzu pomocou tree, poskytuju velku variabilitu pri finalnej analyze.
 Problem nastava pri velkom pocte entries, kedy tree-subor moze mat mega rozmery. Prave vtedy
 sme "nuteni" pouzit histo.
 
 histo ~ de facto tree, kde vzdy "zaokruhli" hodnotu na bin a pamata si len jeho pocetnost,
-radikalne zmensenie, 10.000.000 hodnot vs 1000 hodnot (1 axis a 1000 binov). Problem s histo
-zacina so zvacsovanim poctu axis a poctu binov. Vsetko potrebujem mat v pamati.
+radikalne zmensenie, 10.000.000 hodnot vs. 1000 hodnot (1 axis a 1000 binov). Problem s histo
+zacina so zvacsovanim poctu axis a poctu binov. Vsetko potrebujeme mat v pamati.
 
 # Problem s histo->Fill
-
 Principialny PROBLEM s plnenim histo, ak nam raz staci pamat len na 100.000 hodnot (nepodstatne
 ci je to TH1, TH2, TH3, THn alebo THnSparse) a potrebujeme pracovat s 500.000 hodnotami, tak musime
-rozbit min. na 5 x 100.000 hodnot, resp. na 5 suborov. Taketo histogramy (z 5 suborov
-po 100.000 hodnot) principialne NEMOZEM z-merge-ovat (pamat mam stale len na 100.0000 hodnot).
+rozbit min. na 5 x 100.000 hodnot, resp. na 5 suborov, s ktorymi pracujeme nezavisle. Taketo
+histogramy (z 5 suborov po 100.000 hodnot) principialne NEMOZEM z-merge-ovat (pamat mam stale
+len na 100.0000 hodnot).
 
 # (TH1, TH2, TH3, THn) vs. THnSparse
 TH2 (2 osi) 100x100 binov = potrebuje vzdy pamat na 10.000 hodnot, ci bude histogram polo-prazdny,
-ci pre-analyzujem male alebo obrovske mnozstvo entries
+ci pre-analyzujeme male alebo obrovske mnozstvo entries.
 
 THn (5 osi) 100x100x100x100x100 binov = potrebuje vzdy pamat na 10.000.000.000 hodnot, ci bude
-histogram polo-prazdny, ci pre-analyzujem male alebo obrovske mnozstvo entries
+histogram polo-prazdny, ci pre-analyzujeme male alebo obrovske mnozstvo entries.
 
-THnSparse (5 osi) 100x100x100x100x100 binov = vopred neviem kolko hodnot budem potrebovat,
+THnSparse (5 osi) 100x100x100x100x100 binov = vopred nevieme kolko hodnot budeme potrebovat,
 podla potreby sa vzdy potrebny bin vytvori, az ked je realne potrebny, na rozdiel od TH1, TH2, THn,
 kedy sa vsetky bins vopred alokuju.
 
@@ -45,10 +45,10 @@ zaplnenych len zopar binov, tie nezaplnene bins maju hodnotu 0, ktora su tiez v 
 mame THnSparse 100x100 bins, tak v pamati su len tie bin hodnoty, ktore su realne zaplnene
 (toto nie je uplne pravda, ale pre teraz nepodstatne), resp. THnSparse si "nepamata" bins
 s hodnotou 0 ("sparse" = zriedkavy, roztruseny). Cim je TH2 "plnsie" zaplneny, tym sa rozdiel
-medzi TH2 a THnSparse straca.
+medzi TH2 a THnSparse zmensuje.
 
 Cim vacsi pocet osi a vacsi pocet binov, tym pomer skutocne "potrebnych" a "nepotrebnych" binov
-sa moze radikalne zvacsovat !!! a preto to aj v ROOT vyspekulovali a implementovali.
+sa moze radikalne zvacsovat !!! a preto aj THnSparse v ROOT vyspekulovali a implementovali.
 
 # konkretny priklad s THnSparse
 https://eos.ndmspc.io/eos/ndmspc/scratch/alice.cern.ch/user/a/alitrain/PWGLF/LF_pp_AOD/987/phi_leading_3s/AnalysisResults.root
@@ -67,7 +67,7 @@ Ak by to bol jednoduchy THn s rovnakym poctom osi a rovnakym poctom bins, tak po
 na 82.080.000 hodnot, na rozdiel od THnSparse, ktory potrebuje pamat (v tomto konkretnom priklade)
 len na 3.547.947 hodnot, t.j. (ne)pomer skutocne "potrebnych" a "nepotrebnych" binov je obrovsky.
 
-## nase konkretne problemy
+## nase problemy
 Dalej budeme uvazovat vyssie spomenuty "Mixing" THnSparse priklad + predpokladame, ze nase PC
 ma max. pamat na 4.000.000 hodnot.
 
@@ -77,7 +77,7 @@ Analyza sa prerusi, predcasne skonci, out of memory, resp. nas THnSparse nevosie
 Riesenie: budeme kontrolovat pocet filled bins. Ak sa priblizi ku kritickej hodnote, napr. tych
 vyssie spomenutych 4.000.000 hodnot, tak THnSparse ulozime, vymazeme z pamate a vytvorime dalsi,
 novy THnSparse. POZOR, tieto THnSparse na nasom PC (max. 4.000.000 hodnot) principialne nebude
-vediet z-merge-ovat ako celok, co s tym ?, vid nizsie.
+vediet z-merge-ovat ako celok, co s tym ? vid nizsie.
 
 # problem 2
 Analyza presla, ideme merge-ovat THnSparse (z roznych workers), ale znova problem out of memory.
@@ -97,7 +97,7 @@ a THnSparse2 (3.400.000 filled bins), bude vysledny THnSparse mat napr. 4.500.00
 co prave sposobi problem out of memory (nase PC ma max. 4.000.000 hodnot).
 
 Teoreticky je mozne, ze vysledny THnSparse bude potrebovat az 6.947.947 filled bins, ak by
-v oboch THnSparse boli jedinecne, neopakovatelne bins. Ale stale je to radikalne menej
+v oboch THnSparse boli jedinecne, neopakovatelne filled bins. Ale stale je to radikalne menej
 ako 95*10*10*36*15*16 = 82.080.000 bins v pripade THn.
 
 Aka su teda riesenia ?
@@ -122,49 +122,61 @@ THnSparseT<TArrayF> (*0x55693be47770): "Mixing" ""
     axis 4 "": 15 bins (0..30), variable bin sizes
     axis 5 "": 16 bins (-1.6..1.6), variable bin sizes
 Na ilustraciu, vypis prvych piatich (z 3.547.947) filled bins z tohoto THnSparse:
- Bin at (58,2,2,36,1,11) = 81
- Bin at (64,1,4,23,1,7)  = 50
- Bin at (63,1,4,21,1,11) = 57
- Bin at (80,2,2,6,1,8)   = 167
- Bin at (69,2,2,6,1,9)   = 175
+ bin at (58,2,2,36,1,11) = 81
+ bin at (64,1,4,23,1,7)  = 50
+ bin at (63,1,4,21,1,11) = 57
+ bin at (80,2,2,6,1,8)   = 167
+ bin at (69,2,2,6,1,9)   = 175
 
 Vytvorime tree, ktore bude mat branchA - pole o velkosti nasich 6 osi (alebo 6 roznych branches,
-uvidime, co bude optimalnejsie), branchB - samotny bin content z THnSparse. Kazde entry bude
+uvidime, co bude optimalnejsie), branchB - samotny bin content z THnSparse. Kazde tree-entry bude
 obsahovat 6*bin + bin content. Takyto tree naplnime 3.547.947 krat poctom filled bins.
 
 Hrubo povedane:
-THnSparse drzi v pamati 3.547.947 hodnot + nejaku mapu, kde indexuje tie hodnoty
-nase tree to ulozi do 3.547.947 hodnot + mapu "dekodujeme" na 6-rozmerne pole*3.547.947
+THnSparse drzi v pamati 3.547.947 hodnot + nejaku mapu, kde indexuje tie hodnoty.
+Nase tree ulozi 3.547.947 hodnot + mapu "dekodujeme" na 6-rozmerne pole*3.547.947.
 
+V podstate vyrobime nieco medzi THnSparse <-> tree, podla toho, co kedy budeme potrebovat.
 Toto je univerzalne riesenie. Jedina nevyhoda, takyto tree bude mat vacsi rozmer, ktory ale bude
 na disku, a nie v pamati na rozdiel od THnSparse. Ale aj tento vacsi rozmer vieme znacne
 optimalizovat (ak to bude potrebne), vid nizsie. Okrem toho, tree vieme velmi efektivne rozbijat,
 spajat a roz-paralelnovat.
 
-# optimalizacia
-Ako optimalne ulozit v tree nase entires (optimalne = cim mensi rozmer na disku). Vieme, ze to
-bude 6 integer cisel v vopred danom rozsahu, toto je velka vyhoda, ktoru mozeme vyuzit.
+# optimalizacia (pravdepodobne to nebude vobec potrebne)
+Ako optimalne ulozit v tree nase entries (optimalne = cim mensi rozmer na disku). Vieme, ze to
+bude 6 celych cisel v vopred danom rozsahu, toto je velka vyhoda, ktoru mozeme vyuzit.
 
-1 entry: bin at (58,2,2,36,1,11) = 81.0
+one entry: bin at (58,2,2,36,1,11) = 81.0
 
 klasicka cesta je ulozit 6*int   + 1*float = 6*32 + 1*32 bits = 224 bits
 rozumnejsia cesta        6*short + 1*float = 6*16 + 1*32 bits = 128 bits
-optimalne                                  = 32   + 1*32 bits = 64  bits
+optimalne                daco    + 1*float = 32   + 1*32 bits = 64  bits
 
 optimalne pre tento konkretny priklad, kedy vopred vieme, ze budeme mat bins hodnoty,
 vzdy len a len v tomto intervale:
 (0,95)[7bits]+(0,10)[4bits]+(0,10)[4bits]+(0,36)[6bits]+(0,15)[4bits]+(0,16)[5bits] = 30 bits
-
-t.j. potrebujeme 30 bits (najblzisia mozna storage hodnota je 32 bits) aby sme vedeli vzdy
+t.j. potrebujeme 30 bits (najblizsia mozna storage hodnota je 32 bits) aby sme vedeli vzdy
 a jednoznacne indexovat hodnotu v nasom 6-rozmernom konkretnom priklade.
 
 Otazka, ci budeme vobec nuteni pouzivat takuto optimalizacia ukaze az prax. Samotny pomer velkosti
 tree vs. THnSparse nebude az taky velky + zapnuta kompresia (by default) robi nieco podobne,
 len nie tak efektivne.
 
-file size     default(compress)   no compress
-THnSparse     22M                 55M
-tree(int)     27M                 95M
-tree(short)   16M                 55M
+Rychly test:
+1) THnSparse "Mixing" (6 dimensions, 6.48798e+07 entries in 3547947 filled bins)
+
+file size   | default(compress) | no compress
+------------+-------------------+------------
+THnSparse   | 22M               | 55M
+tree(int)   | 27M               | 95M
+tree(short) | 16M               | 55M
+
+2) THnSparse "Unlike" (6 dimensions, 9.21929e+06 entries in 1685122 filled bins)
+
+file size   | default(compress) | no compress
+------------+-------------------+------------
+THnSparse   |  9M               | 26M
+tree(int)   | 13M               | 46M
+tree(short) |  7M               | 26M
 
 Z toho vidno, ze s nejakou optimalizaciou sa vobec asi nebudeme musiet ani trapit.
